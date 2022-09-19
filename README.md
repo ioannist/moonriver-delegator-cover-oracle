@@ -1,5 +1,5 @@
 # Oracle service for Moonriver Staking Cover contract
-Collects staking data from Moonriver and reports to the contract.
+Collects staking data from Moonriver and reports to the contract at https://github.com/ioannist/moonriver-delegator-cover-contract
 
 ## How it works
 * The service checks if there is a new era (round) to report, and if it has already reported the last completed era
