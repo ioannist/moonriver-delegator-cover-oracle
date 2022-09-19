@@ -22,8 +22,13 @@ Collects staking data from Moonriver and reports to the contract at https://gith
 
 ## Configuration options
 Go to your AWS Lambda in the AWS console and save the following Env variables in Configuration:
+
 `ETH_URL`: the https endpoint for Ethereum calls on Moonriver **Required**.
+
 `GAS_LIMIT`: 10000000 will do **Required**.
+
 `ORACLE_MASTER`: 0x09b3941c7c75928770a10FbabAd706cBddf559Ee **Required**.
+
 `ORACLE_MEMBER`: the private key of your account that you will use to sign oracle reports **Required**.
+
 `RPC_URL`: the rpc endpoint for Moonriver **Required**.
