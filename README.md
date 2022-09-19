@@ -1,1 +1,0 @@
-# moonriver-delegator-cover-oracle
