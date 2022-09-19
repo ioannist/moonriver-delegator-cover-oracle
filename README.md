@@ -12,12 +12,12 @@ Collects staking data from Moonriver and reports to the contract at https://gith
 
 ## Build AWS mircroservice
 * Make sure your system has AWS credentials stored 
-* Edit "--profile=mb" to use your AWS profile, or remove it if you are only using one AWS account in your system
+* in deploy-go.bat, edit "--profile=mb" to use your AWS profile, or remove it if you are only using one AWS account in your system
 * Edit stakemovr.com to your AWS s3 bucket, where your compiled code will be uploaded
 * Make sure Golang > 1.19 is installed
 * Execute the following to build and deploy the service
 ```shell
-./deploy
+./deploy-go.bat
 ```
 
 ## Configuration options
