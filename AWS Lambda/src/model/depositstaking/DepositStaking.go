@@ -1,7 +1,7 @@
 // Code generated - DO NOT EDIT.
 // This file is a generated binding and any manual changes will be lost.
 
-package depositstaking
+package moonriver_delegator_cover_oracle
 
 import (
 	"errors"
@@ -30,7 +30,7 @@ var (
 
 // MoonriverDelegatorCoverOracleMetaData contains all meta data concerning the MoonriverDelegatorCoverOracle contract.
 var MoonriverDelegatorCoverOracleMetaData = &bind.MetaData{
-	ABI: "[{\"inputs\":[],\"name\":\"AUTH_MANAGER\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"INACTIVITY_COVER\",\"outputs\":[{\"internalType\":\"addresspayable\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"candidate\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"candidateDelegationCount\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"delegatorDelegationCount\",\"type\":\"uint256\"}],\"name\":\"delegate\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"delegations\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"isDelegated\",\"type\":\"bool\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"candidate\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"more\",\"type\":\"uint256\"}],\"name\":\"delegatorBondMore\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"less\",\"type\":\"uint256\"}],\"name\":\"forceScheduleDelegatorBondLess\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"index\",\"type\":\"uint256\"}],\"name\":\"getCollatorsDelegated\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"candidate\",\"type\":\"address\"}],\"name\":\"getDelegation\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"candidate\",\"type\":\"address\"}],\"name\":\"getIsDelegated\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_auth_manager\",\"type\":\"address\"},{\"internalType\":\"addresspayable\",\"name\":\"_inactivity_cover\",\"type\":\"address\"}],\"name\":\"initialize\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"lastForcedUndelegationEra\",\"outputs\":[{\"internalType\":\"uint128\",\"name\":\"\",\"type\":\"uint128\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"candidate\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"less\",\"type\":\"uint256\"}],\"name\":\"scheduleDelegatorBondLess\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"stakedTotal\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"}]",
+	ABI: "[{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint128\",\"name\":\"eraId\",\"type\":\"uint128\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"collator\",\"type\":\"address\"}],\"name\":\"ScheduleRevokeEvent\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"AUTH_MANAGER\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"INACTIVITY_COVER\",\"outputs\":[{\"internalType\":\"addresspayable\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"candidate\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"candidateDelegationCount\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"delegatorDelegationCount\",\"type\":\"uint256\"}],\"name\":\"delegate\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"delegations\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"isDelegated\",\"type\":\"bool\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"candidate\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"more\",\"type\":\"uint256\"}],\"name\":\"delegatorBondMore\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"forceScheduleRevoke\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"index\",\"type\":\"uint256\"}],\"name\":\"getCollatorsDelegated\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"candidate\",\"type\":\"address\"}],\"name\":\"getDelegation\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"candidate\",\"type\":\"address\"}],\"name\":\"getIsDelegated\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_auth_manager\",\"type\":\"address\"},{\"internalType\":\"addresspayable\",\"name\":\"_inactivity_cover\",\"type\":\"address\"}],\"name\":\"initialize\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"lastForcedUndelegationEra\",\"outputs\":[{\"internalType\":\"uint128\",\"name\":\"\",\"type\":\"uint128\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"candidate\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"less\",\"type\":\"uint256\"}],\"name\":\"scheduleDelegatorBondLess\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"candidate\",\"type\":\"address\"}],\"name\":\"scheduleDelegatorRevoke\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"stakedTotal\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"staking\",\"outputs\":[{\"internalType\":\"contractParachainStaking\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"}]",
 }
 
 // MoonriverDelegatorCoverOracleABI is the input ABI used to generate the binding from.
@@ -441,6 +441,37 @@ func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleCallerSession
 	return _MoonriverDelegatorCoverOracle.Contract.StakedTotal(&_MoonriverDelegatorCoverOracle.CallOpts)
 }
 
+// Staking is a free data retrieval call binding the contract method 0x4cf088d9.
+//
+// Solidity: function staking() view returns(address)
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleCaller) Staking(opts *bind.CallOpts) (common.Address, error) {
+	var out []interface{}
+	err := _MoonriverDelegatorCoverOracle.contract.Call(opts, &out, "staking")
+
+	if err != nil {
+		return *new(common.Address), err
+	}
+
+	out0 := *abi.ConvertType(out[0], new(common.Address)).(*common.Address)
+
+	return out0, err
+
+}
+
+// Staking is a free data retrieval call binding the contract method 0x4cf088d9.
+//
+// Solidity: function staking() view returns(address)
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleSession) Staking() (common.Address, error) {
+	return _MoonriverDelegatorCoverOracle.Contract.Staking(&_MoonriverDelegatorCoverOracle.CallOpts)
+}
+
+// Staking is a free data retrieval call binding the contract method 0x4cf088d9.
+//
+// Solidity: function staking() view returns(address)
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleCallerSession) Staking() (common.Address, error) {
+	return _MoonriverDelegatorCoverOracle.Contract.Staking(&_MoonriverDelegatorCoverOracle.CallOpts)
+}
+
 // Delegate is a paid mutator transaction binding the contract method 0x829f5ee3.
 //
 // Solidity: function delegate(address candidate, uint256 amount, uint256 candidateDelegationCount, uint256 delegatorDelegationCount) returns()
@@ -483,25 +514,25 @@ func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleTransactorSes
 	return _MoonriverDelegatorCoverOracle.Contract.DelegatorBondMore(&_MoonriverDelegatorCoverOracle.TransactOpts, candidate, more)
 }
 
-// ForceScheduleDelegatorBondLess is a paid mutator transaction binding the contract method 0xc1d1ce8a.
+// ForceScheduleRevoke is a paid mutator transaction binding the contract method 0xd4cd2f33.
 //
-// Solidity: function forceScheduleDelegatorBondLess(uint256 less) returns()
-func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleTransactor) ForceScheduleDelegatorBondLess(opts *bind.TransactOpts, less *big.Int) (*types.Transaction, error) {
-	return _MoonriverDelegatorCoverOracle.contract.Transact(opts, "forceScheduleDelegatorBondLess", less)
+// Solidity: function forceScheduleRevoke() returns()
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleTransactor) ForceScheduleRevoke(opts *bind.TransactOpts) (*types.Transaction, error) {
+	return _MoonriverDelegatorCoverOracle.contract.Transact(opts, "forceScheduleRevoke")
 }
 
-// ForceScheduleDelegatorBondLess is a paid mutator transaction binding the contract method 0xc1d1ce8a.
+// ForceScheduleRevoke is a paid mutator transaction binding the contract method 0xd4cd2f33.
 //
-// Solidity: function forceScheduleDelegatorBondLess(uint256 less) returns()
-func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleSession) ForceScheduleDelegatorBondLess(less *big.Int) (*types.Transaction, error) {
-	return _MoonriverDelegatorCoverOracle.Contract.ForceScheduleDelegatorBondLess(&_MoonriverDelegatorCoverOracle.TransactOpts, less)
+// Solidity: function forceScheduleRevoke() returns()
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleSession) ForceScheduleRevoke() (*types.Transaction, error) {
+	return _MoonriverDelegatorCoverOracle.Contract.ForceScheduleRevoke(&_MoonriverDelegatorCoverOracle.TransactOpts)
 }
 
-// ForceScheduleDelegatorBondLess is a paid mutator transaction binding the contract method 0xc1d1ce8a.
+// ForceScheduleRevoke is a paid mutator transaction binding the contract method 0xd4cd2f33.
 //
-// Solidity: function forceScheduleDelegatorBondLess(uint256 less) returns()
-func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleTransactorSession) ForceScheduleDelegatorBondLess(less *big.Int) (*types.Transaction, error) {
-	return _MoonriverDelegatorCoverOracle.Contract.ForceScheduleDelegatorBondLess(&_MoonriverDelegatorCoverOracle.TransactOpts, less)
+// Solidity: function forceScheduleRevoke() returns()
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleTransactorSession) ForceScheduleRevoke() (*types.Transaction, error) {
+	return _MoonriverDelegatorCoverOracle.Contract.ForceScheduleRevoke(&_MoonriverDelegatorCoverOracle.TransactOpts)
 }
 
 // Initialize is a paid mutator transaction binding the contract method 0x485cc955.
@@ -544,4 +575,160 @@ func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleSession) Sche
 // Solidity: function scheduleDelegatorBondLess(address candidate, uint256 less) returns()
 func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleTransactorSession) ScheduleDelegatorBondLess(candidate common.Address, less *big.Int) (*types.Transaction, error) {
 	return _MoonriverDelegatorCoverOracle.Contract.ScheduleDelegatorBondLess(&_MoonriverDelegatorCoverOracle.TransactOpts, candidate, less)
+}
+
+// ScheduleDelegatorRevoke is a paid mutator transaction binding the contract method 0xcba6829d.
+//
+// Solidity: function scheduleDelegatorRevoke(address candidate) returns()
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleTransactor) ScheduleDelegatorRevoke(opts *bind.TransactOpts, candidate common.Address) (*types.Transaction, error) {
+	return _MoonriverDelegatorCoverOracle.contract.Transact(opts, "scheduleDelegatorRevoke", candidate)
+}
+
+// ScheduleDelegatorRevoke is a paid mutator transaction binding the contract method 0xcba6829d.
+//
+// Solidity: function scheduleDelegatorRevoke(address candidate) returns()
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleSession) ScheduleDelegatorRevoke(candidate common.Address) (*types.Transaction, error) {
+	return _MoonriverDelegatorCoverOracle.Contract.ScheduleDelegatorRevoke(&_MoonriverDelegatorCoverOracle.TransactOpts, candidate)
+}
+
+// ScheduleDelegatorRevoke is a paid mutator transaction binding the contract method 0xcba6829d.
+//
+// Solidity: function scheduleDelegatorRevoke(address candidate) returns()
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleTransactorSession) ScheduleDelegatorRevoke(candidate common.Address) (*types.Transaction, error) {
+	return _MoonriverDelegatorCoverOracle.Contract.ScheduleDelegatorRevoke(&_MoonriverDelegatorCoverOracle.TransactOpts, candidate)
+}
+
+// MoonriverDelegatorCoverOracleScheduleRevokeEventIterator is returned from FilterScheduleRevokeEvent and is used to iterate over the raw logs and unpacked data for ScheduleRevokeEvent events raised by the MoonriverDelegatorCoverOracle contract.
+type MoonriverDelegatorCoverOracleScheduleRevokeEventIterator struct {
+	Event *MoonriverDelegatorCoverOracleScheduleRevokeEvent // Event containing the contract specifics and raw log
+
+	contract *bind.BoundContract // Generic contract to use for unpacking event data
+	event    string              // Event name to use for unpacking event data
+
+	logs chan types.Log        // Log channel receiving the found contract events
+	sub  ethereum.Subscription // Subscription for errors, completion and termination
+	done bool                  // Whether the subscription completed delivering logs
+	fail error                 // Occurred error to stop iteration
+}
+
+// Next advances the iterator to the subsequent event, returning whether there
+// are any more events found. In case of a retrieval or parsing error, false is
+// returned and Error() can be queried for the exact failure.
+func (it *MoonriverDelegatorCoverOracleScheduleRevokeEventIterator) Next() bool {
+	// If the iterator failed, stop iterating
+	if it.fail != nil {
+		return false
+	}
+	// If the iterator completed, deliver directly whatever's available
+	if it.done {
+		select {
+		case log := <-it.logs:
+			it.Event = new(MoonriverDelegatorCoverOracleScheduleRevokeEvent)
+			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
+				it.fail = err
+				return false
+			}
+			it.Event.Raw = log
+			return true
+
+		default:
+			return false
+		}
+	}
+	// Iterator still in progress, wait for either a data or an error event
+	select {
+	case log := <-it.logs:
+		it.Event = new(MoonriverDelegatorCoverOracleScheduleRevokeEvent)
+		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
+			it.fail = err
+			return false
+		}
+		it.Event.Raw = log
+		return true
+
+	case err := <-it.sub.Err():
+		it.done = true
+		it.fail = err
+		return it.Next()
+	}
+}
+
+// Error returns any retrieval or parsing error occurred during filtering.
+func (it *MoonriverDelegatorCoverOracleScheduleRevokeEventIterator) Error() error {
+	return it.fail
+}
+
+// Close terminates the iteration process, releasing any pending underlying
+// resources.
+func (it *MoonriverDelegatorCoverOracleScheduleRevokeEventIterator) Close() error {
+	it.sub.Unsubscribe()
+	return nil
+}
+
+// MoonriverDelegatorCoverOracleScheduleRevokeEvent represents a ScheduleRevokeEvent event raised by the MoonriverDelegatorCoverOracle contract.
+type MoonriverDelegatorCoverOracleScheduleRevokeEvent struct {
+	EraId    *big.Int
+	Collator common.Address
+	Raw      types.Log // Blockchain specific contextual infos
+}
+
+// FilterScheduleRevokeEvent is a free log retrieval operation binding the contract event 0x87d8a27b1f8eee6e124b25b4d45887601276d87ec24c6920139cea49fcabd2f1.
+//
+// Solidity: event ScheduleRevokeEvent(uint128 eraId, address collator)
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleFilterer) FilterScheduleRevokeEvent(opts *bind.FilterOpts) (*MoonriverDelegatorCoverOracleScheduleRevokeEventIterator, error) {
+
+	logs, sub, err := _MoonriverDelegatorCoverOracle.contract.FilterLogs(opts, "ScheduleRevokeEvent")
+	if err != nil {
+		return nil, err
+	}
+	return &MoonriverDelegatorCoverOracleScheduleRevokeEventIterator{contract: _MoonriverDelegatorCoverOracle.contract, event: "ScheduleRevokeEvent", logs: logs, sub: sub}, nil
+}
+
+// WatchScheduleRevokeEvent is a free log subscription operation binding the contract event 0x87d8a27b1f8eee6e124b25b4d45887601276d87ec24c6920139cea49fcabd2f1.
+//
+// Solidity: event ScheduleRevokeEvent(uint128 eraId, address collator)
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleFilterer) WatchScheduleRevokeEvent(opts *bind.WatchOpts, sink chan<- *MoonriverDelegatorCoverOracleScheduleRevokeEvent) (event.Subscription, error) {
+
+	logs, sub, err := _MoonriverDelegatorCoverOracle.contract.WatchLogs(opts, "ScheduleRevokeEvent")
+	if err != nil {
+		return nil, err
+	}
+	return event.NewSubscription(func(quit <-chan struct{}) error {
+		defer sub.Unsubscribe()
+		for {
+			select {
+			case log := <-logs:
+				// New log arrived, parse the event and forward to the user
+				event := new(MoonriverDelegatorCoverOracleScheduleRevokeEvent)
+				if err := _MoonriverDelegatorCoverOracle.contract.UnpackLog(event, "ScheduleRevokeEvent", log); err != nil {
+					return err
+				}
+				event.Raw = log
+
+				select {
+				case sink <- event:
+				case err := <-sub.Err():
+					return err
+				case <-quit:
+					return nil
+				}
+			case err := <-sub.Err():
+				return err
+			case <-quit:
+				return nil
+			}
+		}
+	}), nil
+}
+
+// ParseScheduleRevokeEvent is a log parse operation binding the contract event 0x87d8a27b1f8eee6e124b25b4d45887601276d87ec24c6920139cea49fcabd2f1.
+//
+// Solidity: event ScheduleRevokeEvent(uint128 eraId, address collator)
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleFilterer) ParseScheduleRevokeEvent(log types.Log) (*MoonriverDelegatorCoverOracleScheduleRevokeEvent, error) {
+	event := new(MoonriverDelegatorCoverOracleScheduleRevokeEvent)
+	if err := _MoonriverDelegatorCoverOracle.contract.UnpackLog(event, "ScheduleRevokeEvent", log); err != nil {
+		return nil, err
+	}
+	event.Raw = log
+	return event, nil
 }

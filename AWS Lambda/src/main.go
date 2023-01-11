@@ -16,7 +16,7 @@ import (
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/crypto"
 	"github.com/ethereum/go-ethereum/ethclient"
-	"stakebaby.com/moonriver-delegator-cover-oracle/model/oraclemaster"
+	oraclemaster "stakebaby.com/moonriver-delegator-cover-oracle/model/oraclemaster"
 	"stakebaby.com/moonriver-delegator-cover-oracle/services/exporter"
 	"stakebaby.com/moonriver-delegator-cover-oracle/util"
 )
