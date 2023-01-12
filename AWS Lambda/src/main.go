@@ -7,7 +7,6 @@ import (
 	"math/big"
 	"os"
 	"strconv"
-	"time"
 
 	"github.com/aws/aws-lambda-go/events"
 	"github.com/aws/aws-lambda-go/lambda"
@@ -51,35 +50,18 @@ func handler(_ context.Context, req events.CloudWatchEvent) error {
 	if err != nil {
 		return err
 	}
-	time.Sleep(sleepTime * time.Millisecond)
 
 	fmt.Println("Check that manager has enough balance to execute txs")
 	err = validateBalance(managerAddress)
 	if err != nil {
 		return err
 	}
-	time.Sleep(sleepTime * time.Millisecond)
 
 	fmt.Println("Query chain data (substrate call) for previous round")
 	eraFromChain, err := queryChainEra()
 	if err != nil {
 		return err
 	}
-	time.Sleep(sleepTime * time.Millisecond)
-
-	fmt.Println("Query current era (round) from contract on chain")
-	eraFromContract, eraNonceFromContract, reportedByMe, err := isReportedLastEra(managerAddress)
-	if err != nil {
-		return err
-	}
-	if eraFromContract > eraFromChain.Current {
-		return fmt.Errorf("Invalid era on contract or chain: %v vs %v", eraFromChain, eraFromContract)
-	}
-	if eraFromChain.Current-1 == eraFromContract && reportedByMe {
-		fmt.Println("Already reported the last completed era")
-		return nil
-	}
-	time.Sleep(sleepTime * time.Millisecond)
 
 	// Prepare oracle data structure
 	od := oraclemaster.TypesOracleData{}
@@ -91,7 +73,6 @@ func handler(_ context.Context, req events.CloudWatchEvent) error {
 		return err
 	}
 	fmt.Printf("%+v\n", od)
-	time.Sleep(sleepTime * time.Millisecond)
 
 	collatorsWithZeroPoints := 0
 	for _, col := range od.Collators {
@@ -103,6 +84,38 @@ func handler(_ context.Context, req events.CloudWatchEvent) error {
 	if collatorsWithZeroPoints > len(od.Collators)*2/3 {
 		return fmt.Errorf("Too many collators have 0 points in this round; network/oracle failure? will not report.\n")
 	}
+
+	fmt.Println("Query current era data from contract")
+	eraFromContract, eraNonceFromContract, firstEraNonceFromContract, reportedByMe, err := isReportedLastEra(managerAddress)
+	if err != nil {
+		return err
+	}
+
+	if eraFromContract > eraFromChain.Current {
+		return fmt.Errorf("Invalid era on contract or chain: %v vs %v", eraFromChain, eraFromContract)
+	}
+	if eraFromChain.Current-1 == eraFromContract && reportedByMe {
+		fmt.Println("Already reported the last completed era")
+		return nil
+	}
+
+	fmt.Println("Filter out report for this era nonce (one collator per report for gas tx safety)")
+	// the order of reporting collators is decided
+	indexMod := eraNonceFromContract - firstEraNonceFromContract + 1;
+	if indexMod < 1 {
+		return fmt.Errorf("Invalid eraNonceFromContract %v or firstEraNonce %v", eraNonceFromContract, firstEraNonceFromContract)
+	}
+	collatorWithZeroPointsIndex := uint64(1)
+	filteredCollatorData := []oraclemaster.TypesCollatorData{}
+	for _, col := range od.Collators {
+		if col.Points.Cmp(big.NewInt(0)) == 0 {
+			if collatorWithZeroPointsIndex % indexMod == 0 {
+				filteredCollatorData = append(filteredCollatorData, col)
+			}
+			collatorWithZeroPointsIndex++;
+		}
+	}
+	od.Collators = filteredCollatorData
 
 	fmt.Println("Sign and send data to Oracle contract")
 	err = pushData(od.Round.Uint64(), eraNonceFromContract, &od)
@@ -165,10 +178,10 @@ func pushData(eraID uint64, eraNonce uint64, data *oraclemaster.TypesOracleData)
 	return err
 }
 
-func isReportedLastEra(managerAddress common.Address) (uint64, uint64, bool, error) {
+func isReportedLastEra(managerAddress common.Address) (uint64, uint64, uint64, bool, error) {
 	oracleMaster, err := oraclemaster.NewMoonriverDelegatorCoverOracle(ORACLE_MASTER, client)
 	if err != nil {
-		return 0, 0, false, err
+		return 0, 0, 0, false, err
 	}
 	/*eraId, err := oracleMaster.EraId(&bind.CallOpts{
 		From: managerAddress,
@@ -177,7 +190,19 @@ func isReportedLastEra(managerAddress common.Address) (uint64, uint64, bool, err
 		From: managerAddress,
 	}, managerAddress)
 	fmt.Printf("Era from contract is %v\n", lastReported.LastEra)
-	return lastReported.LastEra.Uint64(), lastReported.LastEraNonce.Uint64(), lastReported.Reported, nil
+	return lastReported.LastEra.Uint64(), lastReported.LastEraNonce.Uint64(), lastReported.LastFirstEraNonce.Uint64(), lastReported.Reported, nil
+}
+
+func getFirstEraNonce() (uint64, error) {
+	oracleMaster, err := oraclemaster.NewMoonriverDelegatorCoverOracle(ORACLE_MASTER, client)
+	if err != nil {
+		return 0, err
+	}
+	firstEraNonce, err := oracleMaster.FirstEraNonce(&bind.CallOpts{
+		From: managerAddress,
+	})
+	fmt.Printf("firstEraNonce from contract is %v\n", firstEraNonce.Uint64())
+	return firstEraNonce.Uint64(), nil
 }
 
 func validateBalance(managerAddress common.Address) error {

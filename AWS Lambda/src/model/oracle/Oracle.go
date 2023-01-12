@@ -58,7 +58,7 @@ type TypesOracleData struct {
 
 // MoonriverDelegatorCoverOracleMetaData contains all meta data concerning the MoonriverDelegatorCoverOracle contract.
 var MoonriverDelegatorCoverOracleMetaData = &bind.MetaData{
-	ABI: "[{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint128\",\"name\":\"eraNonce\",\"type\":\"uint128\"}],\"name\":\"NextEraNonce\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint128\",\"name\":\"eraId\",\"type\":\"uint128\"},{\"indexed\":false,\"internalType\":\"uint128\",\"name\":\"eraNonce\",\"type\":\"uint128\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"oracle\",\"type\":\"address\"}],\"name\":\"ReportSubmitted\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"ORACLE_MASTER\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"PUSHABLES\",\"outputs\":[{\"internalType\":\"addresspayable\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"eraNonce\",\"outputs\":[{\"internalType\":\"uint128\",\"name\":\"\",\"type\":\"uint128\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_oracleMaster\",\"type\":\"address\"},{\"internalType\":\"addresspayable\",\"name\":\"_pushable\",\"type\":\"address\"}],\"name\":\"initialize\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_index\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_quorum\",\"type\":\"uint256\"},{\"internalType\":\"uint128\",\"name\":\"_eraId\",\"type\":\"uint128\"},{\"internalType\":\"uint128\",\"name\":\"_eraNonce\",\"type\":\"uint128\"},{\"components\":[{\"internalType\":\"uint256\",\"name\":\"totalStaked\",\"type\":\"uint256\"},{\"internalType\":\"uint128\",\"name\":\"totalSelected\",\"type\":\"uint128\"},{\"internalType\":\"uint128\",\"name\":\"orbitersCount\",\"type\":\"uint128\"},{\"internalType\":\"uint128\",\"name\":\"round\",\"type\":\"uint128\"},{\"internalType\":\"bytes32\",\"name\":\"blockHash\",\"type\":\"bytes32\"},{\"internalType\":\"uint128\",\"name\":\"blockNumber\",\"type\":\"uint128\"},{\"internalType\":\"uint128\",\"name\":\"awarded\",\"type\":\"uint128\"},{\"components\":[{\"internalType\":\"address\",\"name\":\"collatorAccount\",\"type\":\"address\"},{\"internalType\":\"uint128\",\"name\":\"points\",\"type\":\"uint128\"},{\"internalType\":\"bool\",\"name\":\"active\",\"type\":\"bool\"},{\"internalType\":\"uint256\",\"name\":\"bond\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"delegationsTotal\",\"type\":\"uint256\"},{\"components\":[{\"internalType\":\"address\",\"name\":\"ownerAccount\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"internalType\":\"structTypes.DelegationsData[]\",\"name\":\"topActiveDelegations\",\"type\":\"tuple[]\"}],\"internalType\":\"structTypes.CollatorData[]\",\"name\":\"collators\",\"type\":\"tuple[]\"}],\"internalType\":\"structTypes.OracleData\",\"name\":\"_staking\",\"type\":\"tuple\"},{\"internalType\":\"address\",\"name\":\"_oracleCollator\",\"type\":\"address\"},{\"internalType\":\"bool\",\"name\":\"veto\",\"type\":\"bool\"},{\"internalType\":\"bool\",\"name\":\"vetoDisabled\",\"type\":\"bool\"}],\"name\":\"reportPara\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint8\",\"name\":\"_quorum\",\"type\":\"uint8\"},{\"internalType\":\"uint128\",\"name\":\"_eraId\",\"type\":\"uint128\"}],\"name\":\"softenQuorum\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"addresspayable\",\"name\":\"_pushable\",\"type\":\"address\"},{\"internalType\":\"bool\",\"name\":\"_toAdd\",\"type\":\"bool\"}],\"name\":\"addRemovePushable\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_index\",\"type\":\"uint256\"}],\"name\":\"isReported\",\"outputs\":[{\"internalType\":\"uint128\",\"name\":\"\",\"type\":\"uint128\"},{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"clearReporting\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]",
+	ABI: "[{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint128\",\"name\":\"eraId\",\"type\":\"uint128\"},{\"indexed\":false,\"internalType\":\"uint128\",\"name\":\"eraNonce\",\"type\":\"uint128\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"oracle\",\"type\":\"address\"}],\"name\":\"ReportSubmitted\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[],\"name\":\"ReportingCleared\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"ORACLE_MASTER\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"PUSHABLES\",\"outputs\":[{\"internalType\":\"addresspayable\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"eraNonce\",\"outputs\":[{\"internalType\":\"uint128\",\"name\":\"\",\"type\":\"uint128\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_oracleMaster\",\"type\":\"address\"},{\"internalType\":\"addresspayable\",\"name\":\"_pushable\",\"type\":\"address\"}],\"name\":\"initialize\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_index\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_quorum\",\"type\":\"uint256\"},{\"internalType\":\"uint128\",\"name\":\"_eraId\",\"type\":\"uint128\"},{\"internalType\":\"uint128\",\"name\":\"_eraNonce\",\"type\":\"uint128\"},{\"components\":[{\"internalType\":\"uint256\",\"name\":\"totalStaked\",\"type\":\"uint256\"},{\"internalType\":\"uint128\",\"name\":\"totalSelected\",\"type\":\"uint128\"},{\"internalType\":\"uint128\",\"name\":\"orbitersCount\",\"type\":\"uint128\"},{\"internalType\":\"uint128\",\"name\":\"round\",\"type\":\"uint128\"},{\"internalType\":\"bytes32\",\"name\":\"blockHash\",\"type\":\"bytes32\"},{\"internalType\":\"uint128\",\"name\":\"blockNumber\",\"type\":\"uint128\"},{\"internalType\":\"uint128\",\"name\":\"awarded\",\"type\":\"uint128\"},{\"components\":[{\"internalType\":\"address\",\"name\":\"collatorAccount\",\"type\":\"address\"},{\"internalType\":\"uint128\",\"name\":\"points\",\"type\":\"uint128\"},{\"internalType\":\"bool\",\"name\":\"active\",\"type\":\"bool\"},{\"internalType\":\"uint256\",\"name\":\"bond\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"delegationsTotal\",\"type\":\"uint256\"},{\"components\":[{\"internalType\":\"address\",\"name\":\"ownerAccount\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"internalType\":\"structTypes.DelegationsData[]\",\"name\":\"topActiveDelegations\",\"type\":\"tuple[]\"}],\"internalType\":\"structTypes.CollatorData[]\",\"name\":\"collators\",\"type\":\"tuple[]\"}],\"internalType\":\"structTypes.OracleData\",\"name\":\"_staking\",\"type\":\"tuple\"},{\"internalType\":\"address\",\"name\":\"_oracleCollator\",\"type\":\"address\"},{\"internalType\":\"bool\",\"name\":\"veto\",\"type\":\"bool\"},{\"internalType\":\"bool\",\"name\":\"vetoDisabled\",\"type\":\"bool\"}],\"name\":\"reportPara\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint8\",\"name\":\"_quorum\",\"type\":\"uint8\"},{\"internalType\":\"uint128\",\"name\":\"_eraId\",\"type\":\"uint128\"}],\"name\":\"softenQuorum\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"addresspayable\",\"name\":\"_pushable\",\"type\":\"address\"},{\"internalType\":\"bool\",\"name\":\"_toAdd\",\"type\":\"bool\"}],\"name\":\"addRemovePushable\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_index\",\"type\":\"uint256\"}],\"name\":\"isReported\",\"outputs\":[{\"internalType\":\"uint128\",\"name\":\"\",\"type\":\"uint128\"},{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"clearReporting\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]",
 }
 
 // MoonriverDelegatorCoverOracleABI is the input ABI used to generate the binding from.
@@ -437,140 +437,6 @@ func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleTransactorSes
 	return _MoonriverDelegatorCoverOracle.Contract.SoftenQuorum(&_MoonriverDelegatorCoverOracle.TransactOpts, _quorum, _eraId)
 }
 
-// MoonriverDelegatorCoverOracleNextEraNonceIterator is returned from FilterNextEraNonce and is used to iterate over the raw logs and unpacked data for NextEraNonce events raised by the MoonriverDelegatorCoverOracle contract.
-type MoonriverDelegatorCoverOracleNextEraNonceIterator struct {
-	Event *MoonriverDelegatorCoverOracleNextEraNonce // Event containing the contract specifics and raw log
-
-	contract *bind.BoundContract // Generic contract to use for unpacking event data
-	event    string              // Event name to use for unpacking event data
-
-	logs chan types.Log        // Log channel receiving the found contract events
-	sub  ethereum.Subscription // Subscription for errors, completion and termination
-	done bool                  // Whether the subscription completed delivering logs
-	fail error                 // Occurred error to stop iteration
-}
-
-// Next advances the iterator to the subsequent event, returning whether there
-// are any more events found. In case of a retrieval or parsing error, false is
-// returned and Error() can be queried for the exact failure.
-func (it *MoonriverDelegatorCoverOracleNextEraNonceIterator) Next() bool {
-	// If the iterator failed, stop iterating
-	if it.fail != nil {
-		return false
-	}
-	// If the iterator completed, deliver directly whatever's available
-	if it.done {
-		select {
-		case log := <-it.logs:
-			it.Event = new(MoonriverDelegatorCoverOracleNextEraNonce)
-			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
-				it.fail = err
-				return false
-			}
-			it.Event.Raw = log
-			return true
-
-		default:
-			return false
-		}
-	}
-	// Iterator still in progress, wait for either a data or an error event
-	select {
-	case log := <-it.logs:
-		it.Event = new(MoonriverDelegatorCoverOracleNextEraNonce)
-		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
-			it.fail = err
-			return false
-		}
-		it.Event.Raw = log
-		return true
-
-	case err := <-it.sub.Err():
-		it.done = true
-		it.fail = err
-		return it.Next()
-	}
-}
-
-// Error returns any retrieval or parsing error occurred during filtering.
-func (it *MoonriverDelegatorCoverOracleNextEraNonceIterator) Error() error {
-	return it.fail
-}
-
-// Close terminates the iteration process, releasing any pending underlying
-// resources.
-func (it *MoonriverDelegatorCoverOracleNextEraNonceIterator) Close() error {
-	it.sub.Unsubscribe()
-	return nil
-}
-
-// MoonriverDelegatorCoverOracleNextEraNonce represents a NextEraNonce event raised by the MoonriverDelegatorCoverOracle contract.
-type MoonriverDelegatorCoverOracleNextEraNonce struct {
-	EraNonce *big.Int
-	Raw      types.Log // Blockchain specific contextual infos
-}
-
-// FilterNextEraNonce is a free log retrieval operation binding the contract event 0xc18ffb5e2be739095ee16f5bda096fde20958d527d2034f14c580e3ac8a50dbf.
-//
-// Solidity: event NextEraNonce(uint128 eraNonce)
-func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleFilterer) FilterNextEraNonce(opts *bind.FilterOpts) (*MoonriverDelegatorCoverOracleNextEraNonceIterator, error) {
-
-	logs, sub, err := _MoonriverDelegatorCoverOracle.contract.FilterLogs(opts, "NextEraNonce")
-	if err != nil {
-		return nil, err
-	}
-	return &MoonriverDelegatorCoverOracleNextEraNonceIterator{contract: _MoonriverDelegatorCoverOracle.contract, event: "NextEraNonce", logs: logs, sub: sub}, nil
-}
-
-// WatchNextEraNonce is a free log subscription operation binding the contract event 0xc18ffb5e2be739095ee16f5bda096fde20958d527d2034f14c580e3ac8a50dbf.
-//
-// Solidity: event NextEraNonce(uint128 eraNonce)
-func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleFilterer) WatchNextEraNonce(opts *bind.WatchOpts, sink chan<- *MoonriverDelegatorCoverOracleNextEraNonce) (event.Subscription, error) {
-
-	logs, sub, err := _MoonriverDelegatorCoverOracle.contract.WatchLogs(opts, "NextEraNonce")
-	if err != nil {
-		return nil, err
-	}
-	return event.NewSubscription(func(quit <-chan struct{}) error {
-		defer sub.Unsubscribe()
-		for {
-			select {
-			case log := <-logs:
-				// New log arrived, parse the event and forward to the user
-				event := new(MoonriverDelegatorCoverOracleNextEraNonce)
-				if err := _MoonriverDelegatorCoverOracle.contract.UnpackLog(event, "NextEraNonce", log); err != nil {
-					return err
-				}
-				event.Raw = log
-
-				select {
-				case sink <- event:
-				case err := <-sub.Err():
-					return err
-				case <-quit:
-					return nil
-				}
-			case err := <-sub.Err():
-				return err
-			case <-quit:
-				return nil
-			}
-		}
-	}), nil
-}
-
-// ParseNextEraNonce is a log parse operation binding the contract event 0xc18ffb5e2be739095ee16f5bda096fde20958d527d2034f14c580e3ac8a50dbf.
-//
-// Solidity: event NextEraNonce(uint128 eraNonce)
-func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleFilterer) ParseNextEraNonce(log types.Log) (*MoonriverDelegatorCoverOracleNextEraNonce, error) {
-	event := new(MoonriverDelegatorCoverOracleNextEraNonce)
-	if err := _MoonriverDelegatorCoverOracle.contract.UnpackLog(event, "NextEraNonce", log); err != nil {
-		return nil, err
-	}
-	event.Raw = log
-	return event, nil
-}
-
 // MoonriverDelegatorCoverOracleReportSubmittedIterator is returned from FilterReportSubmitted and is used to iterate over the raw logs and unpacked data for ReportSubmitted events raised by the MoonriverDelegatorCoverOracle contract.
 type MoonriverDelegatorCoverOracleReportSubmittedIterator struct {
 	Event *MoonriverDelegatorCoverOracleReportSubmitted // Event containing the contract specifics and raw log
@@ -701,6 +567,139 @@ func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleFilterer) Wat
 func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleFilterer) ParseReportSubmitted(log types.Log) (*MoonriverDelegatorCoverOracleReportSubmitted, error) {
 	event := new(MoonriverDelegatorCoverOracleReportSubmitted)
 	if err := _MoonriverDelegatorCoverOracle.contract.UnpackLog(event, "ReportSubmitted", log); err != nil {
+		return nil, err
+	}
+	event.Raw = log
+	return event, nil
+}
+
+// MoonriverDelegatorCoverOracleReportingClearedIterator is returned from FilterReportingCleared and is used to iterate over the raw logs and unpacked data for ReportingCleared events raised by the MoonriverDelegatorCoverOracle contract.
+type MoonriverDelegatorCoverOracleReportingClearedIterator struct {
+	Event *MoonriverDelegatorCoverOracleReportingCleared // Event containing the contract specifics and raw log
+
+	contract *bind.BoundContract // Generic contract to use for unpacking event data
+	event    string              // Event name to use for unpacking event data
+
+	logs chan types.Log        // Log channel receiving the found contract events
+	sub  ethereum.Subscription // Subscription for errors, completion and termination
+	done bool                  // Whether the subscription completed delivering logs
+	fail error                 // Occurred error to stop iteration
+}
+
+// Next advances the iterator to the subsequent event, returning whether there
+// are any more events found. In case of a retrieval or parsing error, false is
+// returned and Error() can be queried for the exact failure.
+func (it *MoonriverDelegatorCoverOracleReportingClearedIterator) Next() bool {
+	// If the iterator failed, stop iterating
+	if it.fail != nil {
+		return false
+	}
+	// If the iterator completed, deliver directly whatever's available
+	if it.done {
+		select {
+		case log := <-it.logs:
+			it.Event = new(MoonriverDelegatorCoverOracleReportingCleared)
+			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
+				it.fail = err
+				return false
+			}
+			it.Event.Raw = log
+			return true
+
+		default:
+			return false
+		}
+	}
+	// Iterator still in progress, wait for either a data or an error event
+	select {
+	case log := <-it.logs:
+		it.Event = new(MoonriverDelegatorCoverOracleReportingCleared)
+		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
+			it.fail = err
+			return false
+		}
+		it.Event.Raw = log
+		return true
+
+	case err := <-it.sub.Err():
+		it.done = true
+		it.fail = err
+		return it.Next()
+	}
+}
+
+// Error returns any retrieval or parsing error occurred during filtering.
+func (it *MoonriverDelegatorCoverOracleReportingClearedIterator) Error() error {
+	return it.fail
+}
+
+// Close terminates the iteration process, releasing any pending underlying
+// resources.
+func (it *MoonriverDelegatorCoverOracleReportingClearedIterator) Close() error {
+	it.sub.Unsubscribe()
+	return nil
+}
+
+// MoonriverDelegatorCoverOracleReportingCleared represents a ReportingCleared event raised by the MoonriverDelegatorCoverOracle contract.
+type MoonriverDelegatorCoverOracleReportingCleared struct {
+	Raw types.Log // Blockchain specific contextual infos
+}
+
+// FilterReportingCleared is a free log retrieval operation binding the contract event 0x131fc6443e37553a3c958042fd059569756675c2d859c083e17ec4928c3c70fb.
+//
+// Solidity: event ReportingCleared()
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleFilterer) FilterReportingCleared(opts *bind.FilterOpts) (*MoonriverDelegatorCoverOracleReportingClearedIterator, error) {
+
+	logs, sub, err := _MoonriverDelegatorCoverOracle.contract.FilterLogs(opts, "ReportingCleared")
+	if err != nil {
+		return nil, err
+	}
+	return &MoonriverDelegatorCoverOracleReportingClearedIterator{contract: _MoonriverDelegatorCoverOracle.contract, event: "ReportingCleared", logs: logs, sub: sub}, nil
+}
+
+// WatchReportingCleared is a free log subscription operation binding the contract event 0x131fc6443e37553a3c958042fd059569756675c2d859c083e17ec4928c3c70fb.
+//
+// Solidity: event ReportingCleared()
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleFilterer) WatchReportingCleared(opts *bind.WatchOpts, sink chan<- *MoonriverDelegatorCoverOracleReportingCleared) (event.Subscription, error) {
+
+	logs, sub, err := _MoonriverDelegatorCoverOracle.contract.WatchLogs(opts, "ReportingCleared")
+	if err != nil {
+		return nil, err
+	}
+	return event.NewSubscription(func(quit <-chan struct{}) error {
+		defer sub.Unsubscribe()
+		for {
+			select {
+			case log := <-logs:
+				// New log arrived, parse the event and forward to the user
+				event := new(MoonriverDelegatorCoverOracleReportingCleared)
+				if err := _MoonriverDelegatorCoverOracle.contract.UnpackLog(event, "ReportingCleared", log); err != nil {
+					return err
+				}
+				event.Raw = log
+
+				select {
+				case sink <- event:
+				case err := <-sub.Err():
+					return err
+				case <-quit:
+					return nil
+				}
+			case err := <-sub.Err():
+				return err
+			case <-quit:
+				return nil
+			}
+		}
+	}), nil
+}
+
+// ParseReportingCleared is a log parse operation binding the contract event 0x131fc6443e37553a3c958042fd059569756675c2d859c083e17ec4928c3c70fb.
+//
+// Solidity: event ReportingCleared()
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleFilterer) ParseReportingCleared(log types.Log) (*MoonriverDelegatorCoverOracleReportingCleared, error) {
+	event := new(MoonriverDelegatorCoverOracleReportingCleared)
+	if err := _MoonriverDelegatorCoverOracle.contract.UnpackLog(event, "ReportingCleared", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
