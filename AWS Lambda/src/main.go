@@ -129,6 +129,10 @@ func handler(_ context.Context, req events.CloudWatchEvent) error {
 			}
 		}
 	}
+	if len(filteredCollatorData) == 0 {
+		fmt.Println("No collators to report")
+		return nil
+	}
 	od.Collators = filteredCollatorData
 
 	fmt.Println("Sign and send data to Oracle contract")
