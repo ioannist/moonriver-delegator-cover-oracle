@@ -101,18 +101,32 @@ func handler(_ context.Context, req events.CloudWatchEvent) error {
 
 	fmt.Println("Filter out report for this era nonce (one collator per report for gas tx safety)")
 	// the order of reporting collators is decided
-	indexMod := eraNonceFromContract - firstEraNonceFromContract + 1;
-	if indexMod < 1 {
+	indexToReport := eraNonceFromContract - firstEraNonceFromContract;
+	if indexToReport < 1 {
 		return fmt.Errorf("Invalid eraNonceFromContract %v or firstEraNonce %v", eraNonceFromContract, firstEraNonceFromContract)
 	}
-	collatorWithZeroPointsIndex := uint64(1)
 	filteredCollatorData := []oraclemaster.TypesCollatorData{}
-	for _, col := range od.Collators {
-		if col.Points.Cmp(big.NewInt(0)) == 0 {
-			if collatorWithZeroPointsIndex % indexMod == 0 {
+	
+	if indexToReport == 0 {
+		// first, report all non-zero-points collators
+		fmt.Println("Reporting non-zero-point collators")
+		for _, col := range od.Collators {
+			if col.Points.Cmp(big.NewInt(0)) == 1 {
 				filteredCollatorData = append(filteredCollatorData, col)
 			}
-			collatorWithZeroPointsIndex++;
+		}		
+	} else {
+		// then, report any zero-point collators, one at a time
+		collatorWithZeroPointsIndex := uint64(1)
+		for _, col := range od.Collators {
+			if col.Points.Cmp(big.NewInt(0)) == 0 {
+				if collatorWithZeroPointsIndex == indexToReport {
+					fmt.Printf("Reporting zero-point collator %v with index %v\n", col.CollatorAccount, collatorWithZeroPointsIndex)
+					filteredCollatorData = append(filteredCollatorData, col)
+					break;
+				}
+				collatorWithZeroPointsIndex++;
+			}
 		}
 	}
 	od.Collators = filteredCollatorData
