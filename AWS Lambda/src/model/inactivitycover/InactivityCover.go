@@ -58,7 +58,7 @@ type TypesOracleData struct {
 
 // MoonriverDelegatorCoverOracleMetaData contains all meta data concerning the MoonriverDelegatorCoverOracle contract.
 var MoonriverDelegatorCoverOracleMetaData = &bind.MetaData{
-	ABI: "[{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"member\",\"type\":\"address\"}],\"name\":\"CancelDecreaseCoverEvent\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"member\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"DecreaseCoverEvent\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"member\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"DecreaseCoverScheduledEvent\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"delegator\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"collator\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"DelegatorNotPaidEvent\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"member\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"DepositEvent\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"member\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint128\",\"name\":\"eraId\",\"type\":\"uint128\"}],\"name\":\"MemberHasZeroPointsEvent\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"member\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint128\",\"name\":\"eraId\",\"type\":\"uint128\"}],\"name\":\"MemberNotActiveEvent\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"member\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"MemberNotPaidEvent\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"delegator\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"PayoutEvent\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint128\",\"name\":\"eraId\",\"type\":\"uint128\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"oracle\",\"type\":\"address\"}],\"name\":\"ReportPushedEvent\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"AUTH_MANAGER\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"DEPOSIT_STAKING\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"ERAS_BETWEEN_FORCED_UNDELEGATION\",\"outputs\":[{\"internalType\":\"uint128\",\"name\":\"\",\"type\":\"uint128\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"MAX_DEPOSIT_TOTAL\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"MIN_DEPOSIT\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"MIN_PAYOUT\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"ORACLE_MASTER\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"STAKE_UNIT_COVER\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"cancelDecreaseCover\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"coverOwedTotal\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"candidate\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"candidateDelegationCount\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"delegatorDelegationCount\",\"type\":\"uint256\"}],\"name\":\"delegate\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"delegatorNotPaid\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"candidate\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"more\",\"type\":\"uint256\"}],\"name\":\"delegator_bond_more\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"collator\",\"type\":\"address\"}],\"name\":\"depositCover\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"eraId\",\"outputs\":[{\"internalType\":\"uint128\",\"name\":\"\",\"type\":\"uint128\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"erasCovered\",\"outputs\":[{\"internalType\":\"uint128\",\"name\":\"\",\"type\":\"uint128\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"delegator\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"candidate\",\"type\":\"address\"}],\"name\":\"executeDelegationRequest\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"addresspayable\",\"name\":\"collator\",\"type\":\"address\"}],\"name\":\"executeScheduled\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"member\",\"type\":\"address\"}],\"name\":\"getErasCovered\",\"outputs\":[{\"internalType\":\"uint128\",\"name\":\"\",\"type\":\"uint128\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"member\",\"type\":\"address\"}],\"name\":\"getMember\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"},{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"},{\"internalType\":\"uint128\",\"name\":\"\",\"type\":\"uint128\"},{\"internalType\":\"uint128\",\"name\":\"\",\"type\":\"uint128\"},{\"internalType\":\"uint128\",\"name\":\"\",\"type\":\"uint128\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"delegator\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"collator\",\"type\":\"address\"}],\"name\":\"getPayoutAmount\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"member\",\"type\":\"address\"}],\"name\":\"getScheduledDecrease\",\"outputs\":[{\"internalType\":\"uint128\",\"name\":\"\",\"type\":\"uint128\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_auth_manager\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_oracle_master\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_deposit_staking\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_min_deposit\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_max_deposit_total\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_stake_unit_cover\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_min_payout\",\"type\":\"uint256\"},{\"internalType\":\"uint128\",\"name\":\"_eras_between_forced_undelegation\",\"type\":\"uint128\"}],\"name\":\"initialize\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"memberAddresses\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"memberNotPaid\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bool\",\"name\":\"_noZeroPtsCoverAfterEra\",\"type\":\"bool\"},{\"internalType\":\"bool\",\"name\":\"_noActiveSetCoverAfterEra\",\"type\":\"bool\"}],\"name\":\"memberSetCoverTypes\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_max_covered\",\"type\":\"uint256\"}],\"name\":\"memberSetMaxCoveredDelegation\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"members\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"isMember\",\"type\":\"bool\"},{\"internalType\":\"bool\",\"name\":\"active\",\"type\":\"bool\"},{\"internalType\":\"uint256\",\"name\":\"deposit\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"maxDefaulted\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"maxCoveredDelegation\",\"type\":\"uint256\"},{\"internalType\":\"uint128\",\"name\":\"lastPushedEra\",\"type\":\"uint128\"},{\"internalType\":\"uint128\",\"name\":\"noZeroPtsCoverAfterEra\",\"type\":\"uint128\"},{\"internalType\":\"uint128\",\"name\":\"noActiveSetCoverAfterEra\",\"type\":\"uint128\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"membersDepositTotal\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"addresspayable[]\",\"name\":\"delegators\",\"type\":\"address[]\"},{\"internalType\":\"address[]\",\"name\":\"collators\",\"type\":\"address[]\"}],\"name\":\"payOutCover\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint128\",\"name\":\"_eraId\",\"type\":\"uint128\"},{\"components\":[{\"internalType\":\"uint256\",\"name\":\"totalStaked\",\"type\":\"uint256\"},{\"internalType\":\"uint128\",\"name\":\"totalSelected\",\"type\":\"uint128\"},{\"internalType\":\"uint128\",\"name\":\"orbitersCount\",\"type\":\"uint128\"},{\"internalType\":\"uint128\",\"name\":\"round\",\"type\":\"uint128\"},{\"internalType\":\"bytes32\",\"name\":\"blockHash\",\"type\":\"bytes32\"},{\"internalType\":\"uint128\",\"name\":\"blockNumber\",\"type\":\"uint128\"},{\"internalType\":\"uint128\",\"name\":\"awarded\",\"type\":\"uint128\"},{\"components\":[{\"internalType\":\"address\",\"name\":\"collatorAccount\",\"type\":\"address\"},{\"internalType\":\"uint128\",\"name\":\"points\",\"type\":\"uint128\"},{\"internalType\":\"bool\",\"name\":\"active\",\"type\":\"bool\"},{\"internalType\":\"uint256\",\"name\":\"bond\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"delegationsTotal\",\"type\":\"uint256\"},{\"components\":[{\"internalType\":\"address\",\"name\":\"ownerAccount\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"internalType\":\"structTypes.DelegationsData[]\",\"name\":\"topActiveDelegations\",\"type\":\"tuple[]\"}],\"internalType\":\"structTypes.CollatorData[]\",\"name\":\"collators\",\"type\":\"tuple[]\"}],\"internalType\":\"structTypes.OracleData\",\"name\":\"_report\",\"type\":\"tuple\"},{\"internalType\":\"address\",\"name\":\"_oracle\",\"type\":\"address\"}],\"name\":\"pushData\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"resetNotPaid\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"scheduleDecreaseCover\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"member\",\"type\":\"address\"}],\"name\":\"scheduleDecreaseCoverManager\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"candidate\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"less\",\"type\":\"uint256\"}],\"name\":\"schedule_delegator_bond_less\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"candidate\",\"type\":\"address\"}],\"name\":\"schedule_delegator_revoke\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"scheduledDecreasesMap\",\"outputs\":[{\"internalType\":\"uint128\",\"name\":\"era\",\"type\":\"uint128\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint128\",\"name\":\"_eras_between_forced_undelegation\",\"type\":\"uint128\"}],\"name\":\"setErasBetweenForcedUndelegations\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint128\",\"name\":\"_execute_delay\",\"type\":\"uint128\"},{\"internalType\":\"address\",\"name\":\"member\",\"type\":\"address\"}],\"name\":\"setExecuteDelay\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_max_deposit_total\",\"type\":\"uint256\"}],\"name\":\"setMaxDepositTotal\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_min_deposit\",\"type\":\"uint256\"}],\"name\":\"setMinDeposit\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_min_payout\",\"type\":\"uint256\"}],\"name\":\"setMinPayout\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_refundOracleGasPrice\",\"type\":\"uint256\"}],\"name\":\"setRefundOracleGasPrice\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_stake_unit_cover\",\"type\":\"uint256\"}],\"name\":\"setStakeUnitCover\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"staking\",\"outputs\":[{\"internalType\":\"contractParachainStaking\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"totalPayouts\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newMember\",\"type\":\"address\"},{\"internalType\":\"bool\",\"name\":\"status\",\"type\":\"bool\"}],\"name\":\"whitelist\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"whitelisted\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"internalType\":\"addresspayable\",\"name\":\"receiver\",\"type\":\"address\"}],\"name\":\"withdrawRewards\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"stateMutability\":\"payable\",\"type\":\"receive\"}]",
+	ABI: "[{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"member\",\"type\":\"address\"}],\"name\":\"CancelDecreaseCoverEvent\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"member\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"DecreaseCoverEvent\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"member\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"DecreaseCoverScheduledEvent\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"delegator\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"DelegatorNotPaidEvent\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"delegator\",\"type\":\"address\"}],\"name\":\"DelegatorPayoutLessThanMinEvent\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"member\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"DepositEvent\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"member\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint128\",\"name\":\"eraId\",\"type\":\"uint128\"}],\"name\":\"MemberHasZeroPointsEvent\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"member\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint128\",\"name\":\"eraId\",\"type\":\"uint128\"}],\"name\":\"MemberInvoicedEvent\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"member\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint128\",\"name\":\"eraId\",\"type\":\"uint128\"}],\"name\":\"MemberNotActiveEvent\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"member\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"MemberNotPaidEvent\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"member\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bool\",\"name\":\"noZeroPtsCoverAfterEra\",\"type\":\"bool\"},{\"indexed\":false,\"internalType\":\"bool\",\"name\":\"noActiveSetCoverAfterEra\",\"type\":\"bool\"}],\"name\":\"MemberSetCoverTypesEvent\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"member\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"MemberSetMaxCoveredDelegationEvent\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"member\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint128\",\"name\":\"eraId\",\"type\":\"uint128\"}],\"name\":\"OraclePaidEvent\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"delegator\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"PayoutEvent\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint128\",\"name\":\"eraId\",\"type\":\"uint128\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"oracleCollator\",\"type\":\"address\"}],\"name\":\"ReportPushedEvent\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"AUTH_MANAGER\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"DEPOSIT_STAKING\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"ERAS_BETWEEN_FORCED_UNDELEGATION\",\"outputs\":[{\"internalType\":\"uint128\",\"name\":\"\",\"type\":\"uint128\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"MAX_DEPOSIT_TOTAL\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"MAX_ERA_MEMBER_PAYOUT\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"MIN_DEPOSIT\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"MIN_PAYOUT\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"ORACLE_MASTER\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"STAKE_UNIT_COVER\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"delegatorNotPaid\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"eraId\",\"outputs\":[{\"internalType\":\"uint128\",\"name\":\"\",\"type\":\"uint128\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"erasCovered\",\"outputs\":[{\"internalType\":\"uint128\",\"name\":\"\",\"type\":\"uint128\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"memberAddresses\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"memberFee\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"memberNotPaid\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"members\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"isMember\",\"type\":\"bool\"},{\"internalType\":\"bool\",\"name\":\"active\",\"type\":\"bool\"},{\"internalType\":\"uint256\",\"name\":\"deposit\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"maxCoveredDelegation\",\"type\":\"uint256\"},{\"internalType\":\"uint128\",\"name\":\"lastPushedEra\",\"type\":\"uint128\"},{\"internalType\":\"uint256\",\"name\":\"lastDelegationsTotall\",\"type\":\"uint256\"},{\"internalType\":\"uint128\",\"name\":\"noZeroPtsCoverAfterEra\",\"type\":\"uint128\"},{\"internalType\":\"uint128\",\"name\":\"noActiveSetCoverAfterEra\",\"type\":\"uint128\"},{\"internalType\":\"uint128\",\"name\":\"defaultCount\",\"type\":\"uint128\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"membersDepositTotal\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"membersInvoicedLastEra\",\"outputs\":[{\"internalType\":\"uint128\",\"name\":\"\",\"type\":\"uint128\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"noManualWhitelistingRequired\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"payoutAmounts\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"payoutsOwedTotal\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"proxy\",\"outputs\":[{\"internalType\":\"contractIProxy\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"refundOracleGasPrice\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"scheduledDecreasesMap\",\"outputs\":[{\"internalType\":\"uint128\",\"name\":\"era\",\"type\":\"uint128\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"staking\",\"outputs\":[{\"internalType\":\"contractParachainStaking\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"totalPayouts\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"whitelisted\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"stateMutability\":\"payable\",\"type\":\"receive\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_auth_manager\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_oracle_master\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_deposit_staking\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_min_deposit\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_max_deposit_total\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_stake_unit_cover\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_min_payout\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_max_era_member_payout\",\"type\":\"uint256\"},{\"internalType\":\"uint128\",\"name\":\"_eras_between_forced_undelegation\",\"type\":\"uint128\"}],\"name\":\"initialize\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_member\",\"type\":\"address\"}],\"name\":\"depositCover\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_member\",\"type\":\"address\"}],\"name\":\"upgradeToV2\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_member\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_amount\",\"type\":\"uint256\"}],\"name\":\"scheduleDecreaseCover\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_member\",\"type\":\"address\"}],\"name\":\"cancelDecreaseCover\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_member\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_max_covered\",\"type\":\"uint256\"}],\"name\":\"memberSetMaxCoveredDelegation\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_member\",\"type\":\"address\"},{\"internalType\":\"bool\",\"name\":\"_noZeroPtsCoverAfterEra\",\"type\":\"bool\"},{\"internalType\":\"bool\",\"name\":\"_noActiveSetCoverAfterEra\",\"type\":\"bool\"}],\"name\":\"memberSetCoverTypes\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_member\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"proxyAccount\",\"type\":\"address\"}],\"name\":\"transferMemberAuth\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"addresspayable\",\"name\":\"_member\",\"type\":\"address\"}],\"name\":\"executeScheduled\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"addresspayable[]\",\"name\":\"delegators\",\"type\":\"address[]\"}],\"name\":\"payOutCover\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"candidate\",\"type\":\"address\"}],\"name\":\"executeDelegationRequest\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"invoiceMembers\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"internalType\":\"addresspayable\",\"name\":\"receiver\",\"type\":\"address\"}],\"name\":\"withdrawRewards\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_member\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"proxyAccount\",\"type\":\"address\"}],\"name\":\"whitelist\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_min_deposit\",\"type\":\"uint256\"}],\"name\":\"setMinDeposit\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_max_deposit_total\",\"type\":\"uint256\"}],\"name\":\"setMaxDepositTotal\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint128\",\"name\":\"_erasCovered\",\"type\":\"uint128\"},{\"internalType\":\"address\",\"name\":\"member\",\"type\":\"address\"}],\"name\":\"setErasCovered\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint128\",\"name\":\"_defaultCount\",\"type\":\"uint128\"},{\"internalType\":\"address\",\"name\":\"_member\",\"type\":\"address\"}],\"name\":\"setDefaultCount\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_stake_unit_cover\",\"type\":\"uint256\"}],\"name\":\"setStakeUnitCover\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_min_payout\",\"type\":\"uint256\"}],\"name\":\"setMinPayout\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_refundOracleGasPrice\",\"type\":\"uint256\"}],\"name\":\"setRefundOracleGasPrice\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint128\",\"name\":\"_eras_between_forced_undelegation\",\"type\":\"uint128\"}],\"name\":\"setErasBetweenForcedUndelegations\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_max_era_member_payout\",\"type\":\"uint256\"}],\"name\":\"setMaxEraMemberPayout\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bool\",\"name\":\"_noManualWhitelistingRequired\",\"type\":\"bool\"}],\"name\":\"setNoManualWhitelistingRequired\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_memberFee\",\"type\":\"uint256\"}],\"name\":\"setMemberFee\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"addresspayable\",\"name\":\"_contractV2\",\"type\":\"address\"}],\"name\":\"setContractV2\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"member\",\"type\":\"address\"}],\"name\":\"getMember\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"},{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"},{\"internalType\":\"uint128\",\"name\":\"\",\"type\":\"uint128\"},{\"internalType\":\"uint128\",\"name\":\"\",\"type\":\"uint128\"},{\"internalType\":\"uint128\",\"name\":\"\",\"type\":\"uint128\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"member\",\"type\":\"address\"}],\"name\":\"getScheduledDecrease\",\"outputs\":[{\"internalType\":\"uint128\",\"name\":\"\",\"type\":\"uint128\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"member\",\"type\":\"address\"}],\"name\":\"getErasCovered\",\"outputs\":[{\"internalType\":\"uint128\",\"name\":\"\",\"type\":\"uint128\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getBalance\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_member\",\"type\":\"address\"}],\"name\":\"isUpgraded\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint128\",\"name\":\"_eraId\",\"type\":\"uint128\"},{\"components\":[{\"internalType\":\"uint256\",\"name\":\"totalStaked\",\"type\":\"uint256\"},{\"internalType\":\"uint128\",\"name\":\"totalSelected\",\"type\":\"uint128\"},{\"internalType\":\"uint128\",\"name\":\"orbitersCount\",\"type\":\"uint128\"},{\"internalType\":\"uint128\",\"name\":\"round\",\"type\":\"uint128\"},{\"internalType\":\"bytes32\",\"name\":\"blockHash\",\"type\":\"bytes32\"},{\"internalType\":\"uint128\",\"name\":\"blockNumber\",\"type\":\"uint128\"},{\"internalType\":\"uint128\",\"name\":\"awarded\",\"type\":\"uint128\"},{\"components\":[{\"internalType\":\"address\",\"name\":\"collatorAccount\",\"type\":\"address\"},{\"internalType\":\"uint128\",\"name\":\"points\",\"type\":\"uint128\"},{\"internalType\":\"bool\",\"name\":\"active\",\"type\":\"bool\"},{\"internalType\":\"uint256\",\"name\":\"bond\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"delegationsTotal\",\"type\":\"uint256\"},{\"components\":[{\"internalType\":\"address\",\"name\":\"ownerAccount\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"internalType\":\"structTypes.DelegationsData[]\",\"name\":\"topActiveDelegations\",\"type\":\"tuple[]\"}],\"internalType\":\"structTypes.CollatorData[]\",\"name\":\"collators\",\"type\":\"tuple[]\"}],\"internalType\":\"structTypes.OracleData\",\"name\":\"_report\",\"type\":\"tuple\"},{\"internalType\":\"address\",\"name\":\"_oracleCollator\",\"type\":\"address\"}],\"name\":\"pushData\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"candidate\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"candidateDelegationCount\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"delegatorDelegationCount\",\"type\":\"uint256\"}],\"name\":\"delegate\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"candidate\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"more\",\"type\":\"uint256\"}],\"name\":\"delegator_bond_more\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"candidate\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"less\",\"type\":\"uint256\"}],\"name\":\"schedule_delegator_bond_less\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"candidate\",\"type\":\"address\"}],\"name\":\"schedule_delegator_revoke\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"resetNotPaid\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]",
 }
 
 // MoonriverDelegatorCoverOracleABI is the input ABI used to generate the binding from.
@@ -331,6 +331,37 @@ func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleCallerSession
 	return _MoonriverDelegatorCoverOracle.Contract.MAXDEPOSITTOTAL(&_MoonriverDelegatorCoverOracle.CallOpts)
 }
 
+// MAXERAMEMBERPAYOUT is a free data retrieval call binding the contract method 0xe33052bd.
+//
+// Solidity: function MAX_ERA_MEMBER_PAYOUT() view returns(uint256)
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleCaller) MAXERAMEMBERPAYOUT(opts *bind.CallOpts) (*big.Int, error) {
+	var out []interface{}
+	err := _MoonriverDelegatorCoverOracle.contract.Call(opts, &out, "MAX_ERA_MEMBER_PAYOUT")
+
+	if err != nil {
+		return *new(*big.Int), err
+	}
+
+	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
+
+	return out0, err
+
+}
+
+// MAXERAMEMBERPAYOUT is a free data retrieval call binding the contract method 0xe33052bd.
+//
+// Solidity: function MAX_ERA_MEMBER_PAYOUT() view returns(uint256)
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleSession) MAXERAMEMBERPAYOUT() (*big.Int, error) {
+	return _MoonriverDelegatorCoverOracle.Contract.MAXERAMEMBERPAYOUT(&_MoonriverDelegatorCoverOracle.CallOpts)
+}
+
+// MAXERAMEMBERPAYOUT is a free data retrieval call binding the contract method 0xe33052bd.
+//
+// Solidity: function MAX_ERA_MEMBER_PAYOUT() view returns(uint256)
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleCallerSession) MAXERAMEMBERPAYOUT() (*big.Int, error) {
+	return _MoonriverDelegatorCoverOracle.Contract.MAXERAMEMBERPAYOUT(&_MoonriverDelegatorCoverOracle.CallOpts)
+}
+
 // MINDEPOSIT is a free data retrieval call binding the contract method 0xe1e158a5.
 //
 // Solidity: function MIN_DEPOSIT() view returns(uint256)
@@ -455,37 +486,6 @@ func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleCallerSession
 	return _MoonriverDelegatorCoverOracle.Contract.STAKEUNITCOVER(&_MoonriverDelegatorCoverOracle.CallOpts)
 }
 
-// CoverOwedTotal is a free data retrieval call binding the contract method 0x2f433ab1.
-//
-// Solidity: function coverOwedTotal() view returns(uint256)
-func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleCaller) CoverOwedTotal(opts *bind.CallOpts) (*big.Int, error) {
-	var out []interface{}
-	err := _MoonriverDelegatorCoverOracle.contract.Call(opts, &out, "coverOwedTotal")
-
-	if err != nil {
-		return *new(*big.Int), err
-	}
-
-	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
-
-	return out0, err
-
-}
-
-// CoverOwedTotal is a free data retrieval call binding the contract method 0x2f433ab1.
-//
-// Solidity: function coverOwedTotal() view returns(uint256)
-func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleSession) CoverOwedTotal() (*big.Int, error) {
-	return _MoonriverDelegatorCoverOracle.Contract.CoverOwedTotal(&_MoonriverDelegatorCoverOracle.CallOpts)
-}
-
-// CoverOwedTotal is a free data retrieval call binding the contract method 0x2f433ab1.
-//
-// Solidity: function coverOwedTotal() view returns(uint256)
-func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleCallerSession) CoverOwedTotal() (*big.Int, error) {
-	return _MoonriverDelegatorCoverOracle.Contract.CoverOwedTotal(&_MoonriverDelegatorCoverOracle.CallOpts)
-}
-
 // DelegatorNotPaid is a free data retrieval call binding the contract method 0xfaf5b40e.
 //
 // Solidity: function delegatorNotPaid() view returns(address)
@@ -579,6 +579,37 @@ func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleCallerSession
 	return _MoonriverDelegatorCoverOracle.Contract.ErasCovered(&_MoonriverDelegatorCoverOracle.CallOpts, arg0)
 }
 
+// GetBalance is a free data retrieval call binding the contract method 0x12065fe0.
+//
+// Solidity: function getBalance() view returns(uint256)
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleCaller) GetBalance(opts *bind.CallOpts) (*big.Int, error) {
+	var out []interface{}
+	err := _MoonriverDelegatorCoverOracle.contract.Call(opts, &out, "getBalance")
+
+	if err != nil {
+		return *new(*big.Int), err
+	}
+
+	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
+
+	return out0, err
+
+}
+
+// GetBalance is a free data retrieval call binding the contract method 0x12065fe0.
+//
+// Solidity: function getBalance() view returns(uint256)
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleSession) GetBalance() (*big.Int, error) {
+	return _MoonriverDelegatorCoverOracle.Contract.GetBalance(&_MoonriverDelegatorCoverOracle.CallOpts)
+}
+
+// GetBalance is a free data retrieval call binding the contract method 0x12065fe0.
+//
+// Solidity: function getBalance() view returns(uint256)
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleCallerSession) GetBalance() (*big.Int, error) {
+	return _MoonriverDelegatorCoverOracle.Contract.GetBalance(&_MoonriverDelegatorCoverOracle.CallOpts)
+}
+
 // GetErasCovered is a free data retrieval call binding the contract method 0xf5551b9a.
 //
 // Solidity: function getErasCovered(address member) view returns(uint128)
@@ -612,13 +643,13 @@ func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleCallerSession
 
 // GetMember is a free data retrieval call binding the contract method 0x2ada2596.
 //
-// Solidity: function getMember(address member) view returns(bool, bool, uint256, uint256, uint256, uint128, uint128, uint128)
-func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleCaller) GetMember(opts *bind.CallOpts, member common.Address) (bool, bool, *big.Int, *big.Int, *big.Int, *big.Int, *big.Int, *big.Int, error) {
+// Solidity: function getMember(address member) view returns(bool, bool, uint256, uint256, uint128, uint128, uint128)
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleCaller) GetMember(opts *bind.CallOpts, member common.Address) (bool, bool, *big.Int, *big.Int, *big.Int, *big.Int, *big.Int, error) {
 	var out []interface{}
 	err := _MoonriverDelegatorCoverOracle.contract.Call(opts, &out, "getMember", member)
 
 	if err != nil {
-		return *new(bool), *new(bool), *new(*big.Int), *new(*big.Int), *new(*big.Int), *new(*big.Int), *new(*big.Int), *new(*big.Int), err
+		return *new(bool), *new(bool), *new(*big.Int), *new(*big.Int), *new(*big.Int), *new(*big.Int), *new(*big.Int), err
 	}
 
 	out0 := *abi.ConvertType(out[0], new(bool)).(*bool)
@@ -628,55 +659,23 @@ func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleCaller) GetMe
 	out4 := *abi.ConvertType(out[4], new(*big.Int)).(**big.Int)
 	out5 := *abi.ConvertType(out[5], new(*big.Int)).(**big.Int)
 	out6 := *abi.ConvertType(out[6], new(*big.Int)).(**big.Int)
-	out7 := *abi.ConvertType(out[7], new(*big.Int)).(**big.Int)
 
-	return out0, out1, out2, out3, out4, out5, out6, out7, err
+	return out0, out1, out2, out3, out4, out5, out6, err
 
 }
 
 // GetMember is a free data retrieval call binding the contract method 0x2ada2596.
 //
-// Solidity: function getMember(address member) view returns(bool, bool, uint256, uint256, uint256, uint128, uint128, uint128)
-func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleSession) GetMember(member common.Address) (bool, bool, *big.Int, *big.Int, *big.Int, *big.Int, *big.Int, *big.Int, error) {
+// Solidity: function getMember(address member) view returns(bool, bool, uint256, uint256, uint128, uint128, uint128)
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleSession) GetMember(member common.Address) (bool, bool, *big.Int, *big.Int, *big.Int, *big.Int, *big.Int, error) {
 	return _MoonriverDelegatorCoverOracle.Contract.GetMember(&_MoonriverDelegatorCoverOracle.CallOpts, member)
 }
 
 // GetMember is a free data retrieval call binding the contract method 0x2ada2596.
 //
-// Solidity: function getMember(address member) view returns(bool, bool, uint256, uint256, uint256, uint128, uint128, uint128)
-func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleCallerSession) GetMember(member common.Address) (bool, bool, *big.Int, *big.Int, *big.Int, *big.Int, *big.Int, *big.Int, error) {
+// Solidity: function getMember(address member) view returns(bool, bool, uint256, uint256, uint128, uint128, uint128)
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleCallerSession) GetMember(member common.Address) (bool, bool, *big.Int, *big.Int, *big.Int, *big.Int, *big.Int, error) {
 	return _MoonriverDelegatorCoverOracle.Contract.GetMember(&_MoonriverDelegatorCoverOracle.CallOpts, member)
-}
-
-// GetPayoutAmount is a free data retrieval call binding the contract method 0xc94e5024.
-//
-// Solidity: function getPayoutAmount(address delegator, address collator) view returns(uint256)
-func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleCaller) GetPayoutAmount(opts *bind.CallOpts, delegator common.Address, collator common.Address) (*big.Int, error) {
-	var out []interface{}
-	err := _MoonriverDelegatorCoverOracle.contract.Call(opts, &out, "getPayoutAmount", delegator, collator)
-
-	if err != nil {
-		return *new(*big.Int), err
-	}
-
-	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
-
-	return out0, err
-
-}
-
-// GetPayoutAmount is a free data retrieval call binding the contract method 0xc94e5024.
-//
-// Solidity: function getPayoutAmount(address delegator, address collator) view returns(uint256)
-func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleSession) GetPayoutAmount(delegator common.Address, collator common.Address) (*big.Int, error) {
-	return _MoonriverDelegatorCoverOracle.Contract.GetPayoutAmount(&_MoonriverDelegatorCoverOracle.CallOpts, delegator, collator)
-}
-
-// GetPayoutAmount is a free data retrieval call binding the contract method 0xc94e5024.
-//
-// Solidity: function getPayoutAmount(address delegator, address collator) view returns(uint256)
-func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleCallerSession) GetPayoutAmount(delegator common.Address, collator common.Address) (*big.Int, error) {
-	return _MoonriverDelegatorCoverOracle.Contract.GetPayoutAmount(&_MoonriverDelegatorCoverOracle.CallOpts, delegator, collator)
 }
 
 // GetScheduledDecrease is a free data retrieval call binding the contract method 0xb15188f4.
@@ -711,6 +710,37 @@ func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleCallerSession
 	return _MoonriverDelegatorCoverOracle.Contract.GetScheduledDecrease(&_MoonriverDelegatorCoverOracle.CallOpts, member)
 }
 
+// IsUpgraded is a free data retrieval call binding the contract method 0x95ef84b9.
+//
+// Solidity: function isUpgraded(address _member) view returns(bool)
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleCaller) IsUpgraded(opts *bind.CallOpts, _member common.Address) (bool, error) {
+	var out []interface{}
+	err := _MoonriverDelegatorCoverOracle.contract.Call(opts, &out, "isUpgraded", _member)
+
+	if err != nil {
+		return *new(bool), err
+	}
+
+	out0 := *abi.ConvertType(out[0], new(bool)).(*bool)
+
+	return out0, err
+
+}
+
+// IsUpgraded is a free data retrieval call binding the contract method 0x95ef84b9.
+//
+// Solidity: function isUpgraded(address _member) view returns(bool)
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleSession) IsUpgraded(_member common.Address) (bool, error) {
+	return _MoonriverDelegatorCoverOracle.Contract.IsUpgraded(&_MoonriverDelegatorCoverOracle.CallOpts, _member)
+}
+
+// IsUpgraded is a free data retrieval call binding the contract method 0x95ef84b9.
+//
+// Solidity: function isUpgraded(address _member) view returns(bool)
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleCallerSession) IsUpgraded(_member common.Address) (bool, error) {
+	return _MoonriverDelegatorCoverOracle.Contract.IsUpgraded(&_MoonriverDelegatorCoverOracle.CallOpts, _member)
+}
+
 // MemberAddresses is a free data retrieval call binding the contract method 0xcc4e6299.
 //
 // Solidity: function memberAddresses(uint256 ) view returns(address)
@@ -740,6 +770,37 @@ func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleSession) Memb
 // Solidity: function memberAddresses(uint256 ) view returns(address)
 func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleCallerSession) MemberAddresses(arg0 *big.Int) (common.Address, error) {
 	return _MoonriverDelegatorCoverOracle.Contract.MemberAddresses(&_MoonriverDelegatorCoverOracle.CallOpts, arg0)
+}
+
+// MemberFee is a free data retrieval call binding the contract method 0xd3098883.
+//
+// Solidity: function memberFee() view returns(uint256)
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleCaller) MemberFee(opts *bind.CallOpts) (*big.Int, error) {
+	var out []interface{}
+	err := _MoonriverDelegatorCoverOracle.contract.Call(opts, &out, "memberFee")
+
+	if err != nil {
+		return *new(*big.Int), err
+	}
+
+	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
+
+	return out0, err
+
+}
+
+// MemberFee is a free data retrieval call binding the contract method 0xd3098883.
+//
+// Solidity: function memberFee() view returns(uint256)
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleSession) MemberFee() (*big.Int, error) {
+	return _MoonriverDelegatorCoverOracle.Contract.MemberFee(&_MoonriverDelegatorCoverOracle.CallOpts)
+}
+
+// MemberFee is a free data retrieval call binding the contract method 0xd3098883.
+//
+// Solidity: function memberFee() view returns(uint256)
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleCallerSession) MemberFee() (*big.Int, error) {
+	return _MoonriverDelegatorCoverOracle.Contract.MemberFee(&_MoonriverDelegatorCoverOracle.CallOpts)
 }
 
 // MemberNotPaid is a free data retrieval call binding the contract method 0x3fb6829f.
@@ -775,16 +836,17 @@ func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleCallerSession
 
 // Members is a free data retrieval call binding the contract method 0x08ae4b0c.
 //
-// Solidity: function members(address ) view returns(bool isMember, bool active, uint256 deposit, uint256 maxDefaulted, uint256 maxCoveredDelegation, uint128 lastPushedEra, uint128 noZeroPtsCoverAfterEra, uint128 noActiveSetCoverAfterEra)
+// Solidity: function members(address ) view returns(bool isMember, bool active, uint256 deposit, uint256 maxCoveredDelegation, uint128 lastPushedEra, uint256 lastDelegationsTotall, uint128 noZeroPtsCoverAfterEra, uint128 noActiveSetCoverAfterEra, uint128 defaultCount)
 func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleCaller) Members(opts *bind.CallOpts, arg0 common.Address) (struct {
 	IsMember                 bool
 	Active                   bool
 	Deposit                  *big.Int
-	MaxDefaulted             *big.Int
 	MaxCoveredDelegation     *big.Int
 	LastPushedEra            *big.Int
+	LastDelegationsTotall    *big.Int
 	NoZeroPtsCoverAfterEra   *big.Int
 	NoActiveSetCoverAfterEra *big.Int
+	DefaultCount             *big.Int
 }, error) {
 	var out []interface{}
 	err := _MoonriverDelegatorCoverOracle.contract.Call(opts, &out, "members", arg0)
@@ -793,11 +855,12 @@ func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleCaller) Membe
 		IsMember                 bool
 		Active                   bool
 		Deposit                  *big.Int
-		MaxDefaulted             *big.Int
 		MaxCoveredDelegation     *big.Int
 		LastPushedEra            *big.Int
+		LastDelegationsTotall    *big.Int
 		NoZeroPtsCoverAfterEra   *big.Int
 		NoActiveSetCoverAfterEra *big.Int
+		DefaultCount             *big.Int
 	})
 	if err != nil {
 		return *outstruct, err
@@ -806,11 +869,12 @@ func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleCaller) Membe
 	outstruct.IsMember = *abi.ConvertType(out[0], new(bool)).(*bool)
 	outstruct.Active = *abi.ConvertType(out[1], new(bool)).(*bool)
 	outstruct.Deposit = *abi.ConvertType(out[2], new(*big.Int)).(**big.Int)
-	outstruct.MaxDefaulted = *abi.ConvertType(out[3], new(*big.Int)).(**big.Int)
-	outstruct.MaxCoveredDelegation = *abi.ConvertType(out[4], new(*big.Int)).(**big.Int)
-	outstruct.LastPushedEra = *abi.ConvertType(out[5], new(*big.Int)).(**big.Int)
+	outstruct.MaxCoveredDelegation = *abi.ConvertType(out[3], new(*big.Int)).(**big.Int)
+	outstruct.LastPushedEra = *abi.ConvertType(out[4], new(*big.Int)).(**big.Int)
+	outstruct.LastDelegationsTotall = *abi.ConvertType(out[5], new(*big.Int)).(**big.Int)
 	outstruct.NoZeroPtsCoverAfterEra = *abi.ConvertType(out[6], new(*big.Int)).(**big.Int)
 	outstruct.NoActiveSetCoverAfterEra = *abi.ConvertType(out[7], new(*big.Int)).(**big.Int)
+	outstruct.DefaultCount = *abi.ConvertType(out[8], new(*big.Int)).(**big.Int)
 
 	return *outstruct, err
 
@@ -818,32 +882,34 @@ func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleCaller) Membe
 
 // Members is a free data retrieval call binding the contract method 0x08ae4b0c.
 //
-// Solidity: function members(address ) view returns(bool isMember, bool active, uint256 deposit, uint256 maxDefaulted, uint256 maxCoveredDelegation, uint128 lastPushedEra, uint128 noZeroPtsCoverAfterEra, uint128 noActiveSetCoverAfterEra)
+// Solidity: function members(address ) view returns(bool isMember, bool active, uint256 deposit, uint256 maxCoveredDelegation, uint128 lastPushedEra, uint256 lastDelegationsTotall, uint128 noZeroPtsCoverAfterEra, uint128 noActiveSetCoverAfterEra, uint128 defaultCount)
 func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleSession) Members(arg0 common.Address) (struct {
 	IsMember                 bool
 	Active                   bool
 	Deposit                  *big.Int
-	MaxDefaulted             *big.Int
 	MaxCoveredDelegation     *big.Int
 	LastPushedEra            *big.Int
+	LastDelegationsTotall    *big.Int
 	NoZeroPtsCoverAfterEra   *big.Int
 	NoActiveSetCoverAfterEra *big.Int
+	DefaultCount             *big.Int
 }, error) {
 	return _MoonriverDelegatorCoverOracle.Contract.Members(&_MoonriverDelegatorCoverOracle.CallOpts, arg0)
 }
 
 // Members is a free data retrieval call binding the contract method 0x08ae4b0c.
 //
-// Solidity: function members(address ) view returns(bool isMember, bool active, uint256 deposit, uint256 maxDefaulted, uint256 maxCoveredDelegation, uint128 lastPushedEra, uint128 noZeroPtsCoverAfterEra, uint128 noActiveSetCoverAfterEra)
+// Solidity: function members(address ) view returns(bool isMember, bool active, uint256 deposit, uint256 maxCoveredDelegation, uint128 lastPushedEra, uint256 lastDelegationsTotall, uint128 noZeroPtsCoverAfterEra, uint128 noActiveSetCoverAfterEra, uint128 defaultCount)
 func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleCallerSession) Members(arg0 common.Address) (struct {
 	IsMember                 bool
 	Active                   bool
 	Deposit                  *big.Int
-	MaxDefaulted             *big.Int
 	MaxCoveredDelegation     *big.Int
 	LastPushedEra            *big.Int
+	LastDelegationsTotall    *big.Int
 	NoZeroPtsCoverAfterEra   *big.Int
 	NoActiveSetCoverAfterEra *big.Int
+	DefaultCount             *big.Int
 }, error) {
 	return _MoonriverDelegatorCoverOracle.Contract.Members(&_MoonriverDelegatorCoverOracle.CallOpts, arg0)
 }
@@ -877,6 +943,192 @@ func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleSession) Memb
 // Solidity: function membersDepositTotal() view returns(uint256)
 func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleCallerSession) MembersDepositTotal() (*big.Int, error) {
 	return _MoonriverDelegatorCoverOracle.Contract.MembersDepositTotal(&_MoonriverDelegatorCoverOracle.CallOpts)
+}
+
+// MembersInvoicedLastEra is a free data retrieval call binding the contract method 0xb3230f9d.
+//
+// Solidity: function membersInvoicedLastEra() view returns(uint128)
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleCaller) MembersInvoicedLastEra(opts *bind.CallOpts) (*big.Int, error) {
+	var out []interface{}
+	err := _MoonriverDelegatorCoverOracle.contract.Call(opts, &out, "membersInvoicedLastEra")
+
+	if err != nil {
+		return *new(*big.Int), err
+	}
+
+	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
+
+	return out0, err
+
+}
+
+// MembersInvoicedLastEra is a free data retrieval call binding the contract method 0xb3230f9d.
+//
+// Solidity: function membersInvoicedLastEra() view returns(uint128)
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleSession) MembersInvoicedLastEra() (*big.Int, error) {
+	return _MoonriverDelegatorCoverOracle.Contract.MembersInvoicedLastEra(&_MoonriverDelegatorCoverOracle.CallOpts)
+}
+
+// MembersInvoicedLastEra is a free data retrieval call binding the contract method 0xb3230f9d.
+//
+// Solidity: function membersInvoicedLastEra() view returns(uint128)
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleCallerSession) MembersInvoicedLastEra() (*big.Int, error) {
+	return _MoonriverDelegatorCoverOracle.Contract.MembersInvoicedLastEra(&_MoonriverDelegatorCoverOracle.CallOpts)
+}
+
+// NoManualWhitelistingRequired is a free data retrieval call binding the contract method 0xcc9b2516.
+//
+// Solidity: function noManualWhitelistingRequired() view returns(bool)
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleCaller) NoManualWhitelistingRequired(opts *bind.CallOpts) (bool, error) {
+	var out []interface{}
+	err := _MoonriverDelegatorCoverOracle.contract.Call(opts, &out, "noManualWhitelistingRequired")
+
+	if err != nil {
+		return *new(bool), err
+	}
+
+	out0 := *abi.ConvertType(out[0], new(bool)).(*bool)
+
+	return out0, err
+
+}
+
+// NoManualWhitelistingRequired is a free data retrieval call binding the contract method 0xcc9b2516.
+//
+// Solidity: function noManualWhitelistingRequired() view returns(bool)
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleSession) NoManualWhitelistingRequired() (bool, error) {
+	return _MoonriverDelegatorCoverOracle.Contract.NoManualWhitelistingRequired(&_MoonriverDelegatorCoverOracle.CallOpts)
+}
+
+// NoManualWhitelistingRequired is a free data retrieval call binding the contract method 0xcc9b2516.
+//
+// Solidity: function noManualWhitelistingRequired() view returns(bool)
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleCallerSession) NoManualWhitelistingRequired() (bool, error) {
+	return _MoonriverDelegatorCoverOracle.Contract.NoManualWhitelistingRequired(&_MoonriverDelegatorCoverOracle.CallOpts)
+}
+
+// PayoutAmounts is a free data retrieval call binding the contract method 0xd1b3fda0.
+//
+// Solidity: function payoutAmounts(address ) view returns(uint256)
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleCaller) PayoutAmounts(opts *bind.CallOpts, arg0 common.Address) (*big.Int, error) {
+	var out []interface{}
+	err := _MoonriverDelegatorCoverOracle.contract.Call(opts, &out, "payoutAmounts", arg0)
+
+	if err != nil {
+		return *new(*big.Int), err
+	}
+
+	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
+
+	return out0, err
+
+}
+
+// PayoutAmounts is a free data retrieval call binding the contract method 0xd1b3fda0.
+//
+// Solidity: function payoutAmounts(address ) view returns(uint256)
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleSession) PayoutAmounts(arg0 common.Address) (*big.Int, error) {
+	return _MoonriverDelegatorCoverOracle.Contract.PayoutAmounts(&_MoonriverDelegatorCoverOracle.CallOpts, arg0)
+}
+
+// PayoutAmounts is a free data retrieval call binding the contract method 0xd1b3fda0.
+//
+// Solidity: function payoutAmounts(address ) view returns(uint256)
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleCallerSession) PayoutAmounts(arg0 common.Address) (*big.Int, error) {
+	return _MoonriverDelegatorCoverOracle.Contract.PayoutAmounts(&_MoonriverDelegatorCoverOracle.CallOpts, arg0)
+}
+
+// PayoutsOwedTotal is a free data retrieval call binding the contract method 0x434104a6.
+//
+// Solidity: function payoutsOwedTotal() view returns(uint256)
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleCaller) PayoutsOwedTotal(opts *bind.CallOpts) (*big.Int, error) {
+	var out []interface{}
+	err := _MoonriverDelegatorCoverOracle.contract.Call(opts, &out, "payoutsOwedTotal")
+
+	if err != nil {
+		return *new(*big.Int), err
+	}
+
+	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
+
+	return out0, err
+
+}
+
+// PayoutsOwedTotal is a free data retrieval call binding the contract method 0x434104a6.
+//
+// Solidity: function payoutsOwedTotal() view returns(uint256)
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleSession) PayoutsOwedTotal() (*big.Int, error) {
+	return _MoonriverDelegatorCoverOracle.Contract.PayoutsOwedTotal(&_MoonriverDelegatorCoverOracle.CallOpts)
+}
+
+// PayoutsOwedTotal is a free data retrieval call binding the contract method 0x434104a6.
+//
+// Solidity: function payoutsOwedTotal() view returns(uint256)
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleCallerSession) PayoutsOwedTotal() (*big.Int, error) {
+	return _MoonriverDelegatorCoverOracle.Contract.PayoutsOwedTotal(&_MoonriverDelegatorCoverOracle.CallOpts)
+}
+
+// Proxy is a free data retrieval call binding the contract method 0xec556889.
+//
+// Solidity: function proxy() view returns(address)
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleCaller) Proxy(opts *bind.CallOpts) (common.Address, error) {
+	var out []interface{}
+	err := _MoonriverDelegatorCoverOracle.contract.Call(opts, &out, "proxy")
+
+	if err != nil {
+		return *new(common.Address), err
+	}
+
+	out0 := *abi.ConvertType(out[0], new(common.Address)).(*common.Address)
+
+	return out0, err
+
+}
+
+// Proxy is a free data retrieval call binding the contract method 0xec556889.
+//
+// Solidity: function proxy() view returns(address)
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleSession) Proxy() (common.Address, error) {
+	return _MoonriverDelegatorCoverOracle.Contract.Proxy(&_MoonriverDelegatorCoverOracle.CallOpts)
+}
+
+// Proxy is a free data retrieval call binding the contract method 0xec556889.
+//
+// Solidity: function proxy() view returns(address)
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleCallerSession) Proxy() (common.Address, error) {
+	return _MoonriverDelegatorCoverOracle.Contract.Proxy(&_MoonriverDelegatorCoverOracle.CallOpts)
+}
+
+// RefundOracleGasPrice is a free data retrieval call binding the contract method 0x6d58c80d.
+//
+// Solidity: function refundOracleGasPrice() view returns(uint256)
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleCaller) RefundOracleGasPrice(opts *bind.CallOpts) (*big.Int, error) {
+	var out []interface{}
+	err := _MoonriverDelegatorCoverOracle.contract.Call(opts, &out, "refundOracleGasPrice")
+
+	if err != nil {
+		return *new(*big.Int), err
+	}
+
+	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
+
+	return out0, err
+
+}
+
+// RefundOracleGasPrice is a free data retrieval call binding the contract method 0x6d58c80d.
+//
+// Solidity: function refundOracleGasPrice() view returns(uint256)
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleSession) RefundOracleGasPrice() (*big.Int, error) {
+	return _MoonriverDelegatorCoverOracle.Contract.RefundOracleGasPrice(&_MoonriverDelegatorCoverOracle.CallOpts)
+}
+
+// RefundOracleGasPrice is a free data retrieval call binding the contract method 0x6d58c80d.
+//
+// Solidity: function refundOracleGasPrice() view returns(uint256)
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleCallerSession) RefundOracleGasPrice() (*big.Int, error) {
+	return _MoonriverDelegatorCoverOracle.Contract.RefundOracleGasPrice(&_MoonriverDelegatorCoverOracle.CallOpts)
 }
 
 // ScheduledDecreasesMap is a free data retrieval call binding the contract method 0xedaba84d.
@@ -988,16 +1240,16 @@ func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleCallerSession
 
 // Whitelisted is a free data retrieval call binding the contract method 0xd936547e.
 //
-// Solidity: function whitelisted(address ) view returns(bool)
-func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleCaller) Whitelisted(opts *bind.CallOpts, arg0 common.Address) (bool, error) {
+// Solidity: function whitelisted(address ) view returns(address)
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleCaller) Whitelisted(opts *bind.CallOpts, arg0 common.Address) (common.Address, error) {
 	var out []interface{}
 	err := _MoonriverDelegatorCoverOracle.contract.Call(opts, &out, "whitelisted", arg0)
 
 	if err != nil {
-		return *new(bool), err
+		return *new(common.Address), err
 	}
 
-	out0 := *abi.ConvertType(out[0], new(bool)).(*bool)
+	out0 := *abi.ConvertType(out[0], new(common.Address)).(*common.Address)
 
 	return out0, err
 
@@ -1005,37 +1257,37 @@ func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleCaller) White
 
 // Whitelisted is a free data retrieval call binding the contract method 0xd936547e.
 //
-// Solidity: function whitelisted(address ) view returns(bool)
-func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleSession) Whitelisted(arg0 common.Address) (bool, error) {
+// Solidity: function whitelisted(address ) view returns(address)
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleSession) Whitelisted(arg0 common.Address) (common.Address, error) {
 	return _MoonriverDelegatorCoverOracle.Contract.Whitelisted(&_MoonriverDelegatorCoverOracle.CallOpts, arg0)
 }
 
 // Whitelisted is a free data retrieval call binding the contract method 0xd936547e.
 //
-// Solidity: function whitelisted(address ) view returns(bool)
-func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleCallerSession) Whitelisted(arg0 common.Address) (bool, error) {
+// Solidity: function whitelisted(address ) view returns(address)
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleCallerSession) Whitelisted(arg0 common.Address) (common.Address, error) {
 	return _MoonriverDelegatorCoverOracle.Contract.Whitelisted(&_MoonriverDelegatorCoverOracle.CallOpts, arg0)
 }
 
-// CancelDecreaseCover is a paid mutator transaction binding the contract method 0x9018a5b1.
+// CancelDecreaseCover is a paid mutator transaction binding the contract method 0xc8aec3bf.
 //
-// Solidity: function cancelDecreaseCover() returns()
-func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleTransactor) CancelDecreaseCover(opts *bind.TransactOpts) (*types.Transaction, error) {
-	return _MoonriverDelegatorCoverOracle.contract.Transact(opts, "cancelDecreaseCover")
+// Solidity: function cancelDecreaseCover(address _member) returns()
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleTransactor) CancelDecreaseCover(opts *bind.TransactOpts, _member common.Address) (*types.Transaction, error) {
+	return _MoonriverDelegatorCoverOracle.contract.Transact(opts, "cancelDecreaseCover", _member)
 }
 
-// CancelDecreaseCover is a paid mutator transaction binding the contract method 0x9018a5b1.
+// CancelDecreaseCover is a paid mutator transaction binding the contract method 0xc8aec3bf.
 //
-// Solidity: function cancelDecreaseCover() returns()
-func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleSession) CancelDecreaseCover() (*types.Transaction, error) {
-	return _MoonriverDelegatorCoverOracle.Contract.CancelDecreaseCover(&_MoonriverDelegatorCoverOracle.TransactOpts)
+// Solidity: function cancelDecreaseCover(address _member) returns()
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleSession) CancelDecreaseCover(_member common.Address) (*types.Transaction, error) {
+	return _MoonriverDelegatorCoverOracle.Contract.CancelDecreaseCover(&_MoonriverDelegatorCoverOracle.TransactOpts, _member)
 }
 
-// CancelDecreaseCover is a paid mutator transaction binding the contract method 0x9018a5b1.
+// CancelDecreaseCover is a paid mutator transaction binding the contract method 0xc8aec3bf.
 //
-// Solidity: function cancelDecreaseCover() returns()
-func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleTransactorSession) CancelDecreaseCover() (*types.Transaction, error) {
-	return _MoonriverDelegatorCoverOracle.Contract.CancelDecreaseCover(&_MoonriverDelegatorCoverOracle.TransactOpts)
+// Solidity: function cancelDecreaseCover(address _member) returns()
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleTransactorSession) CancelDecreaseCover(_member common.Address) (*types.Transaction, error) {
+	return _MoonriverDelegatorCoverOracle.Contract.CancelDecreaseCover(&_MoonriverDelegatorCoverOracle.TransactOpts, _member)
 }
 
 // Delegate is a paid mutator transaction binding the contract method 0x829f5ee3.
@@ -1082,170 +1334,191 @@ func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleTransactorSes
 
 // DepositCover is a paid mutator transaction binding the contract method 0xfbe4b783.
 //
-// Solidity: function depositCover(address collator) payable returns()
-func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleTransactor) DepositCover(opts *bind.TransactOpts, collator common.Address) (*types.Transaction, error) {
-	return _MoonriverDelegatorCoverOracle.contract.Transact(opts, "depositCover", collator)
+// Solidity: function depositCover(address _member) payable returns()
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleTransactor) DepositCover(opts *bind.TransactOpts, _member common.Address) (*types.Transaction, error) {
+	return _MoonriverDelegatorCoverOracle.contract.Transact(opts, "depositCover", _member)
 }
 
 // DepositCover is a paid mutator transaction binding the contract method 0xfbe4b783.
 //
-// Solidity: function depositCover(address collator) payable returns()
-func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleSession) DepositCover(collator common.Address) (*types.Transaction, error) {
-	return _MoonriverDelegatorCoverOracle.Contract.DepositCover(&_MoonriverDelegatorCoverOracle.TransactOpts, collator)
+// Solidity: function depositCover(address _member) payable returns()
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleSession) DepositCover(_member common.Address) (*types.Transaction, error) {
+	return _MoonriverDelegatorCoverOracle.Contract.DepositCover(&_MoonriverDelegatorCoverOracle.TransactOpts, _member)
 }
 
 // DepositCover is a paid mutator transaction binding the contract method 0xfbe4b783.
 //
-// Solidity: function depositCover(address collator) payable returns()
-func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleTransactorSession) DepositCover(collator common.Address) (*types.Transaction, error) {
-	return _MoonriverDelegatorCoverOracle.Contract.DepositCover(&_MoonriverDelegatorCoverOracle.TransactOpts, collator)
+// Solidity: function depositCover(address _member) payable returns()
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleTransactorSession) DepositCover(_member common.Address) (*types.Transaction, error) {
+	return _MoonriverDelegatorCoverOracle.Contract.DepositCover(&_MoonriverDelegatorCoverOracle.TransactOpts, _member)
 }
 
-// ExecuteDelegationRequest is a paid mutator transaction binding the contract method 0xe98c8abe.
+// ExecuteDelegationRequest is a paid mutator transaction binding the contract method 0x13a5f393.
 //
-// Solidity: function executeDelegationRequest(address delegator, address candidate) returns()
-func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleTransactor) ExecuteDelegationRequest(opts *bind.TransactOpts, delegator common.Address, candidate common.Address) (*types.Transaction, error) {
-	return _MoonriverDelegatorCoverOracle.contract.Transact(opts, "executeDelegationRequest", delegator, candidate)
+// Solidity: function executeDelegationRequest(address candidate) returns()
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleTransactor) ExecuteDelegationRequest(opts *bind.TransactOpts, candidate common.Address) (*types.Transaction, error) {
+	return _MoonriverDelegatorCoverOracle.contract.Transact(opts, "executeDelegationRequest", candidate)
 }
 
-// ExecuteDelegationRequest is a paid mutator transaction binding the contract method 0xe98c8abe.
+// ExecuteDelegationRequest is a paid mutator transaction binding the contract method 0x13a5f393.
 //
-// Solidity: function executeDelegationRequest(address delegator, address candidate) returns()
-func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleSession) ExecuteDelegationRequest(delegator common.Address, candidate common.Address) (*types.Transaction, error) {
-	return _MoonriverDelegatorCoverOracle.Contract.ExecuteDelegationRequest(&_MoonriverDelegatorCoverOracle.TransactOpts, delegator, candidate)
+// Solidity: function executeDelegationRequest(address candidate) returns()
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleSession) ExecuteDelegationRequest(candidate common.Address) (*types.Transaction, error) {
+	return _MoonriverDelegatorCoverOracle.Contract.ExecuteDelegationRequest(&_MoonriverDelegatorCoverOracle.TransactOpts, candidate)
 }
 
-// ExecuteDelegationRequest is a paid mutator transaction binding the contract method 0xe98c8abe.
+// ExecuteDelegationRequest is a paid mutator transaction binding the contract method 0x13a5f393.
 //
-// Solidity: function executeDelegationRequest(address delegator, address candidate) returns()
-func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleTransactorSession) ExecuteDelegationRequest(delegator common.Address, candidate common.Address) (*types.Transaction, error) {
-	return _MoonriverDelegatorCoverOracle.Contract.ExecuteDelegationRequest(&_MoonriverDelegatorCoverOracle.TransactOpts, delegator, candidate)
-}
-
-// ExecuteScheduled is a paid mutator transaction binding the contract method 0x43fc576d.
-//
-// Solidity: function executeScheduled(address collator) returns()
-func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleTransactor) ExecuteScheduled(opts *bind.TransactOpts, collator common.Address) (*types.Transaction, error) {
-	return _MoonriverDelegatorCoverOracle.contract.Transact(opts, "executeScheduled", collator)
+// Solidity: function executeDelegationRequest(address candidate) returns()
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleTransactorSession) ExecuteDelegationRequest(candidate common.Address) (*types.Transaction, error) {
+	return _MoonriverDelegatorCoverOracle.Contract.ExecuteDelegationRequest(&_MoonriverDelegatorCoverOracle.TransactOpts, candidate)
 }
 
 // ExecuteScheduled is a paid mutator transaction binding the contract method 0x43fc576d.
 //
-// Solidity: function executeScheduled(address collator) returns()
-func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleSession) ExecuteScheduled(collator common.Address) (*types.Transaction, error) {
-	return _MoonriverDelegatorCoverOracle.Contract.ExecuteScheduled(&_MoonriverDelegatorCoverOracle.TransactOpts, collator)
+// Solidity: function executeScheduled(address _member) returns()
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleTransactor) ExecuteScheduled(opts *bind.TransactOpts, _member common.Address) (*types.Transaction, error) {
+	return _MoonriverDelegatorCoverOracle.contract.Transact(opts, "executeScheduled", _member)
 }
 
 // ExecuteScheduled is a paid mutator transaction binding the contract method 0x43fc576d.
 //
-// Solidity: function executeScheduled(address collator) returns()
-func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleTransactorSession) ExecuteScheduled(collator common.Address) (*types.Transaction, error) {
-	return _MoonriverDelegatorCoverOracle.Contract.ExecuteScheduled(&_MoonriverDelegatorCoverOracle.TransactOpts, collator)
+// Solidity: function executeScheduled(address _member) returns()
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleSession) ExecuteScheduled(_member common.Address) (*types.Transaction, error) {
+	return _MoonriverDelegatorCoverOracle.Contract.ExecuteScheduled(&_MoonriverDelegatorCoverOracle.TransactOpts, _member)
 }
 
-// Initialize is a paid mutator transaction binding the contract method 0x47486a28.
+// ExecuteScheduled is a paid mutator transaction binding the contract method 0x43fc576d.
 //
-// Solidity: function initialize(address _auth_manager, address _oracle_master, address _deposit_staking, uint256 _min_deposit, uint256 _max_deposit_total, uint256 _stake_unit_cover, uint256 _min_payout, uint128 _eras_between_forced_undelegation) returns()
-func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleTransactor) Initialize(opts *bind.TransactOpts, _auth_manager common.Address, _oracle_master common.Address, _deposit_staking common.Address, _min_deposit *big.Int, _max_deposit_total *big.Int, _stake_unit_cover *big.Int, _min_payout *big.Int, _eras_between_forced_undelegation *big.Int) (*types.Transaction, error) {
-	return _MoonriverDelegatorCoverOracle.contract.Transact(opts, "initialize", _auth_manager, _oracle_master, _deposit_staking, _min_deposit, _max_deposit_total, _stake_unit_cover, _min_payout, _eras_between_forced_undelegation)
+// Solidity: function executeScheduled(address _member) returns()
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleTransactorSession) ExecuteScheduled(_member common.Address) (*types.Transaction, error) {
+	return _MoonriverDelegatorCoverOracle.Contract.ExecuteScheduled(&_MoonriverDelegatorCoverOracle.TransactOpts, _member)
 }
 
-// Initialize is a paid mutator transaction binding the contract method 0x47486a28.
+// Initialize is a paid mutator transaction binding the contract method 0x5fbbc222.
 //
-// Solidity: function initialize(address _auth_manager, address _oracle_master, address _deposit_staking, uint256 _min_deposit, uint256 _max_deposit_total, uint256 _stake_unit_cover, uint256 _min_payout, uint128 _eras_between_forced_undelegation) returns()
-func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleSession) Initialize(_auth_manager common.Address, _oracle_master common.Address, _deposit_staking common.Address, _min_deposit *big.Int, _max_deposit_total *big.Int, _stake_unit_cover *big.Int, _min_payout *big.Int, _eras_between_forced_undelegation *big.Int) (*types.Transaction, error) {
-	return _MoonriverDelegatorCoverOracle.Contract.Initialize(&_MoonriverDelegatorCoverOracle.TransactOpts, _auth_manager, _oracle_master, _deposit_staking, _min_deposit, _max_deposit_total, _stake_unit_cover, _min_payout, _eras_between_forced_undelegation)
+// Solidity: function initialize(address _auth_manager, address _oracle_master, address _deposit_staking, uint256 _min_deposit, uint256 _max_deposit_total, uint256 _stake_unit_cover, uint256 _min_payout, uint256 _max_era_member_payout, uint128 _eras_between_forced_undelegation) returns()
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleTransactor) Initialize(opts *bind.TransactOpts, _auth_manager common.Address, _oracle_master common.Address, _deposit_staking common.Address, _min_deposit *big.Int, _max_deposit_total *big.Int, _stake_unit_cover *big.Int, _min_payout *big.Int, _max_era_member_payout *big.Int, _eras_between_forced_undelegation *big.Int) (*types.Transaction, error) {
+	return _MoonriverDelegatorCoverOracle.contract.Transact(opts, "initialize", _auth_manager, _oracle_master, _deposit_staking, _min_deposit, _max_deposit_total, _stake_unit_cover, _min_payout, _max_era_member_payout, _eras_between_forced_undelegation)
 }
 
-// Initialize is a paid mutator transaction binding the contract method 0x47486a28.
+// Initialize is a paid mutator transaction binding the contract method 0x5fbbc222.
 //
-// Solidity: function initialize(address _auth_manager, address _oracle_master, address _deposit_staking, uint256 _min_deposit, uint256 _max_deposit_total, uint256 _stake_unit_cover, uint256 _min_payout, uint128 _eras_between_forced_undelegation) returns()
-func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleTransactorSession) Initialize(_auth_manager common.Address, _oracle_master common.Address, _deposit_staking common.Address, _min_deposit *big.Int, _max_deposit_total *big.Int, _stake_unit_cover *big.Int, _min_payout *big.Int, _eras_between_forced_undelegation *big.Int) (*types.Transaction, error) {
-	return _MoonriverDelegatorCoverOracle.Contract.Initialize(&_MoonriverDelegatorCoverOracle.TransactOpts, _auth_manager, _oracle_master, _deposit_staking, _min_deposit, _max_deposit_total, _stake_unit_cover, _min_payout, _eras_between_forced_undelegation)
+// Solidity: function initialize(address _auth_manager, address _oracle_master, address _deposit_staking, uint256 _min_deposit, uint256 _max_deposit_total, uint256 _stake_unit_cover, uint256 _min_payout, uint256 _max_era_member_payout, uint128 _eras_between_forced_undelegation) returns()
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleSession) Initialize(_auth_manager common.Address, _oracle_master common.Address, _deposit_staking common.Address, _min_deposit *big.Int, _max_deposit_total *big.Int, _stake_unit_cover *big.Int, _min_payout *big.Int, _max_era_member_payout *big.Int, _eras_between_forced_undelegation *big.Int) (*types.Transaction, error) {
+	return _MoonriverDelegatorCoverOracle.Contract.Initialize(&_MoonriverDelegatorCoverOracle.TransactOpts, _auth_manager, _oracle_master, _deposit_staking, _min_deposit, _max_deposit_total, _stake_unit_cover, _min_payout, _max_era_member_payout, _eras_between_forced_undelegation)
 }
 
-// MemberSetCoverTypes is a paid mutator transaction binding the contract method 0x8f45b2ff.
+// Initialize is a paid mutator transaction binding the contract method 0x5fbbc222.
 //
-// Solidity: function memberSetCoverTypes(bool _noZeroPtsCoverAfterEra, bool _noActiveSetCoverAfterEra) returns()
-func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleTransactor) MemberSetCoverTypes(opts *bind.TransactOpts, _noZeroPtsCoverAfterEra bool, _noActiveSetCoverAfterEra bool) (*types.Transaction, error) {
-	return _MoonriverDelegatorCoverOracle.contract.Transact(opts, "memberSetCoverTypes", _noZeroPtsCoverAfterEra, _noActiveSetCoverAfterEra)
+// Solidity: function initialize(address _auth_manager, address _oracle_master, address _deposit_staking, uint256 _min_deposit, uint256 _max_deposit_total, uint256 _stake_unit_cover, uint256 _min_payout, uint256 _max_era_member_payout, uint128 _eras_between_forced_undelegation) returns()
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleTransactorSession) Initialize(_auth_manager common.Address, _oracle_master common.Address, _deposit_staking common.Address, _min_deposit *big.Int, _max_deposit_total *big.Int, _stake_unit_cover *big.Int, _min_payout *big.Int, _max_era_member_payout *big.Int, _eras_between_forced_undelegation *big.Int) (*types.Transaction, error) {
+	return _MoonriverDelegatorCoverOracle.Contract.Initialize(&_MoonriverDelegatorCoverOracle.TransactOpts, _auth_manager, _oracle_master, _deposit_staking, _min_deposit, _max_deposit_total, _stake_unit_cover, _min_payout, _max_era_member_payout, _eras_between_forced_undelegation)
 }
 
-// MemberSetCoverTypes is a paid mutator transaction binding the contract method 0x8f45b2ff.
+// InvoiceMembers is a paid mutator transaction binding the contract method 0xc1a62315.
 //
-// Solidity: function memberSetCoverTypes(bool _noZeroPtsCoverAfterEra, bool _noActiveSetCoverAfterEra) returns()
-func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleSession) MemberSetCoverTypes(_noZeroPtsCoverAfterEra bool, _noActiveSetCoverAfterEra bool) (*types.Transaction, error) {
-	return _MoonriverDelegatorCoverOracle.Contract.MemberSetCoverTypes(&_MoonriverDelegatorCoverOracle.TransactOpts, _noZeroPtsCoverAfterEra, _noActiveSetCoverAfterEra)
+// Solidity: function invoiceMembers() returns()
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleTransactor) InvoiceMembers(opts *bind.TransactOpts) (*types.Transaction, error) {
+	return _MoonriverDelegatorCoverOracle.contract.Transact(opts, "invoiceMembers")
 }
 
-// MemberSetCoverTypes is a paid mutator transaction binding the contract method 0x8f45b2ff.
+// InvoiceMembers is a paid mutator transaction binding the contract method 0xc1a62315.
 //
-// Solidity: function memberSetCoverTypes(bool _noZeroPtsCoverAfterEra, bool _noActiveSetCoverAfterEra) returns()
-func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleTransactorSession) MemberSetCoverTypes(_noZeroPtsCoverAfterEra bool, _noActiveSetCoverAfterEra bool) (*types.Transaction, error) {
-	return _MoonriverDelegatorCoverOracle.Contract.MemberSetCoverTypes(&_MoonriverDelegatorCoverOracle.TransactOpts, _noZeroPtsCoverAfterEra, _noActiveSetCoverAfterEra)
+// Solidity: function invoiceMembers() returns()
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleSession) InvoiceMembers() (*types.Transaction, error) {
+	return _MoonriverDelegatorCoverOracle.Contract.InvoiceMembers(&_MoonriverDelegatorCoverOracle.TransactOpts)
 }
 
-// MemberSetMaxCoveredDelegation is a paid mutator transaction binding the contract method 0xd4b39845.
+// InvoiceMembers is a paid mutator transaction binding the contract method 0xc1a62315.
 //
-// Solidity: function memberSetMaxCoveredDelegation(uint256 _max_covered) returns()
-func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleTransactor) MemberSetMaxCoveredDelegation(opts *bind.TransactOpts, _max_covered *big.Int) (*types.Transaction, error) {
-	return _MoonriverDelegatorCoverOracle.contract.Transact(opts, "memberSetMaxCoveredDelegation", _max_covered)
+// Solidity: function invoiceMembers() returns()
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleTransactorSession) InvoiceMembers() (*types.Transaction, error) {
+	return _MoonriverDelegatorCoverOracle.Contract.InvoiceMembers(&_MoonriverDelegatorCoverOracle.TransactOpts)
 }
 
-// MemberSetMaxCoveredDelegation is a paid mutator transaction binding the contract method 0xd4b39845.
+// MemberSetCoverTypes is a paid mutator transaction binding the contract method 0x94db6a6c.
 //
-// Solidity: function memberSetMaxCoveredDelegation(uint256 _max_covered) returns()
-func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleSession) MemberSetMaxCoveredDelegation(_max_covered *big.Int) (*types.Transaction, error) {
-	return _MoonriverDelegatorCoverOracle.Contract.MemberSetMaxCoveredDelegation(&_MoonriverDelegatorCoverOracle.TransactOpts, _max_covered)
+// Solidity: function memberSetCoverTypes(address _member, bool _noZeroPtsCoverAfterEra, bool _noActiveSetCoverAfterEra) returns()
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleTransactor) MemberSetCoverTypes(opts *bind.TransactOpts, _member common.Address, _noZeroPtsCoverAfterEra bool, _noActiveSetCoverAfterEra bool) (*types.Transaction, error) {
+	return _MoonriverDelegatorCoverOracle.contract.Transact(opts, "memberSetCoverTypes", _member, _noZeroPtsCoverAfterEra, _noActiveSetCoverAfterEra)
 }
 
-// MemberSetMaxCoveredDelegation is a paid mutator transaction binding the contract method 0xd4b39845.
+// MemberSetCoverTypes is a paid mutator transaction binding the contract method 0x94db6a6c.
 //
-// Solidity: function memberSetMaxCoveredDelegation(uint256 _max_covered) returns()
-func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleTransactorSession) MemberSetMaxCoveredDelegation(_max_covered *big.Int) (*types.Transaction, error) {
-	return _MoonriverDelegatorCoverOracle.Contract.MemberSetMaxCoveredDelegation(&_MoonriverDelegatorCoverOracle.TransactOpts, _max_covered)
+// Solidity: function memberSetCoverTypes(address _member, bool _noZeroPtsCoverAfterEra, bool _noActiveSetCoverAfterEra) returns()
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleSession) MemberSetCoverTypes(_member common.Address, _noZeroPtsCoverAfterEra bool, _noActiveSetCoverAfterEra bool) (*types.Transaction, error) {
+	return _MoonriverDelegatorCoverOracle.Contract.MemberSetCoverTypes(&_MoonriverDelegatorCoverOracle.TransactOpts, _member, _noZeroPtsCoverAfterEra, _noActiveSetCoverAfterEra)
 }
 
-// PayOutCover is a paid mutator transaction binding the contract method 0x37963fb1.
+// MemberSetCoverTypes is a paid mutator transaction binding the contract method 0x94db6a6c.
 //
-// Solidity: function payOutCover(address[] delegators, address[] collators) returns()
-func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleTransactor) PayOutCover(opts *bind.TransactOpts, delegators []common.Address, collators []common.Address) (*types.Transaction, error) {
-	return _MoonriverDelegatorCoverOracle.contract.Transact(opts, "payOutCover", delegators, collators)
+// Solidity: function memberSetCoverTypes(address _member, bool _noZeroPtsCoverAfterEra, bool _noActiveSetCoverAfterEra) returns()
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleTransactorSession) MemberSetCoverTypes(_member common.Address, _noZeroPtsCoverAfterEra bool, _noActiveSetCoverAfterEra bool) (*types.Transaction, error) {
+	return _MoonriverDelegatorCoverOracle.Contract.MemberSetCoverTypes(&_MoonriverDelegatorCoverOracle.TransactOpts, _member, _noZeroPtsCoverAfterEra, _noActiveSetCoverAfterEra)
 }
 
-// PayOutCover is a paid mutator transaction binding the contract method 0x37963fb1.
+// MemberSetMaxCoveredDelegation is a paid mutator transaction binding the contract method 0x58b84395.
 //
-// Solidity: function payOutCover(address[] delegators, address[] collators) returns()
-func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleSession) PayOutCover(delegators []common.Address, collators []common.Address) (*types.Transaction, error) {
-	return _MoonriverDelegatorCoverOracle.Contract.PayOutCover(&_MoonriverDelegatorCoverOracle.TransactOpts, delegators, collators)
+// Solidity: function memberSetMaxCoveredDelegation(address _member, uint256 _max_covered) returns()
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleTransactor) MemberSetMaxCoveredDelegation(opts *bind.TransactOpts, _member common.Address, _max_covered *big.Int) (*types.Transaction, error) {
+	return _MoonriverDelegatorCoverOracle.contract.Transact(opts, "memberSetMaxCoveredDelegation", _member, _max_covered)
 }
 
-// PayOutCover is a paid mutator transaction binding the contract method 0x37963fb1.
+// MemberSetMaxCoveredDelegation is a paid mutator transaction binding the contract method 0x58b84395.
 //
-// Solidity: function payOutCover(address[] delegators, address[] collators) returns()
-func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleTransactorSession) PayOutCover(delegators []common.Address, collators []common.Address) (*types.Transaction, error) {
-	return _MoonriverDelegatorCoverOracle.Contract.PayOutCover(&_MoonriverDelegatorCoverOracle.TransactOpts, delegators, collators)
+// Solidity: function memberSetMaxCoveredDelegation(address _member, uint256 _max_covered) returns()
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleSession) MemberSetMaxCoveredDelegation(_member common.Address, _max_covered *big.Int) (*types.Transaction, error) {
+	return _MoonriverDelegatorCoverOracle.Contract.MemberSetMaxCoveredDelegation(&_MoonriverDelegatorCoverOracle.TransactOpts, _member, _max_covered)
+}
+
+// MemberSetMaxCoveredDelegation is a paid mutator transaction binding the contract method 0x58b84395.
+//
+// Solidity: function memberSetMaxCoveredDelegation(address _member, uint256 _max_covered) returns()
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleTransactorSession) MemberSetMaxCoveredDelegation(_member common.Address, _max_covered *big.Int) (*types.Transaction, error) {
+	return _MoonriverDelegatorCoverOracle.Contract.MemberSetMaxCoveredDelegation(&_MoonriverDelegatorCoverOracle.TransactOpts, _member, _max_covered)
+}
+
+// PayOutCover is a paid mutator transaction binding the contract method 0xf6997666.
+//
+// Solidity: function payOutCover(address[] delegators) returns()
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleTransactor) PayOutCover(opts *bind.TransactOpts, delegators []common.Address) (*types.Transaction, error) {
+	return _MoonriverDelegatorCoverOracle.contract.Transact(opts, "payOutCover", delegators)
+}
+
+// PayOutCover is a paid mutator transaction binding the contract method 0xf6997666.
+//
+// Solidity: function payOutCover(address[] delegators) returns()
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleSession) PayOutCover(delegators []common.Address) (*types.Transaction, error) {
+	return _MoonriverDelegatorCoverOracle.Contract.PayOutCover(&_MoonriverDelegatorCoverOracle.TransactOpts, delegators)
+}
+
+// PayOutCover is a paid mutator transaction binding the contract method 0xf6997666.
+//
+// Solidity: function payOutCover(address[] delegators) returns()
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleTransactorSession) PayOutCover(delegators []common.Address) (*types.Transaction, error) {
+	return _MoonriverDelegatorCoverOracle.Contract.PayOutCover(&_MoonriverDelegatorCoverOracle.TransactOpts, delegators)
 }
 
 // PushData is a paid mutator transaction binding the contract method 0x567ea961.
 //
-// Solidity: function pushData(uint128 _eraId, (uint256,uint128,uint128,uint128,bytes32,uint128,uint128,(address,uint128,bool,uint256,uint256,(address,uint256)[])[]) _report, address _oracle) returns()
-func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleTransactor) PushData(opts *bind.TransactOpts, _eraId *big.Int, _report TypesOracleData, _oracle common.Address) (*types.Transaction, error) {
-	return _MoonriverDelegatorCoverOracle.contract.Transact(opts, "pushData", _eraId, _report, _oracle)
+// Solidity: function pushData(uint128 _eraId, (uint256,uint128,uint128,uint128,bytes32,uint128,uint128,(address,uint128,bool,uint256,uint256,(address,uint256)[])[]) _report, address _oracleCollator) returns()
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleTransactor) PushData(opts *bind.TransactOpts, _eraId *big.Int, _report TypesOracleData, _oracleCollator common.Address) (*types.Transaction, error) {
+	return _MoonriverDelegatorCoverOracle.contract.Transact(opts, "pushData", _eraId, _report, _oracleCollator)
 }
 
 // PushData is a paid mutator transaction binding the contract method 0x567ea961.
 //
-// Solidity: function pushData(uint128 _eraId, (uint256,uint128,uint128,uint128,bytes32,uint128,uint128,(address,uint128,bool,uint256,uint256,(address,uint256)[])[]) _report, address _oracle) returns()
-func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleSession) PushData(_eraId *big.Int, _report TypesOracleData, _oracle common.Address) (*types.Transaction, error) {
-	return _MoonriverDelegatorCoverOracle.Contract.PushData(&_MoonriverDelegatorCoverOracle.TransactOpts, _eraId, _report, _oracle)
+// Solidity: function pushData(uint128 _eraId, (uint256,uint128,uint128,uint128,bytes32,uint128,uint128,(address,uint128,bool,uint256,uint256,(address,uint256)[])[]) _report, address _oracleCollator) returns()
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleSession) PushData(_eraId *big.Int, _report TypesOracleData, _oracleCollator common.Address) (*types.Transaction, error) {
+	return _MoonriverDelegatorCoverOracle.Contract.PushData(&_MoonriverDelegatorCoverOracle.TransactOpts, _eraId, _report, _oracleCollator)
 }
 
 // PushData is a paid mutator transaction binding the contract method 0x567ea961.
 //
-// Solidity: function pushData(uint128 _eraId, (uint256,uint128,uint128,uint128,bytes32,uint128,uint128,(address,uint128,bool,uint256,uint256,(address,uint256)[])[]) _report, address _oracle) returns()
-func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleTransactorSession) PushData(_eraId *big.Int, _report TypesOracleData, _oracle common.Address) (*types.Transaction, error) {
-	return _MoonriverDelegatorCoverOracle.Contract.PushData(&_MoonriverDelegatorCoverOracle.TransactOpts, _eraId, _report, _oracle)
+// Solidity: function pushData(uint128 _eraId, (uint256,uint128,uint128,uint128,bytes32,uint128,uint128,(address,uint128,bool,uint256,uint256,(address,uint256)[])[]) _report, address _oracleCollator) returns()
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleTransactorSession) PushData(_eraId *big.Int, _report TypesOracleData, _oracleCollator common.Address) (*types.Transaction, error) {
+	return _MoonriverDelegatorCoverOracle.Contract.PushData(&_MoonriverDelegatorCoverOracle.TransactOpts, _eraId, _report, _oracleCollator)
 }
 
 // ResetNotPaid is a paid mutator transaction binding the contract method 0x1aa1f01f.
@@ -1269,46 +1542,25 @@ func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleTransactorSes
 	return _MoonriverDelegatorCoverOracle.Contract.ResetNotPaid(&_MoonriverDelegatorCoverOracle.TransactOpts)
 }
 
-// ScheduleDecreaseCover is a paid mutator transaction binding the contract method 0xec3fc0f4.
+// ScheduleDecreaseCover is a paid mutator transaction binding the contract method 0xa131791d.
 //
-// Solidity: function scheduleDecreaseCover(uint256 amount) returns()
-func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleTransactor) ScheduleDecreaseCover(opts *bind.TransactOpts, amount *big.Int) (*types.Transaction, error) {
-	return _MoonriverDelegatorCoverOracle.contract.Transact(opts, "scheduleDecreaseCover", amount)
+// Solidity: function scheduleDecreaseCover(address _member, uint256 _amount) returns()
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleTransactor) ScheduleDecreaseCover(opts *bind.TransactOpts, _member common.Address, _amount *big.Int) (*types.Transaction, error) {
+	return _MoonriverDelegatorCoverOracle.contract.Transact(opts, "scheduleDecreaseCover", _member, _amount)
 }
 
-// ScheduleDecreaseCover is a paid mutator transaction binding the contract method 0xec3fc0f4.
+// ScheduleDecreaseCover is a paid mutator transaction binding the contract method 0xa131791d.
 //
-// Solidity: function scheduleDecreaseCover(uint256 amount) returns()
-func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleSession) ScheduleDecreaseCover(amount *big.Int) (*types.Transaction, error) {
-	return _MoonriverDelegatorCoverOracle.Contract.ScheduleDecreaseCover(&_MoonriverDelegatorCoverOracle.TransactOpts, amount)
+// Solidity: function scheduleDecreaseCover(address _member, uint256 _amount) returns()
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleSession) ScheduleDecreaseCover(_member common.Address, _amount *big.Int) (*types.Transaction, error) {
+	return _MoonriverDelegatorCoverOracle.Contract.ScheduleDecreaseCover(&_MoonriverDelegatorCoverOracle.TransactOpts, _member, _amount)
 }
 
-// ScheduleDecreaseCover is a paid mutator transaction binding the contract method 0xec3fc0f4.
+// ScheduleDecreaseCover is a paid mutator transaction binding the contract method 0xa131791d.
 //
-// Solidity: function scheduleDecreaseCover(uint256 amount) returns()
-func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleTransactorSession) ScheduleDecreaseCover(amount *big.Int) (*types.Transaction, error) {
-	return _MoonriverDelegatorCoverOracle.Contract.ScheduleDecreaseCover(&_MoonriverDelegatorCoverOracle.TransactOpts, amount)
-}
-
-// ScheduleDecreaseCoverManager is a paid mutator transaction binding the contract method 0x2c92bc31.
-//
-// Solidity: function scheduleDecreaseCoverManager(uint256 amount, address member) returns()
-func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleTransactor) ScheduleDecreaseCoverManager(opts *bind.TransactOpts, amount *big.Int, member common.Address) (*types.Transaction, error) {
-	return _MoonriverDelegatorCoverOracle.contract.Transact(opts, "scheduleDecreaseCoverManager", amount, member)
-}
-
-// ScheduleDecreaseCoverManager is a paid mutator transaction binding the contract method 0x2c92bc31.
-//
-// Solidity: function scheduleDecreaseCoverManager(uint256 amount, address member) returns()
-func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleSession) ScheduleDecreaseCoverManager(amount *big.Int, member common.Address) (*types.Transaction, error) {
-	return _MoonriverDelegatorCoverOracle.Contract.ScheduleDecreaseCoverManager(&_MoonriverDelegatorCoverOracle.TransactOpts, amount, member)
-}
-
-// ScheduleDecreaseCoverManager is a paid mutator transaction binding the contract method 0x2c92bc31.
-//
-// Solidity: function scheduleDecreaseCoverManager(uint256 amount, address member) returns()
-func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleTransactorSession) ScheduleDecreaseCoverManager(amount *big.Int, member common.Address) (*types.Transaction, error) {
-	return _MoonriverDelegatorCoverOracle.Contract.ScheduleDecreaseCoverManager(&_MoonriverDelegatorCoverOracle.TransactOpts, amount, member)
+// Solidity: function scheduleDecreaseCover(address _member, uint256 _amount) returns()
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleTransactorSession) ScheduleDecreaseCover(_member common.Address, _amount *big.Int) (*types.Transaction, error) {
+	return _MoonriverDelegatorCoverOracle.Contract.ScheduleDecreaseCover(&_MoonriverDelegatorCoverOracle.TransactOpts, _member, _amount)
 }
 
 // ScheduleDelegatorBondLess is a paid mutator transaction binding the contract method 0x00043acf.
@@ -1353,6 +1605,48 @@ func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleTransactorSes
 	return _MoonriverDelegatorCoverOracle.Contract.ScheduleDelegatorRevoke(&_MoonriverDelegatorCoverOracle.TransactOpts, candidate)
 }
 
+// SetContractV2 is a paid mutator transaction binding the contract method 0x66c44986.
+//
+// Solidity: function setContractV2(address _contractV2) returns()
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleTransactor) SetContractV2(opts *bind.TransactOpts, _contractV2 common.Address) (*types.Transaction, error) {
+	return _MoonriverDelegatorCoverOracle.contract.Transact(opts, "setContractV2", _contractV2)
+}
+
+// SetContractV2 is a paid mutator transaction binding the contract method 0x66c44986.
+//
+// Solidity: function setContractV2(address _contractV2) returns()
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleSession) SetContractV2(_contractV2 common.Address) (*types.Transaction, error) {
+	return _MoonriverDelegatorCoverOracle.Contract.SetContractV2(&_MoonriverDelegatorCoverOracle.TransactOpts, _contractV2)
+}
+
+// SetContractV2 is a paid mutator transaction binding the contract method 0x66c44986.
+//
+// Solidity: function setContractV2(address _contractV2) returns()
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleTransactorSession) SetContractV2(_contractV2 common.Address) (*types.Transaction, error) {
+	return _MoonriverDelegatorCoverOracle.Contract.SetContractV2(&_MoonriverDelegatorCoverOracle.TransactOpts, _contractV2)
+}
+
+// SetDefaultCount is a paid mutator transaction binding the contract method 0x53f832bc.
+//
+// Solidity: function setDefaultCount(uint128 _defaultCount, address _member) returns()
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleTransactor) SetDefaultCount(opts *bind.TransactOpts, _defaultCount *big.Int, _member common.Address) (*types.Transaction, error) {
+	return _MoonriverDelegatorCoverOracle.contract.Transact(opts, "setDefaultCount", _defaultCount, _member)
+}
+
+// SetDefaultCount is a paid mutator transaction binding the contract method 0x53f832bc.
+//
+// Solidity: function setDefaultCount(uint128 _defaultCount, address _member) returns()
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleSession) SetDefaultCount(_defaultCount *big.Int, _member common.Address) (*types.Transaction, error) {
+	return _MoonriverDelegatorCoverOracle.Contract.SetDefaultCount(&_MoonriverDelegatorCoverOracle.TransactOpts, _defaultCount, _member)
+}
+
+// SetDefaultCount is a paid mutator transaction binding the contract method 0x53f832bc.
+//
+// Solidity: function setDefaultCount(uint128 _defaultCount, address _member) returns()
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleTransactorSession) SetDefaultCount(_defaultCount *big.Int, _member common.Address) (*types.Transaction, error) {
+	return _MoonriverDelegatorCoverOracle.Contract.SetDefaultCount(&_MoonriverDelegatorCoverOracle.TransactOpts, _defaultCount, _member)
+}
+
 // SetErasBetweenForcedUndelegations is a paid mutator transaction binding the contract method 0x0a74522b.
 //
 // Solidity: function setErasBetweenForcedUndelegations(uint128 _eras_between_forced_undelegation) returns()
@@ -1374,25 +1668,25 @@ func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleTransactorSes
 	return _MoonriverDelegatorCoverOracle.Contract.SetErasBetweenForcedUndelegations(&_MoonriverDelegatorCoverOracle.TransactOpts, _eras_between_forced_undelegation)
 }
 
-// SetExecuteDelay is a paid mutator transaction binding the contract method 0x4ff7cde7.
+// SetErasCovered is a paid mutator transaction binding the contract method 0xf6cc210d.
 //
-// Solidity: function setExecuteDelay(uint128 _execute_delay, address member) returns()
-func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleTransactor) SetExecuteDelay(opts *bind.TransactOpts, _execute_delay *big.Int, member common.Address) (*types.Transaction, error) {
-	return _MoonriverDelegatorCoverOracle.contract.Transact(opts, "setExecuteDelay", _execute_delay, member)
+// Solidity: function setErasCovered(uint128 _erasCovered, address member) returns()
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleTransactor) SetErasCovered(opts *bind.TransactOpts, _erasCovered *big.Int, member common.Address) (*types.Transaction, error) {
+	return _MoonriverDelegatorCoverOracle.contract.Transact(opts, "setErasCovered", _erasCovered, member)
 }
 
-// SetExecuteDelay is a paid mutator transaction binding the contract method 0x4ff7cde7.
+// SetErasCovered is a paid mutator transaction binding the contract method 0xf6cc210d.
 //
-// Solidity: function setExecuteDelay(uint128 _execute_delay, address member) returns()
-func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleSession) SetExecuteDelay(_execute_delay *big.Int, member common.Address) (*types.Transaction, error) {
-	return _MoonriverDelegatorCoverOracle.Contract.SetExecuteDelay(&_MoonriverDelegatorCoverOracle.TransactOpts, _execute_delay, member)
+// Solidity: function setErasCovered(uint128 _erasCovered, address member) returns()
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleSession) SetErasCovered(_erasCovered *big.Int, member common.Address) (*types.Transaction, error) {
+	return _MoonriverDelegatorCoverOracle.Contract.SetErasCovered(&_MoonriverDelegatorCoverOracle.TransactOpts, _erasCovered, member)
 }
 
-// SetExecuteDelay is a paid mutator transaction binding the contract method 0x4ff7cde7.
+// SetErasCovered is a paid mutator transaction binding the contract method 0xf6cc210d.
 //
-// Solidity: function setExecuteDelay(uint128 _execute_delay, address member) returns()
-func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleTransactorSession) SetExecuteDelay(_execute_delay *big.Int, member common.Address) (*types.Transaction, error) {
-	return _MoonriverDelegatorCoverOracle.Contract.SetExecuteDelay(&_MoonriverDelegatorCoverOracle.TransactOpts, _execute_delay, member)
+// Solidity: function setErasCovered(uint128 _erasCovered, address member) returns()
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleTransactorSession) SetErasCovered(_erasCovered *big.Int, member common.Address) (*types.Transaction, error) {
+	return _MoonriverDelegatorCoverOracle.Contract.SetErasCovered(&_MoonriverDelegatorCoverOracle.TransactOpts, _erasCovered, member)
 }
 
 // SetMaxDepositTotal is a paid mutator transaction binding the contract method 0x70062c7f.
@@ -1414,6 +1708,48 @@ func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleSession) SetM
 // Solidity: function setMaxDepositTotal(uint256 _max_deposit_total) returns()
 func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleTransactorSession) SetMaxDepositTotal(_max_deposit_total *big.Int) (*types.Transaction, error) {
 	return _MoonriverDelegatorCoverOracle.Contract.SetMaxDepositTotal(&_MoonriverDelegatorCoverOracle.TransactOpts, _max_deposit_total)
+}
+
+// SetMaxEraMemberPayout is a paid mutator transaction binding the contract method 0x46baab6d.
+//
+// Solidity: function setMaxEraMemberPayout(uint256 _max_era_member_payout) returns()
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleTransactor) SetMaxEraMemberPayout(opts *bind.TransactOpts, _max_era_member_payout *big.Int) (*types.Transaction, error) {
+	return _MoonriverDelegatorCoverOracle.contract.Transact(opts, "setMaxEraMemberPayout", _max_era_member_payout)
+}
+
+// SetMaxEraMemberPayout is a paid mutator transaction binding the contract method 0x46baab6d.
+//
+// Solidity: function setMaxEraMemberPayout(uint256 _max_era_member_payout) returns()
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleSession) SetMaxEraMemberPayout(_max_era_member_payout *big.Int) (*types.Transaction, error) {
+	return _MoonriverDelegatorCoverOracle.Contract.SetMaxEraMemberPayout(&_MoonriverDelegatorCoverOracle.TransactOpts, _max_era_member_payout)
+}
+
+// SetMaxEraMemberPayout is a paid mutator transaction binding the contract method 0x46baab6d.
+//
+// Solidity: function setMaxEraMemberPayout(uint256 _max_era_member_payout) returns()
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleTransactorSession) SetMaxEraMemberPayout(_max_era_member_payout *big.Int) (*types.Transaction, error) {
+	return _MoonriverDelegatorCoverOracle.Contract.SetMaxEraMemberPayout(&_MoonriverDelegatorCoverOracle.TransactOpts, _max_era_member_payout)
+}
+
+// SetMemberFee is a paid mutator transaction binding the contract method 0x5f6fe4fd.
+//
+// Solidity: function setMemberFee(uint256 _memberFee) returns()
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleTransactor) SetMemberFee(opts *bind.TransactOpts, _memberFee *big.Int) (*types.Transaction, error) {
+	return _MoonriverDelegatorCoverOracle.contract.Transact(opts, "setMemberFee", _memberFee)
+}
+
+// SetMemberFee is a paid mutator transaction binding the contract method 0x5f6fe4fd.
+//
+// Solidity: function setMemberFee(uint256 _memberFee) returns()
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleSession) SetMemberFee(_memberFee *big.Int) (*types.Transaction, error) {
+	return _MoonriverDelegatorCoverOracle.Contract.SetMemberFee(&_MoonriverDelegatorCoverOracle.TransactOpts, _memberFee)
+}
+
+// SetMemberFee is a paid mutator transaction binding the contract method 0x5f6fe4fd.
+//
+// Solidity: function setMemberFee(uint256 _memberFee) returns()
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleTransactorSession) SetMemberFee(_memberFee *big.Int) (*types.Transaction, error) {
+	return _MoonriverDelegatorCoverOracle.Contract.SetMemberFee(&_MoonriverDelegatorCoverOracle.TransactOpts, _memberFee)
 }
 
 // SetMinDeposit is a paid mutator transaction binding the contract method 0x8fcc9cfb.
@@ -1458,6 +1794,27 @@ func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleTransactorSes
 	return _MoonriverDelegatorCoverOracle.Contract.SetMinPayout(&_MoonriverDelegatorCoverOracle.TransactOpts, _min_payout)
 }
 
+// SetNoManualWhitelistingRequired is a paid mutator transaction binding the contract method 0xcbfb3015.
+//
+// Solidity: function setNoManualWhitelistingRequired(bool _noManualWhitelistingRequired) returns()
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleTransactor) SetNoManualWhitelistingRequired(opts *bind.TransactOpts, _noManualWhitelistingRequired bool) (*types.Transaction, error) {
+	return _MoonriverDelegatorCoverOracle.contract.Transact(opts, "setNoManualWhitelistingRequired", _noManualWhitelistingRequired)
+}
+
+// SetNoManualWhitelistingRequired is a paid mutator transaction binding the contract method 0xcbfb3015.
+//
+// Solidity: function setNoManualWhitelistingRequired(bool _noManualWhitelistingRequired) returns()
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleSession) SetNoManualWhitelistingRequired(_noManualWhitelistingRequired bool) (*types.Transaction, error) {
+	return _MoonriverDelegatorCoverOracle.Contract.SetNoManualWhitelistingRequired(&_MoonriverDelegatorCoverOracle.TransactOpts, _noManualWhitelistingRequired)
+}
+
+// SetNoManualWhitelistingRequired is a paid mutator transaction binding the contract method 0xcbfb3015.
+//
+// Solidity: function setNoManualWhitelistingRequired(bool _noManualWhitelistingRequired) returns()
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleTransactorSession) SetNoManualWhitelistingRequired(_noManualWhitelistingRequired bool) (*types.Transaction, error) {
+	return _MoonriverDelegatorCoverOracle.Contract.SetNoManualWhitelistingRequired(&_MoonriverDelegatorCoverOracle.TransactOpts, _noManualWhitelistingRequired)
+}
+
 // SetRefundOracleGasPrice is a paid mutator transaction binding the contract method 0x8adb0ee9.
 //
 // Solidity: function setRefundOracleGasPrice(uint256 _refundOracleGasPrice) returns()
@@ -1500,25 +1857,67 @@ func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleTransactorSes
 	return _MoonriverDelegatorCoverOracle.Contract.SetStakeUnitCover(&_MoonriverDelegatorCoverOracle.TransactOpts, _stake_unit_cover)
 }
 
-// Whitelist is a paid mutator transaction binding the contract method 0xf59c3708.
+// TransferMemberAuth is a paid mutator transaction binding the contract method 0xbc8519bf.
 //
-// Solidity: function whitelist(address newMember, bool status) returns()
-func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleTransactor) Whitelist(opts *bind.TransactOpts, newMember common.Address, status bool) (*types.Transaction, error) {
-	return _MoonriverDelegatorCoverOracle.contract.Transact(opts, "whitelist", newMember, status)
+// Solidity: function transferMemberAuth(address _member, address proxyAccount) returns()
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleTransactor) TransferMemberAuth(opts *bind.TransactOpts, _member common.Address, proxyAccount common.Address) (*types.Transaction, error) {
+	return _MoonriverDelegatorCoverOracle.contract.Transact(opts, "transferMemberAuth", _member, proxyAccount)
 }
 
-// Whitelist is a paid mutator transaction binding the contract method 0xf59c3708.
+// TransferMemberAuth is a paid mutator transaction binding the contract method 0xbc8519bf.
 //
-// Solidity: function whitelist(address newMember, bool status) returns()
-func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleSession) Whitelist(newMember common.Address, status bool) (*types.Transaction, error) {
-	return _MoonriverDelegatorCoverOracle.Contract.Whitelist(&_MoonriverDelegatorCoverOracle.TransactOpts, newMember, status)
+// Solidity: function transferMemberAuth(address _member, address proxyAccount) returns()
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleSession) TransferMemberAuth(_member common.Address, proxyAccount common.Address) (*types.Transaction, error) {
+	return _MoonriverDelegatorCoverOracle.Contract.TransferMemberAuth(&_MoonriverDelegatorCoverOracle.TransactOpts, _member, proxyAccount)
 }
 
-// Whitelist is a paid mutator transaction binding the contract method 0xf59c3708.
+// TransferMemberAuth is a paid mutator transaction binding the contract method 0xbc8519bf.
 //
-// Solidity: function whitelist(address newMember, bool status) returns()
-func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleTransactorSession) Whitelist(newMember common.Address, status bool) (*types.Transaction, error) {
-	return _MoonriverDelegatorCoverOracle.Contract.Whitelist(&_MoonriverDelegatorCoverOracle.TransactOpts, newMember, status)
+// Solidity: function transferMemberAuth(address _member, address proxyAccount) returns()
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleTransactorSession) TransferMemberAuth(_member common.Address, proxyAccount common.Address) (*types.Transaction, error) {
+	return _MoonriverDelegatorCoverOracle.Contract.TransferMemberAuth(&_MoonriverDelegatorCoverOracle.TransactOpts, _member, proxyAccount)
+}
+
+// UpgradeToV2 is a paid mutator transaction binding the contract method 0xffe8ea96.
+//
+// Solidity: function upgradeToV2(address _member) returns()
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleTransactor) UpgradeToV2(opts *bind.TransactOpts, _member common.Address) (*types.Transaction, error) {
+	return _MoonriverDelegatorCoverOracle.contract.Transact(opts, "upgradeToV2", _member)
+}
+
+// UpgradeToV2 is a paid mutator transaction binding the contract method 0xffe8ea96.
+//
+// Solidity: function upgradeToV2(address _member) returns()
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleSession) UpgradeToV2(_member common.Address) (*types.Transaction, error) {
+	return _MoonriverDelegatorCoverOracle.Contract.UpgradeToV2(&_MoonriverDelegatorCoverOracle.TransactOpts, _member)
+}
+
+// UpgradeToV2 is a paid mutator transaction binding the contract method 0xffe8ea96.
+//
+// Solidity: function upgradeToV2(address _member) returns()
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleTransactorSession) UpgradeToV2(_member common.Address) (*types.Transaction, error) {
+	return _MoonriverDelegatorCoverOracle.Contract.UpgradeToV2(&_MoonriverDelegatorCoverOracle.TransactOpts, _member)
+}
+
+// Whitelist is a paid mutator transaction binding the contract method 0xb092145e.
+//
+// Solidity: function whitelist(address _member, address proxyAccount) returns()
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleTransactor) Whitelist(opts *bind.TransactOpts, _member common.Address, proxyAccount common.Address) (*types.Transaction, error) {
+	return _MoonriverDelegatorCoverOracle.contract.Transact(opts, "whitelist", _member, proxyAccount)
+}
+
+// Whitelist is a paid mutator transaction binding the contract method 0xb092145e.
+//
+// Solidity: function whitelist(address _member, address proxyAccount) returns()
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleSession) Whitelist(_member common.Address, proxyAccount common.Address) (*types.Transaction, error) {
+	return _MoonriverDelegatorCoverOracle.Contract.Whitelist(&_MoonriverDelegatorCoverOracle.TransactOpts, _member, proxyAccount)
+}
+
+// Whitelist is a paid mutator transaction binding the contract method 0xb092145e.
+//
+// Solidity: function whitelist(address _member, address proxyAccount) returns()
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleTransactorSession) Whitelist(_member common.Address, proxyAccount common.Address) (*types.Transaction, error) {
+	return _MoonriverDelegatorCoverOracle.Contract.Whitelist(&_MoonriverDelegatorCoverOracle.TransactOpts, _member, proxyAccount)
 }
 
 // WithdrawRewards is a paid mutator transaction binding the contract method 0xf3301f6b.
@@ -2037,14 +2436,13 @@ func (it *MoonriverDelegatorCoverOracleDelegatorNotPaidEventIterator) Close() er
 // MoonriverDelegatorCoverOracleDelegatorNotPaidEvent represents a DelegatorNotPaidEvent event raised by the MoonriverDelegatorCoverOracle contract.
 type MoonriverDelegatorCoverOracleDelegatorNotPaidEvent struct {
 	Delegator common.Address
-	Collator  common.Address
 	Amount    *big.Int
 	Raw       types.Log // Blockchain specific contextual infos
 }
 
-// FilterDelegatorNotPaidEvent is a free log retrieval operation binding the contract event 0x671a7c8283e391d50fc75124737f4a55976686284f13bceb231061ff2ba12ba0.
+// FilterDelegatorNotPaidEvent is a free log retrieval operation binding the contract event 0x672619ed690cc62ad4832c1bdca2c8f5e9927c7d419c2383ce6cea71edeac8bb.
 //
-// Solidity: event DelegatorNotPaidEvent(address delegator, address collator, uint256 amount)
+// Solidity: event DelegatorNotPaidEvent(address delegator, uint256 amount)
 func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleFilterer) FilterDelegatorNotPaidEvent(opts *bind.FilterOpts) (*MoonriverDelegatorCoverOracleDelegatorNotPaidEventIterator, error) {
 
 	logs, sub, err := _MoonriverDelegatorCoverOracle.contract.FilterLogs(opts, "DelegatorNotPaidEvent")
@@ -2054,9 +2452,9 @@ func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleFilterer) Fil
 	return &MoonriverDelegatorCoverOracleDelegatorNotPaidEventIterator{contract: _MoonriverDelegatorCoverOracle.contract, event: "DelegatorNotPaidEvent", logs: logs, sub: sub}, nil
 }
 
-// WatchDelegatorNotPaidEvent is a free log subscription operation binding the contract event 0x671a7c8283e391d50fc75124737f4a55976686284f13bceb231061ff2ba12ba0.
+// WatchDelegatorNotPaidEvent is a free log subscription operation binding the contract event 0x672619ed690cc62ad4832c1bdca2c8f5e9927c7d419c2383ce6cea71edeac8bb.
 //
-// Solidity: event DelegatorNotPaidEvent(address delegator, address collator, uint256 amount)
+// Solidity: event DelegatorNotPaidEvent(address delegator, uint256 amount)
 func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleFilterer) WatchDelegatorNotPaidEvent(opts *bind.WatchOpts, sink chan<- *MoonriverDelegatorCoverOracleDelegatorNotPaidEvent) (event.Subscription, error) {
 
 	logs, sub, err := _MoonriverDelegatorCoverOracle.contract.WatchLogs(opts, "DelegatorNotPaidEvent")
@@ -2091,12 +2489,146 @@ func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleFilterer) Wat
 	}), nil
 }
 
-// ParseDelegatorNotPaidEvent is a log parse operation binding the contract event 0x671a7c8283e391d50fc75124737f4a55976686284f13bceb231061ff2ba12ba0.
+// ParseDelegatorNotPaidEvent is a log parse operation binding the contract event 0x672619ed690cc62ad4832c1bdca2c8f5e9927c7d419c2383ce6cea71edeac8bb.
 //
-// Solidity: event DelegatorNotPaidEvent(address delegator, address collator, uint256 amount)
+// Solidity: event DelegatorNotPaidEvent(address delegator, uint256 amount)
 func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleFilterer) ParseDelegatorNotPaidEvent(log types.Log) (*MoonriverDelegatorCoverOracleDelegatorNotPaidEvent, error) {
 	event := new(MoonriverDelegatorCoverOracleDelegatorNotPaidEvent)
 	if err := _MoonriverDelegatorCoverOracle.contract.UnpackLog(event, "DelegatorNotPaidEvent", log); err != nil {
+		return nil, err
+	}
+	event.Raw = log
+	return event, nil
+}
+
+// MoonriverDelegatorCoverOracleDelegatorPayoutLessThanMinEventIterator is returned from FilterDelegatorPayoutLessThanMinEvent and is used to iterate over the raw logs and unpacked data for DelegatorPayoutLessThanMinEvent events raised by the MoonriverDelegatorCoverOracle contract.
+type MoonriverDelegatorCoverOracleDelegatorPayoutLessThanMinEventIterator struct {
+	Event *MoonriverDelegatorCoverOracleDelegatorPayoutLessThanMinEvent // Event containing the contract specifics and raw log
+
+	contract *bind.BoundContract // Generic contract to use for unpacking event data
+	event    string              // Event name to use for unpacking event data
+
+	logs chan types.Log        // Log channel receiving the found contract events
+	sub  ethereum.Subscription // Subscription for errors, completion and termination
+	done bool                  // Whether the subscription completed delivering logs
+	fail error                 // Occurred error to stop iteration
+}
+
+// Next advances the iterator to the subsequent event, returning whether there
+// are any more events found. In case of a retrieval or parsing error, false is
+// returned and Error() can be queried for the exact failure.
+func (it *MoonriverDelegatorCoverOracleDelegatorPayoutLessThanMinEventIterator) Next() bool {
+	// If the iterator failed, stop iterating
+	if it.fail != nil {
+		return false
+	}
+	// If the iterator completed, deliver directly whatever's available
+	if it.done {
+		select {
+		case log := <-it.logs:
+			it.Event = new(MoonriverDelegatorCoverOracleDelegatorPayoutLessThanMinEvent)
+			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
+				it.fail = err
+				return false
+			}
+			it.Event.Raw = log
+			return true
+
+		default:
+			return false
+		}
+	}
+	// Iterator still in progress, wait for either a data or an error event
+	select {
+	case log := <-it.logs:
+		it.Event = new(MoonriverDelegatorCoverOracleDelegatorPayoutLessThanMinEvent)
+		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
+			it.fail = err
+			return false
+		}
+		it.Event.Raw = log
+		return true
+
+	case err := <-it.sub.Err():
+		it.done = true
+		it.fail = err
+		return it.Next()
+	}
+}
+
+// Error returns any retrieval or parsing error occurred during filtering.
+func (it *MoonriverDelegatorCoverOracleDelegatorPayoutLessThanMinEventIterator) Error() error {
+	return it.fail
+}
+
+// Close terminates the iteration process, releasing any pending underlying
+// resources.
+func (it *MoonriverDelegatorCoverOracleDelegatorPayoutLessThanMinEventIterator) Close() error {
+	it.sub.Unsubscribe()
+	return nil
+}
+
+// MoonriverDelegatorCoverOracleDelegatorPayoutLessThanMinEvent represents a DelegatorPayoutLessThanMinEvent event raised by the MoonriverDelegatorCoverOracle contract.
+type MoonriverDelegatorCoverOracleDelegatorPayoutLessThanMinEvent struct {
+	Delegator common.Address
+	Raw       types.Log // Blockchain specific contextual infos
+}
+
+// FilterDelegatorPayoutLessThanMinEvent is a free log retrieval operation binding the contract event 0xeb44d2cde8a0e5f492334395012c62f89aaa4098db03cd671073b2bfff4b0df2.
+//
+// Solidity: event DelegatorPayoutLessThanMinEvent(address delegator)
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleFilterer) FilterDelegatorPayoutLessThanMinEvent(opts *bind.FilterOpts) (*MoonriverDelegatorCoverOracleDelegatorPayoutLessThanMinEventIterator, error) {
+
+	logs, sub, err := _MoonriverDelegatorCoverOracle.contract.FilterLogs(opts, "DelegatorPayoutLessThanMinEvent")
+	if err != nil {
+		return nil, err
+	}
+	return &MoonriverDelegatorCoverOracleDelegatorPayoutLessThanMinEventIterator{contract: _MoonriverDelegatorCoverOracle.contract, event: "DelegatorPayoutLessThanMinEvent", logs: logs, sub: sub}, nil
+}
+
+// WatchDelegatorPayoutLessThanMinEvent is a free log subscription operation binding the contract event 0xeb44d2cde8a0e5f492334395012c62f89aaa4098db03cd671073b2bfff4b0df2.
+//
+// Solidity: event DelegatorPayoutLessThanMinEvent(address delegator)
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleFilterer) WatchDelegatorPayoutLessThanMinEvent(opts *bind.WatchOpts, sink chan<- *MoonriverDelegatorCoverOracleDelegatorPayoutLessThanMinEvent) (event.Subscription, error) {
+
+	logs, sub, err := _MoonriverDelegatorCoverOracle.contract.WatchLogs(opts, "DelegatorPayoutLessThanMinEvent")
+	if err != nil {
+		return nil, err
+	}
+	return event.NewSubscription(func(quit <-chan struct{}) error {
+		defer sub.Unsubscribe()
+		for {
+			select {
+			case log := <-logs:
+				// New log arrived, parse the event and forward to the user
+				event := new(MoonriverDelegatorCoverOracleDelegatorPayoutLessThanMinEvent)
+				if err := _MoonriverDelegatorCoverOracle.contract.UnpackLog(event, "DelegatorPayoutLessThanMinEvent", log); err != nil {
+					return err
+				}
+				event.Raw = log
+
+				select {
+				case sink <- event:
+				case err := <-sub.Err():
+					return err
+				case <-quit:
+					return nil
+				}
+			case err := <-sub.Err():
+				return err
+			case <-quit:
+				return nil
+			}
+		}
+	}), nil
+}
+
+// ParseDelegatorPayoutLessThanMinEvent is a log parse operation binding the contract event 0xeb44d2cde8a0e5f492334395012c62f89aaa4098db03cd671073b2bfff4b0df2.
+//
+// Solidity: event DelegatorPayoutLessThanMinEvent(address delegator)
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleFilterer) ParseDelegatorPayoutLessThanMinEvent(log types.Log) (*MoonriverDelegatorCoverOracleDelegatorPayoutLessThanMinEvent, error) {
+	event := new(MoonriverDelegatorCoverOracleDelegatorPayoutLessThanMinEvent)
+	if err := _MoonriverDelegatorCoverOracle.contract.UnpackLog(event, "DelegatorPayoutLessThanMinEvent", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
@@ -2373,6 +2905,142 @@ func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleFilterer) Par
 	return event, nil
 }
 
+// MoonriverDelegatorCoverOracleMemberInvoicedEventIterator is returned from FilterMemberInvoicedEvent and is used to iterate over the raw logs and unpacked data for MemberInvoicedEvent events raised by the MoonriverDelegatorCoverOracle contract.
+type MoonriverDelegatorCoverOracleMemberInvoicedEventIterator struct {
+	Event *MoonriverDelegatorCoverOracleMemberInvoicedEvent // Event containing the contract specifics and raw log
+
+	contract *bind.BoundContract // Generic contract to use for unpacking event data
+	event    string              // Event name to use for unpacking event data
+
+	logs chan types.Log        // Log channel receiving the found contract events
+	sub  ethereum.Subscription // Subscription for errors, completion and termination
+	done bool                  // Whether the subscription completed delivering logs
+	fail error                 // Occurred error to stop iteration
+}
+
+// Next advances the iterator to the subsequent event, returning whether there
+// are any more events found. In case of a retrieval or parsing error, false is
+// returned and Error() can be queried for the exact failure.
+func (it *MoonriverDelegatorCoverOracleMemberInvoicedEventIterator) Next() bool {
+	// If the iterator failed, stop iterating
+	if it.fail != nil {
+		return false
+	}
+	// If the iterator completed, deliver directly whatever's available
+	if it.done {
+		select {
+		case log := <-it.logs:
+			it.Event = new(MoonriverDelegatorCoverOracleMemberInvoicedEvent)
+			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
+				it.fail = err
+				return false
+			}
+			it.Event.Raw = log
+			return true
+
+		default:
+			return false
+		}
+	}
+	// Iterator still in progress, wait for either a data or an error event
+	select {
+	case log := <-it.logs:
+		it.Event = new(MoonriverDelegatorCoverOracleMemberInvoicedEvent)
+		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
+			it.fail = err
+			return false
+		}
+		it.Event.Raw = log
+		return true
+
+	case err := <-it.sub.Err():
+		it.done = true
+		it.fail = err
+		return it.Next()
+	}
+}
+
+// Error returns any retrieval or parsing error occurred during filtering.
+func (it *MoonriverDelegatorCoverOracleMemberInvoicedEventIterator) Error() error {
+	return it.fail
+}
+
+// Close terminates the iteration process, releasing any pending underlying
+// resources.
+func (it *MoonriverDelegatorCoverOracleMemberInvoicedEventIterator) Close() error {
+	it.sub.Unsubscribe()
+	return nil
+}
+
+// MoonriverDelegatorCoverOracleMemberInvoicedEvent represents a MemberInvoicedEvent event raised by the MoonriverDelegatorCoverOracle contract.
+type MoonriverDelegatorCoverOracleMemberInvoicedEvent struct {
+	Member common.Address
+	Amount *big.Int
+	EraId  *big.Int
+	Raw    types.Log // Blockchain specific contextual infos
+}
+
+// FilterMemberInvoicedEvent is a free log retrieval operation binding the contract event 0x76e080a95b1e02d44cc11c2f38cf031d5d6a5c764a760db58a9cfdbb11e05c41.
+//
+// Solidity: event MemberInvoicedEvent(address member, uint256 amount, uint128 eraId)
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleFilterer) FilterMemberInvoicedEvent(opts *bind.FilterOpts) (*MoonriverDelegatorCoverOracleMemberInvoicedEventIterator, error) {
+
+	logs, sub, err := _MoonriverDelegatorCoverOracle.contract.FilterLogs(opts, "MemberInvoicedEvent")
+	if err != nil {
+		return nil, err
+	}
+	return &MoonriverDelegatorCoverOracleMemberInvoicedEventIterator{contract: _MoonriverDelegatorCoverOracle.contract, event: "MemberInvoicedEvent", logs: logs, sub: sub}, nil
+}
+
+// WatchMemberInvoicedEvent is a free log subscription operation binding the contract event 0x76e080a95b1e02d44cc11c2f38cf031d5d6a5c764a760db58a9cfdbb11e05c41.
+//
+// Solidity: event MemberInvoicedEvent(address member, uint256 amount, uint128 eraId)
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleFilterer) WatchMemberInvoicedEvent(opts *bind.WatchOpts, sink chan<- *MoonriverDelegatorCoverOracleMemberInvoicedEvent) (event.Subscription, error) {
+
+	logs, sub, err := _MoonriverDelegatorCoverOracle.contract.WatchLogs(opts, "MemberInvoicedEvent")
+	if err != nil {
+		return nil, err
+	}
+	return event.NewSubscription(func(quit <-chan struct{}) error {
+		defer sub.Unsubscribe()
+		for {
+			select {
+			case log := <-logs:
+				// New log arrived, parse the event and forward to the user
+				event := new(MoonriverDelegatorCoverOracleMemberInvoicedEvent)
+				if err := _MoonriverDelegatorCoverOracle.contract.UnpackLog(event, "MemberInvoicedEvent", log); err != nil {
+					return err
+				}
+				event.Raw = log
+
+				select {
+				case sink <- event:
+				case err := <-sub.Err():
+					return err
+				case <-quit:
+					return nil
+				}
+			case err := <-sub.Err():
+				return err
+			case <-quit:
+				return nil
+			}
+		}
+	}), nil
+}
+
+// ParseMemberInvoicedEvent is a log parse operation binding the contract event 0x76e080a95b1e02d44cc11c2f38cf031d5d6a5c764a760db58a9cfdbb11e05c41.
+//
+// Solidity: event MemberInvoicedEvent(address member, uint256 amount, uint128 eraId)
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleFilterer) ParseMemberInvoicedEvent(log types.Log) (*MoonriverDelegatorCoverOracleMemberInvoicedEvent, error) {
+	event := new(MoonriverDelegatorCoverOracleMemberInvoicedEvent)
+	if err := _MoonriverDelegatorCoverOracle.contract.UnpackLog(event, "MemberInvoicedEvent", log); err != nil {
+		return nil, err
+	}
+	event.Raw = log
+	return event, nil
+}
+
 // MoonriverDelegatorCoverOracleMemberNotActiveEventIterator is returned from FilterMemberNotActiveEvent and is used to iterate over the raw logs and unpacked data for MemberNotActiveEvent events raised by the MoonriverDelegatorCoverOracle contract.
 type MoonriverDelegatorCoverOracleMemberNotActiveEventIterator struct {
 	Event *MoonriverDelegatorCoverOracleMemberNotActiveEvent // Event containing the contract specifics and raw log
@@ -2643,6 +3311,413 @@ func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleFilterer) Par
 	return event, nil
 }
 
+// MoonriverDelegatorCoverOracleMemberSetCoverTypesEventIterator is returned from FilterMemberSetCoverTypesEvent and is used to iterate over the raw logs and unpacked data for MemberSetCoverTypesEvent events raised by the MoonriverDelegatorCoverOracle contract.
+type MoonriverDelegatorCoverOracleMemberSetCoverTypesEventIterator struct {
+	Event *MoonriverDelegatorCoverOracleMemberSetCoverTypesEvent // Event containing the contract specifics and raw log
+
+	contract *bind.BoundContract // Generic contract to use for unpacking event data
+	event    string              // Event name to use for unpacking event data
+
+	logs chan types.Log        // Log channel receiving the found contract events
+	sub  ethereum.Subscription // Subscription for errors, completion and termination
+	done bool                  // Whether the subscription completed delivering logs
+	fail error                 // Occurred error to stop iteration
+}
+
+// Next advances the iterator to the subsequent event, returning whether there
+// are any more events found. In case of a retrieval or parsing error, false is
+// returned and Error() can be queried for the exact failure.
+func (it *MoonriverDelegatorCoverOracleMemberSetCoverTypesEventIterator) Next() bool {
+	// If the iterator failed, stop iterating
+	if it.fail != nil {
+		return false
+	}
+	// If the iterator completed, deliver directly whatever's available
+	if it.done {
+		select {
+		case log := <-it.logs:
+			it.Event = new(MoonriverDelegatorCoverOracleMemberSetCoverTypesEvent)
+			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
+				it.fail = err
+				return false
+			}
+			it.Event.Raw = log
+			return true
+
+		default:
+			return false
+		}
+	}
+	// Iterator still in progress, wait for either a data or an error event
+	select {
+	case log := <-it.logs:
+		it.Event = new(MoonriverDelegatorCoverOracleMemberSetCoverTypesEvent)
+		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
+			it.fail = err
+			return false
+		}
+		it.Event.Raw = log
+		return true
+
+	case err := <-it.sub.Err():
+		it.done = true
+		it.fail = err
+		return it.Next()
+	}
+}
+
+// Error returns any retrieval or parsing error occurred during filtering.
+func (it *MoonriverDelegatorCoverOracleMemberSetCoverTypesEventIterator) Error() error {
+	return it.fail
+}
+
+// Close terminates the iteration process, releasing any pending underlying
+// resources.
+func (it *MoonriverDelegatorCoverOracleMemberSetCoverTypesEventIterator) Close() error {
+	it.sub.Unsubscribe()
+	return nil
+}
+
+// MoonriverDelegatorCoverOracleMemberSetCoverTypesEvent represents a MemberSetCoverTypesEvent event raised by the MoonriverDelegatorCoverOracle contract.
+type MoonriverDelegatorCoverOracleMemberSetCoverTypesEvent struct {
+	Member                   common.Address
+	NoZeroPtsCoverAfterEra   bool
+	NoActiveSetCoverAfterEra bool
+	Raw                      types.Log // Blockchain specific contextual infos
+}
+
+// FilterMemberSetCoverTypesEvent is a free log retrieval operation binding the contract event 0x64ff8b21509b656bfbb1face101a20453b99ce6df8679f1f16e075e0fb5e5d44.
+//
+// Solidity: event MemberSetCoverTypesEvent(address member, bool noZeroPtsCoverAfterEra, bool noActiveSetCoverAfterEra)
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleFilterer) FilterMemberSetCoverTypesEvent(opts *bind.FilterOpts) (*MoonriverDelegatorCoverOracleMemberSetCoverTypesEventIterator, error) {
+
+	logs, sub, err := _MoonriverDelegatorCoverOracle.contract.FilterLogs(opts, "MemberSetCoverTypesEvent")
+	if err != nil {
+		return nil, err
+	}
+	return &MoonriverDelegatorCoverOracleMemberSetCoverTypesEventIterator{contract: _MoonriverDelegatorCoverOracle.contract, event: "MemberSetCoverTypesEvent", logs: logs, sub: sub}, nil
+}
+
+// WatchMemberSetCoverTypesEvent is a free log subscription operation binding the contract event 0x64ff8b21509b656bfbb1face101a20453b99ce6df8679f1f16e075e0fb5e5d44.
+//
+// Solidity: event MemberSetCoverTypesEvent(address member, bool noZeroPtsCoverAfterEra, bool noActiveSetCoverAfterEra)
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleFilterer) WatchMemberSetCoverTypesEvent(opts *bind.WatchOpts, sink chan<- *MoonriverDelegatorCoverOracleMemberSetCoverTypesEvent) (event.Subscription, error) {
+
+	logs, sub, err := _MoonriverDelegatorCoverOracle.contract.WatchLogs(opts, "MemberSetCoverTypesEvent")
+	if err != nil {
+		return nil, err
+	}
+	return event.NewSubscription(func(quit <-chan struct{}) error {
+		defer sub.Unsubscribe()
+		for {
+			select {
+			case log := <-logs:
+				// New log arrived, parse the event and forward to the user
+				event := new(MoonriverDelegatorCoverOracleMemberSetCoverTypesEvent)
+				if err := _MoonriverDelegatorCoverOracle.contract.UnpackLog(event, "MemberSetCoverTypesEvent", log); err != nil {
+					return err
+				}
+				event.Raw = log
+
+				select {
+				case sink <- event:
+				case err := <-sub.Err():
+					return err
+				case <-quit:
+					return nil
+				}
+			case err := <-sub.Err():
+				return err
+			case <-quit:
+				return nil
+			}
+		}
+	}), nil
+}
+
+// ParseMemberSetCoverTypesEvent is a log parse operation binding the contract event 0x64ff8b21509b656bfbb1face101a20453b99ce6df8679f1f16e075e0fb5e5d44.
+//
+// Solidity: event MemberSetCoverTypesEvent(address member, bool noZeroPtsCoverAfterEra, bool noActiveSetCoverAfterEra)
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleFilterer) ParseMemberSetCoverTypesEvent(log types.Log) (*MoonriverDelegatorCoverOracleMemberSetCoverTypesEvent, error) {
+	event := new(MoonriverDelegatorCoverOracleMemberSetCoverTypesEvent)
+	if err := _MoonriverDelegatorCoverOracle.contract.UnpackLog(event, "MemberSetCoverTypesEvent", log); err != nil {
+		return nil, err
+	}
+	event.Raw = log
+	return event, nil
+}
+
+// MoonriverDelegatorCoverOracleMemberSetMaxCoveredDelegationEventIterator is returned from FilterMemberSetMaxCoveredDelegationEvent and is used to iterate over the raw logs and unpacked data for MemberSetMaxCoveredDelegationEvent events raised by the MoonriverDelegatorCoverOracle contract.
+type MoonriverDelegatorCoverOracleMemberSetMaxCoveredDelegationEventIterator struct {
+	Event *MoonriverDelegatorCoverOracleMemberSetMaxCoveredDelegationEvent // Event containing the contract specifics and raw log
+
+	contract *bind.BoundContract // Generic contract to use for unpacking event data
+	event    string              // Event name to use for unpacking event data
+
+	logs chan types.Log        // Log channel receiving the found contract events
+	sub  ethereum.Subscription // Subscription for errors, completion and termination
+	done bool                  // Whether the subscription completed delivering logs
+	fail error                 // Occurred error to stop iteration
+}
+
+// Next advances the iterator to the subsequent event, returning whether there
+// are any more events found. In case of a retrieval or parsing error, false is
+// returned and Error() can be queried for the exact failure.
+func (it *MoonriverDelegatorCoverOracleMemberSetMaxCoveredDelegationEventIterator) Next() bool {
+	// If the iterator failed, stop iterating
+	if it.fail != nil {
+		return false
+	}
+	// If the iterator completed, deliver directly whatever's available
+	if it.done {
+		select {
+		case log := <-it.logs:
+			it.Event = new(MoonriverDelegatorCoverOracleMemberSetMaxCoveredDelegationEvent)
+			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
+				it.fail = err
+				return false
+			}
+			it.Event.Raw = log
+			return true
+
+		default:
+			return false
+		}
+	}
+	// Iterator still in progress, wait for either a data or an error event
+	select {
+	case log := <-it.logs:
+		it.Event = new(MoonriverDelegatorCoverOracleMemberSetMaxCoveredDelegationEvent)
+		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
+			it.fail = err
+			return false
+		}
+		it.Event.Raw = log
+		return true
+
+	case err := <-it.sub.Err():
+		it.done = true
+		it.fail = err
+		return it.Next()
+	}
+}
+
+// Error returns any retrieval or parsing error occurred during filtering.
+func (it *MoonriverDelegatorCoverOracleMemberSetMaxCoveredDelegationEventIterator) Error() error {
+	return it.fail
+}
+
+// Close terminates the iteration process, releasing any pending underlying
+// resources.
+func (it *MoonriverDelegatorCoverOracleMemberSetMaxCoveredDelegationEventIterator) Close() error {
+	it.sub.Unsubscribe()
+	return nil
+}
+
+// MoonriverDelegatorCoverOracleMemberSetMaxCoveredDelegationEvent represents a MemberSetMaxCoveredDelegationEvent event raised by the MoonriverDelegatorCoverOracle contract.
+type MoonriverDelegatorCoverOracleMemberSetMaxCoveredDelegationEvent struct {
+	Member common.Address
+	Amount *big.Int
+	Raw    types.Log // Blockchain specific contextual infos
+}
+
+// FilterMemberSetMaxCoveredDelegationEvent is a free log retrieval operation binding the contract event 0xc03853b905a3fab5b1be1eca777cdfec528edd4a33e4e44613d67ae29995044f.
+//
+// Solidity: event MemberSetMaxCoveredDelegationEvent(address member, uint256 amount)
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleFilterer) FilterMemberSetMaxCoveredDelegationEvent(opts *bind.FilterOpts) (*MoonriverDelegatorCoverOracleMemberSetMaxCoveredDelegationEventIterator, error) {
+
+	logs, sub, err := _MoonriverDelegatorCoverOracle.contract.FilterLogs(opts, "MemberSetMaxCoveredDelegationEvent")
+	if err != nil {
+		return nil, err
+	}
+	return &MoonriverDelegatorCoverOracleMemberSetMaxCoveredDelegationEventIterator{contract: _MoonriverDelegatorCoverOracle.contract, event: "MemberSetMaxCoveredDelegationEvent", logs: logs, sub: sub}, nil
+}
+
+// WatchMemberSetMaxCoveredDelegationEvent is a free log subscription operation binding the contract event 0xc03853b905a3fab5b1be1eca777cdfec528edd4a33e4e44613d67ae29995044f.
+//
+// Solidity: event MemberSetMaxCoveredDelegationEvent(address member, uint256 amount)
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleFilterer) WatchMemberSetMaxCoveredDelegationEvent(opts *bind.WatchOpts, sink chan<- *MoonriverDelegatorCoverOracleMemberSetMaxCoveredDelegationEvent) (event.Subscription, error) {
+
+	logs, sub, err := _MoonriverDelegatorCoverOracle.contract.WatchLogs(opts, "MemberSetMaxCoveredDelegationEvent")
+	if err != nil {
+		return nil, err
+	}
+	return event.NewSubscription(func(quit <-chan struct{}) error {
+		defer sub.Unsubscribe()
+		for {
+			select {
+			case log := <-logs:
+				// New log arrived, parse the event and forward to the user
+				event := new(MoonriverDelegatorCoverOracleMemberSetMaxCoveredDelegationEvent)
+				if err := _MoonriverDelegatorCoverOracle.contract.UnpackLog(event, "MemberSetMaxCoveredDelegationEvent", log); err != nil {
+					return err
+				}
+				event.Raw = log
+
+				select {
+				case sink <- event:
+				case err := <-sub.Err():
+					return err
+				case <-quit:
+					return nil
+				}
+			case err := <-sub.Err():
+				return err
+			case <-quit:
+				return nil
+			}
+		}
+	}), nil
+}
+
+// ParseMemberSetMaxCoveredDelegationEvent is a log parse operation binding the contract event 0xc03853b905a3fab5b1be1eca777cdfec528edd4a33e4e44613d67ae29995044f.
+//
+// Solidity: event MemberSetMaxCoveredDelegationEvent(address member, uint256 amount)
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleFilterer) ParseMemberSetMaxCoveredDelegationEvent(log types.Log) (*MoonriverDelegatorCoverOracleMemberSetMaxCoveredDelegationEvent, error) {
+	event := new(MoonriverDelegatorCoverOracleMemberSetMaxCoveredDelegationEvent)
+	if err := _MoonriverDelegatorCoverOracle.contract.UnpackLog(event, "MemberSetMaxCoveredDelegationEvent", log); err != nil {
+		return nil, err
+	}
+	event.Raw = log
+	return event, nil
+}
+
+// MoonriverDelegatorCoverOracleOraclePaidEventIterator is returned from FilterOraclePaidEvent and is used to iterate over the raw logs and unpacked data for OraclePaidEvent events raised by the MoonriverDelegatorCoverOracle contract.
+type MoonriverDelegatorCoverOracleOraclePaidEventIterator struct {
+	Event *MoonriverDelegatorCoverOracleOraclePaidEvent // Event containing the contract specifics and raw log
+
+	contract *bind.BoundContract // Generic contract to use for unpacking event data
+	event    string              // Event name to use for unpacking event data
+
+	logs chan types.Log        // Log channel receiving the found contract events
+	sub  ethereum.Subscription // Subscription for errors, completion and termination
+	done bool                  // Whether the subscription completed delivering logs
+	fail error                 // Occurred error to stop iteration
+}
+
+// Next advances the iterator to the subsequent event, returning whether there
+// are any more events found. In case of a retrieval or parsing error, false is
+// returned and Error() can be queried for the exact failure.
+func (it *MoonriverDelegatorCoverOracleOraclePaidEventIterator) Next() bool {
+	// If the iterator failed, stop iterating
+	if it.fail != nil {
+		return false
+	}
+	// If the iterator completed, deliver directly whatever's available
+	if it.done {
+		select {
+		case log := <-it.logs:
+			it.Event = new(MoonriverDelegatorCoverOracleOraclePaidEvent)
+			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
+				it.fail = err
+				return false
+			}
+			it.Event.Raw = log
+			return true
+
+		default:
+			return false
+		}
+	}
+	// Iterator still in progress, wait for either a data or an error event
+	select {
+	case log := <-it.logs:
+		it.Event = new(MoonriverDelegatorCoverOracleOraclePaidEvent)
+		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
+			it.fail = err
+			return false
+		}
+		it.Event.Raw = log
+		return true
+
+	case err := <-it.sub.Err():
+		it.done = true
+		it.fail = err
+		return it.Next()
+	}
+}
+
+// Error returns any retrieval or parsing error occurred during filtering.
+func (it *MoonriverDelegatorCoverOracleOraclePaidEventIterator) Error() error {
+	return it.fail
+}
+
+// Close terminates the iteration process, releasing any pending underlying
+// resources.
+func (it *MoonriverDelegatorCoverOracleOraclePaidEventIterator) Close() error {
+	it.sub.Unsubscribe()
+	return nil
+}
+
+// MoonriverDelegatorCoverOracleOraclePaidEvent represents a OraclePaidEvent event raised by the MoonriverDelegatorCoverOracle contract.
+type MoonriverDelegatorCoverOracleOraclePaidEvent struct {
+	Member common.Address
+	Amount *big.Int
+	EraId  *big.Int
+	Raw    types.Log // Blockchain specific contextual infos
+}
+
+// FilterOraclePaidEvent is a free log retrieval operation binding the contract event 0xf1e225ae1c6ca105ef73d6b12f4af0e6895c2c14ccac1c2796f8bf6c773478a6.
+//
+// Solidity: event OraclePaidEvent(address member, uint256 amount, uint128 eraId)
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleFilterer) FilterOraclePaidEvent(opts *bind.FilterOpts) (*MoonriverDelegatorCoverOracleOraclePaidEventIterator, error) {
+
+	logs, sub, err := _MoonriverDelegatorCoverOracle.contract.FilterLogs(opts, "OraclePaidEvent")
+	if err != nil {
+		return nil, err
+	}
+	return &MoonriverDelegatorCoverOracleOraclePaidEventIterator{contract: _MoonriverDelegatorCoverOracle.contract, event: "OraclePaidEvent", logs: logs, sub: sub}, nil
+}
+
+// WatchOraclePaidEvent is a free log subscription operation binding the contract event 0xf1e225ae1c6ca105ef73d6b12f4af0e6895c2c14ccac1c2796f8bf6c773478a6.
+//
+// Solidity: event OraclePaidEvent(address member, uint256 amount, uint128 eraId)
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleFilterer) WatchOraclePaidEvent(opts *bind.WatchOpts, sink chan<- *MoonriverDelegatorCoverOracleOraclePaidEvent) (event.Subscription, error) {
+
+	logs, sub, err := _MoonriverDelegatorCoverOracle.contract.WatchLogs(opts, "OraclePaidEvent")
+	if err != nil {
+		return nil, err
+	}
+	return event.NewSubscription(func(quit <-chan struct{}) error {
+		defer sub.Unsubscribe()
+		for {
+			select {
+			case log := <-logs:
+				// New log arrived, parse the event and forward to the user
+				event := new(MoonriverDelegatorCoverOracleOraclePaidEvent)
+				if err := _MoonriverDelegatorCoverOracle.contract.UnpackLog(event, "OraclePaidEvent", log); err != nil {
+					return err
+				}
+				event.Raw = log
+
+				select {
+				case sink <- event:
+				case err := <-sub.Err():
+					return err
+				case <-quit:
+					return nil
+				}
+			case err := <-sub.Err():
+				return err
+			case <-quit:
+				return nil
+			}
+		}
+	}), nil
+}
+
+// ParseOraclePaidEvent is a log parse operation binding the contract event 0xf1e225ae1c6ca105ef73d6b12f4af0e6895c2c14ccac1c2796f8bf6c773478a6.
+//
+// Solidity: event OraclePaidEvent(address member, uint256 amount, uint128 eraId)
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleFilterer) ParseOraclePaidEvent(log types.Log) (*MoonriverDelegatorCoverOracleOraclePaidEvent, error) {
+	event := new(MoonriverDelegatorCoverOracleOraclePaidEvent)
+	if err := _MoonriverDelegatorCoverOracle.contract.UnpackLog(event, "OraclePaidEvent", log); err != nil {
+		return nil, err
+	}
+	event.Raw = log
+	return event, nil
+}
+
 // MoonriverDelegatorCoverOraclePayoutEventIterator is returned from FilterPayoutEvent and is used to iterate over the raw logs and unpacked data for PayoutEvent events raised by the MoonriverDelegatorCoverOracle contract.
 type MoonriverDelegatorCoverOraclePayoutEventIterator struct {
 	Event *MoonriverDelegatorCoverOraclePayoutEvent // Event containing the contract specifics and raw log
@@ -2847,14 +3922,14 @@ func (it *MoonriverDelegatorCoverOracleReportPushedEventIterator) Close() error 
 
 // MoonriverDelegatorCoverOracleReportPushedEvent represents a ReportPushedEvent event raised by the MoonriverDelegatorCoverOracle contract.
 type MoonriverDelegatorCoverOracleReportPushedEvent struct {
-	EraId  *big.Int
-	Oracle common.Address
-	Raw    types.Log // Blockchain specific contextual infos
+	EraId          *big.Int
+	OracleCollator common.Address
+	Raw            types.Log // Blockchain specific contextual infos
 }
 
 // FilterReportPushedEvent is a free log retrieval operation binding the contract event 0xa9d39cef10d54be71f13a25fb1651fde21e9f2f4b9890dcc06936dceaf098ec5.
 //
-// Solidity: event ReportPushedEvent(uint128 eraId, address oracle)
+// Solidity: event ReportPushedEvent(uint128 eraId, address oracleCollator)
 func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleFilterer) FilterReportPushedEvent(opts *bind.FilterOpts) (*MoonriverDelegatorCoverOracleReportPushedEventIterator, error) {
 
 	logs, sub, err := _MoonriverDelegatorCoverOracle.contract.FilterLogs(opts, "ReportPushedEvent")
@@ -2866,7 +3941,7 @@ func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleFilterer) Fil
 
 // WatchReportPushedEvent is a free log subscription operation binding the contract event 0xa9d39cef10d54be71f13a25fb1651fde21e9f2f4b9890dcc06936dceaf098ec5.
 //
-// Solidity: event ReportPushedEvent(uint128 eraId, address oracle)
+// Solidity: event ReportPushedEvent(uint128 eraId, address oracleCollator)
 func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleFilterer) WatchReportPushedEvent(opts *bind.WatchOpts, sink chan<- *MoonriverDelegatorCoverOracleReportPushedEvent) (event.Subscription, error) {
 
 	logs, sub, err := _MoonriverDelegatorCoverOracle.contract.WatchLogs(opts, "ReportPushedEvent")
@@ -2903,7 +3978,7 @@ func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleFilterer) Wat
 
 // ParseReportPushedEvent is a log parse operation binding the contract event 0xa9d39cef10d54be71f13a25fb1651fde21e9f2f4b9890dcc06936dceaf098ec5.
 //
-// Solidity: event ReportPushedEvent(uint128 eraId, address oracle)
+// Solidity: event ReportPushedEvent(uint128 eraId, address oracleCollator)
 func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleFilterer) ParseReportPushedEvent(log types.Log) (*MoonriverDelegatorCoverOracleReportPushedEvent, error) {
 	event := new(MoonriverDelegatorCoverOracleReportPushedEvent)
 	if err := _MoonriverDelegatorCoverOracle.contract.UnpackLog(event, "ReportPushedEvent", log); err != nil {

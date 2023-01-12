@@ -1,5 +1,12 @@
 To generate a GO file from the ABI
 C:\Program Files\Geth> .\abigen.exe --abi="F:\PROJECTS\GITHUB PROJECTS\moonriver-delegator-cover-contract\abis\contracts_Oracle_sol_Oracle.abi" --pkg=moonriver_delegator_cover_oracle --out=Oracle.go
 
+
+.\abigen.exe --abi="F:\PROJECTS\GITHUB PROJECTS\moonriver-delegator-cover-contract\build\abis\Oracle.abi" --pkg=moonriver_delegator_cover_oracle --out=Oracle.go
+.\abigen.exe --abi="F:\PROJECTS\GITHUB PROJECTS\moonriver-delegator-cover-contract\build\abis\DepositStaking.abi" --pkg=moonriver_delegator_cover_oracle --out=DepositStaking.go
+.\abigen.exe --abi="F:\PROJECTS\GITHUB PROJECTS\moonriver-delegator-cover-contract\build\abis\IAuthManager.abi" --pkg=moonriver_delegator_cover_oracle --out=IAuthManager.go
+.\abigen.exe --abi="F:\PROJECTS\GITHUB PROJECTS\moonriver-delegator-cover-contract\build\abis\InactivityCover.abi" --pkg=moonriver_delegator_cover_oracle --out=InactivityCover.go
+.\abigen.exe --abi="F:\PROJECTS\GITHUB PROJECTS\moonriver-delegator-cover-contract\build\abis\OracleMaster.abi" --pkg=moonriver_delegator_cover_oracle --out=OracleMaster.go
+
 To generate an ABI from Sol
 solcjs --abi .\contracts\Oracle.sol --include-path node_modules/ --base-path .

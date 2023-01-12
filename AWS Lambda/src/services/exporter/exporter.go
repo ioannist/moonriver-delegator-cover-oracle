@@ -13,7 +13,7 @@ import (
 	"github.com/itering/subscan/util"
 	"github.com/itering/substrate-api-rpc"
 	"github.com/prometheus/client_golang/prometheus"
-	"stakebaby.com/moonriver-delegator-cover-oracle/model/oraclemaster"
+	oraclemaster "stakebaby.com/moonriver-delegator-cover-oracle/model/oraclemaster"
 )
 
 type Exporter struct {

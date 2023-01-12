@@ -58,7 +58,7 @@ type TypesOracleData struct {
 
 // MoonriverDelegatorCoverOracleMetaData contains all meta data concerning the MoonriverDelegatorCoverOracle contract.
 var MoonriverDelegatorCoverOracleMetaData = &bind.MetaData{
-	ABI: "[{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint8\",\"name\":\"version\",\"type\":\"uint8\"}],\"name\":\"Initialized\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"member\",\"type\":\"address\"}],\"name\":\"MemberAdded\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"member\",\"type\":\"address\"}],\"name\":\"MemberRemoved\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"Paused\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint8\",\"name\":\"QUORUM\",\"type\":\"uint8\"}],\"name\":\"QuorumChanged\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"Unpaused\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"AUTH_MANAGER\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"INACTIVITY_COVER\",\"outputs\":[{\"internalType\":\"addresspayable\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"MAX_MEMBERS\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"ORACLE\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"QUORUM\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_oracleMember\",\"type\":\"address\"}],\"name\":\"addOracleMember\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"addresspayable\",\"name\":\"_pushable\",\"type\":\"address\"},{\"internalType\":\"bool\",\"name\":\"_toAdd\",\"type\":\"bool\"}],\"name\":\"addRemovePushable\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"clearReporting\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"collatorsToOracles\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"eraId\",\"outputs\":[{\"internalType\":\"uint128\",\"name\":\"\",\"type\":\"uint128\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getEra\",\"outputs\":[{\"internalType\":\"uint128\",\"name\":\"\",\"type\":\"uint128\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getOracle\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_auth_manager\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_oracle\",\"type\":\"address\"},{\"internalType\":\"addresspayable\",\"name\":\"_inactivity_cover\",\"type\":\"address\"},{\"internalType\":\"uint8\",\"name\":\"_quorum\",\"type\":\"uint8\"}],\"name\":\"initialize\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_oracleMember\",\"type\":\"address\"}],\"name\":\"isReportedLastEra\",\"outputs\":[{\"internalType\":\"uint128\",\"name\":\"lastEra\",\"type\":\"uint128\"},{\"internalType\":\"uint128\",\"name\":\"lastPart\",\"type\":\"uint128\"},{\"internalType\":\"bool\",\"name\":\"isReported\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"members\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"pause\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"paused\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"proxy\",\"outputs\":[{\"internalType\":\"contractProxy\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_collator\",\"type\":\"address\"}],\"name\":\"registerAsOracleMember\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_oracleMember\",\"type\":\"address\"}],\"name\":\"removeOracleMember\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"removeSudo\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"reportCounts\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_collator\",\"type\":\"address\"},{\"internalType\":\"uint128\",\"name\":\"_eraId\",\"type\":\"uint128\"},{\"internalType\":\"uint128\",\"name\":\"_eraNonce\",\"type\":\"uint128\"},{\"components\":[{\"internalType\":\"uint256\",\"name\":\"totalStaked\",\"type\":\"uint256\"},{\"internalType\":\"uint128\",\"name\":\"totalSelected\",\"type\":\"uint128\"},{\"internalType\":\"uint128\",\"name\":\"orbitersCount\",\"type\":\"uint128\"},{\"internalType\":\"uint128\",\"name\":\"round\",\"type\":\"uint128\"},{\"internalType\":\"bytes32\",\"name\":\"blockHash\",\"type\":\"bytes32\"},{\"internalType\":\"uint128\",\"name\":\"blockNumber\",\"type\":\"uint128\"},{\"internalType\":\"uint128\",\"name\":\"awarded\",\"type\":\"uint128\"},{\"components\":[{\"internalType\":\"address\",\"name\":\"collatorAccount\",\"type\":\"address\"},{\"internalType\":\"uint128\",\"name\":\"points\",\"type\":\"uint128\"},{\"internalType\":\"bool\",\"name\":\"active\",\"type\":\"bool\"},{\"internalType\":\"uint256\",\"name\":\"bond\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"delegationsTotal\",\"type\":\"uint256\"},{\"components\":[{\"internalType\":\"address\",\"name\":\"ownerAccount\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"internalType\":\"structTypes.DelegationsData[]\",\"name\":\"topActiveDelegations\",\"type\":\"tuple[]\"}],\"internalType\":\"structTypes.CollatorData[]\",\"name\":\"collators\",\"type\":\"tuple[]\"}],\"internalType\":\"structTypes.OracleData\",\"name\":\"_report\",\"type\":\"tuple\"}],\"name\":\"reportPara\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"resume\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint8\",\"name\":\"_quorum\",\"type\":\"uint8\"}],\"name\":\"setQuorum\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"staking\",\"outputs\":[{\"internalType\":\"contractParachainStaking\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_oracleMember\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_collator\",\"type\":\"address\"}],\"name\":\"unregisterOracleMember\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]",
+	ABI: "[{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"member\",\"type\":\"address\"}],\"name\":\"MemberAdded\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"member\",\"type\":\"address\"}],\"name\":\"MemberRemoved\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"Paused\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint8\",\"name\":\"QUORUM\",\"type\":\"uint8\"}],\"name\":\"QuorumChanged\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[],\"name\":\"SudoRemoved\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"Unpaused\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"AUTH_MANAGER\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"INACTIVITY_COVER\",\"outputs\":[{\"internalType\":\"addresspayable\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"MAX_MEMBERS\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"ORACLE\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"QUORUM\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"collatorsToOracles\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"eraId\",\"outputs\":[{\"internalType\":\"uint128\",\"name\":\"\",\"type\":\"uint128\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"lastEraVetoOracleVoted\",\"outputs\":[{\"internalType\":\"uint128\",\"name\":\"\",\"type\":\"uint128\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"members\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"oraclePointBitmaps\",\"outputs\":[{\"internalType\":\"uint32\",\"name\":\"\",\"type\":\"uint32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"oraclesToCollators\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"paused\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"proxy\",\"outputs\":[{\"internalType\":\"contractIProxy\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"staking\",\"outputs\":[{\"internalType\":\"contractParachainStaking\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"sudo\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"vetoOracleMember\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_auth_manager\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_oracle\",\"type\":\"address\"},{\"internalType\":\"addresspayable\",\"name\":\"_inactivity_cover\",\"type\":\"address\"},{\"internalType\":\"uint8\",\"name\":\"_quorum\",\"type\":\"uint8\"}],\"name\":\"initialize\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint8\",\"name\":\"_quorum\",\"type\":\"uint8\"}],\"name\":\"setQuorum\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_collator\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_oracleMember\",\"type\":\"address\"}],\"name\":\"addOracleMember\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_collator\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_oracleMember\",\"type\":\"address\"}],\"name\":\"removeOracleMember\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"addresspayable\",\"name\":\"_pushable\",\"type\":\"address\"},{\"internalType\":\"bool\",\"name\":\"_toAdd\",\"type\":\"bool\"}],\"name\":\"addRemovePushable\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"clearReporting\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"code\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"_itsProxy\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_someCollator\",\"type\":\"address\"}],\"name\":\"removeSudo\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_vetoOracleMember\",\"type\":\"address\"}],\"name\":\"setVetoOracleMember\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"pause\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"resume\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_collator\",\"type\":\"address\"}],\"name\":\"registerAsOracleMember\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_oracleMember\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_collator\",\"type\":\"address\"}],\"name\":\"unregisterOracleMember\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_collator\",\"type\":\"address\"},{\"internalType\":\"uint128\",\"name\":\"_eraId\",\"type\":\"uint128\"},{\"internalType\":\"uint128\",\"name\":\"_eraNonce\",\"type\":\"uint128\"},{\"components\":[{\"internalType\":\"uint256\",\"name\":\"totalStaked\",\"type\":\"uint256\"},{\"internalType\":\"uint128\",\"name\":\"totalSelected\",\"type\":\"uint128\"},{\"internalType\":\"uint128\",\"name\":\"orbitersCount\",\"type\":\"uint128\"},{\"internalType\":\"uint128\",\"name\":\"round\",\"type\":\"uint128\"},{\"internalType\":\"bytes32\",\"name\":\"blockHash\",\"type\":\"bytes32\"},{\"internalType\":\"uint128\",\"name\":\"blockNumber\",\"type\":\"uint128\"},{\"internalType\":\"uint128\",\"name\":\"awarded\",\"type\":\"uint128\"},{\"components\":[{\"internalType\":\"address\",\"name\":\"collatorAccount\",\"type\":\"address\"},{\"internalType\":\"uint128\",\"name\":\"points\",\"type\":\"uint128\"},{\"internalType\":\"bool\",\"name\":\"active\",\"type\":\"bool\"},{\"internalType\":\"uint256\",\"name\":\"bond\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"delegationsTotal\",\"type\":\"uint256\"},{\"components\":[{\"internalType\":\"address\",\"name\":\"ownerAccount\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"internalType\":\"structTypes.DelegationsData[]\",\"name\":\"topActiveDelegations\",\"type\":\"tuple[]\"}],\"internalType\":\"structTypes.CollatorData[]\",\"name\":\"collators\",\"type\":\"tuple[]\"}],\"internalType\":\"structTypes.OracleData\",\"name\":\"_report\",\"type\":\"tuple\"}],\"name\":\"reportPara\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_oracleMember\",\"type\":\"address\"}],\"name\":\"isReportedLastEra\",\"outputs\":[{\"internalType\":\"uint128\",\"name\":\"lastEra\",\"type\":\"uint128\"},{\"internalType\":\"uint128\",\"name\":\"lastEraNonce\",\"type\":\"uint128\"},{\"internalType\":\"bool\",\"name\":\"reported\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getOracle\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_oracleMember\",\"type\":\"address\"}],\"name\":\"getOraclePointBitmap\",\"outputs\":[{\"internalType\":\"uint32\",\"name\":\"\",\"type\":\"uint32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"_getEra\",\"outputs\":[{\"internalType\":\"uint128\",\"name\":\"\",\"type\":\"uint128\"}],\"stateMutability\":\"view\",\"type\":\"function\"}]",
 }
 
 // MoonriverDelegatorCoverOracleABI is the input ABI used to generate the binding from.
@@ -362,6 +362,37 @@ func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleCallerSession
 	return _MoonriverDelegatorCoverOracle.Contract.QUORUM(&_MoonriverDelegatorCoverOracle.CallOpts)
 }
 
+// GetEra is a free data retrieval call binding the contract method 0xef763b22.
+//
+// Solidity: function _getEra() view returns(uint128)
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleCaller) GetEra(opts *bind.CallOpts) (*big.Int, error) {
+	var out []interface{}
+	err := _MoonriverDelegatorCoverOracle.contract.Call(opts, &out, "_getEra")
+
+	if err != nil {
+		return *new(*big.Int), err
+	}
+
+	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
+
+	return out0, err
+
+}
+
+// GetEra is a free data retrieval call binding the contract method 0xef763b22.
+//
+// Solidity: function _getEra() view returns(uint128)
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleSession) GetEra() (*big.Int, error) {
+	return _MoonriverDelegatorCoverOracle.Contract.GetEra(&_MoonriverDelegatorCoverOracle.CallOpts)
+}
+
+// GetEra is a free data retrieval call binding the contract method 0xef763b22.
+//
+// Solidity: function _getEra() view returns(uint128)
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleCallerSession) GetEra() (*big.Int, error) {
+	return _MoonriverDelegatorCoverOracle.Contract.GetEra(&_MoonriverDelegatorCoverOracle.CallOpts)
+}
+
 // CollatorsToOracles is a free data retrieval call binding the contract method 0x729086fe.
 //
 // Solidity: function collatorsToOracles(address ) view returns(address)
@@ -424,37 +455,6 @@ func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleCallerSession
 	return _MoonriverDelegatorCoverOracle.Contract.EraId(&_MoonriverDelegatorCoverOracle.CallOpts)
 }
 
-// GetEra is a free data retrieval call binding the contract method 0x0325c52a.
-//
-// Solidity: function getEra() view returns(uint128)
-func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleCaller) GetEra(opts *bind.CallOpts) (*big.Int, error) {
-	var out []interface{}
-	err := _MoonriverDelegatorCoverOracle.contract.Call(opts, &out, "getEra")
-
-	if err != nil {
-		return *new(*big.Int), err
-	}
-
-	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
-
-	return out0, err
-
-}
-
-// GetEra is a free data retrieval call binding the contract method 0x0325c52a.
-//
-// Solidity: function getEra() view returns(uint128)
-func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleSession) GetEra() (*big.Int, error) {
-	return _MoonriverDelegatorCoverOracle.Contract.GetEra(&_MoonriverDelegatorCoverOracle.CallOpts)
-}
-
-// GetEra is a free data retrieval call binding the contract method 0x0325c52a.
-//
-// Solidity: function getEra() view returns(uint128)
-func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleCallerSession) GetEra() (*big.Int, error) {
-	return _MoonriverDelegatorCoverOracle.Contract.GetEra(&_MoonriverDelegatorCoverOracle.CallOpts)
-}
-
 // GetOracle is a free data retrieval call binding the contract method 0x833b1fce.
 //
 // Solidity: function getOracle() view returns(address)
@@ -486,29 +486,60 @@ func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleCallerSession
 	return _MoonriverDelegatorCoverOracle.Contract.GetOracle(&_MoonriverDelegatorCoverOracle.CallOpts)
 }
 
+// GetOraclePointBitmap is a free data retrieval call binding the contract method 0xedfcaad4.
+//
+// Solidity: function getOraclePointBitmap(address _oracleMember) view returns(uint32)
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleCaller) GetOraclePointBitmap(opts *bind.CallOpts, _oracleMember common.Address) (uint32, error) {
+	var out []interface{}
+	err := _MoonriverDelegatorCoverOracle.contract.Call(opts, &out, "getOraclePointBitmap", _oracleMember)
+
+	if err != nil {
+		return *new(uint32), err
+	}
+
+	out0 := *abi.ConvertType(out[0], new(uint32)).(*uint32)
+
+	return out0, err
+
+}
+
+// GetOraclePointBitmap is a free data retrieval call binding the contract method 0xedfcaad4.
+//
+// Solidity: function getOraclePointBitmap(address _oracleMember) view returns(uint32)
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleSession) GetOraclePointBitmap(_oracleMember common.Address) (uint32, error) {
+	return _MoonriverDelegatorCoverOracle.Contract.GetOraclePointBitmap(&_MoonriverDelegatorCoverOracle.CallOpts, _oracleMember)
+}
+
+// GetOraclePointBitmap is a free data retrieval call binding the contract method 0xedfcaad4.
+//
+// Solidity: function getOraclePointBitmap(address _oracleMember) view returns(uint32)
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleCallerSession) GetOraclePointBitmap(_oracleMember common.Address) (uint32, error) {
+	return _MoonriverDelegatorCoverOracle.Contract.GetOraclePointBitmap(&_MoonriverDelegatorCoverOracle.CallOpts, _oracleMember)
+}
+
 // IsReportedLastEra is a free data retrieval call binding the contract method 0x8fbad6b4.
 //
-// Solidity: function isReportedLastEra(address _oracleMember) view returns(uint128 lastEra, uint128 lastPart, bool isReported)
+// Solidity: function isReportedLastEra(address _oracleMember) view returns(uint128 lastEra, uint128 lastEraNonce, bool reported)
 func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleCaller) IsReportedLastEra(opts *bind.CallOpts, _oracleMember common.Address) (struct {
-	LastEra    *big.Int
-	LastPart   *big.Int
-	IsReported bool
+	LastEra      *big.Int
+	LastEraNonce *big.Int
+	Reported     bool
 }, error) {
 	var out []interface{}
 	err := _MoonriverDelegatorCoverOracle.contract.Call(opts, &out, "isReportedLastEra", _oracleMember)
 
 	outstruct := new(struct {
-		LastEra    *big.Int
-		LastPart   *big.Int
-		IsReported bool
+		LastEra      *big.Int
+		LastEraNonce *big.Int
+		Reported     bool
 	})
 	if err != nil {
 		return *outstruct, err
 	}
 
 	outstruct.LastEra = *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
-	outstruct.LastPart = *abi.ConvertType(out[1], new(*big.Int)).(**big.Int)
-	outstruct.IsReported = *abi.ConvertType(out[2], new(bool)).(*bool)
+	outstruct.LastEraNonce = *abi.ConvertType(out[1], new(*big.Int)).(**big.Int)
+	outstruct.Reported = *abi.ConvertType(out[2], new(bool)).(*bool)
 
 	return *outstruct, err
 
@@ -516,24 +547,55 @@ func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleCaller) IsRep
 
 // IsReportedLastEra is a free data retrieval call binding the contract method 0x8fbad6b4.
 //
-// Solidity: function isReportedLastEra(address _oracleMember) view returns(uint128 lastEra, uint128 lastPart, bool isReported)
+// Solidity: function isReportedLastEra(address _oracleMember) view returns(uint128 lastEra, uint128 lastEraNonce, bool reported)
 func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleSession) IsReportedLastEra(_oracleMember common.Address) (struct {
-	LastEra    *big.Int
-	LastPart   *big.Int
-	IsReported bool
+	LastEra      *big.Int
+	LastEraNonce *big.Int
+	Reported     bool
 }, error) {
 	return _MoonriverDelegatorCoverOracle.Contract.IsReportedLastEra(&_MoonriverDelegatorCoverOracle.CallOpts, _oracleMember)
 }
 
 // IsReportedLastEra is a free data retrieval call binding the contract method 0x8fbad6b4.
 //
-// Solidity: function isReportedLastEra(address _oracleMember) view returns(uint128 lastEra, uint128 lastPart, bool isReported)
+// Solidity: function isReportedLastEra(address _oracleMember) view returns(uint128 lastEra, uint128 lastEraNonce, bool reported)
 func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleCallerSession) IsReportedLastEra(_oracleMember common.Address) (struct {
-	LastEra    *big.Int
-	LastPart   *big.Int
-	IsReported bool
+	LastEra      *big.Int
+	LastEraNonce *big.Int
+	Reported     bool
 }, error) {
 	return _MoonriverDelegatorCoverOracle.Contract.IsReportedLastEra(&_MoonriverDelegatorCoverOracle.CallOpts, _oracleMember)
+}
+
+// LastEraVetoOracleVoted is a free data retrieval call binding the contract method 0x7bfa0000.
+//
+// Solidity: function lastEraVetoOracleVoted() view returns(uint128)
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleCaller) LastEraVetoOracleVoted(opts *bind.CallOpts) (*big.Int, error) {
+	var out []interface{}
+	err := _MoonriverDelegatorCoverOracle.contract.Call(opts, &out, "lastEraVetoOracleVoted")
+
+	if err != nil {
+		return *new(*big.Int), err
+	}
+
+	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
+
+	return out0, err
+
+}
+
+// LastEraVetoOracleVoted is a free data retrieval call binding the contract method 0x7bfa0000.
+//
+// Solidity: function lastEraVetoOracleVoted() view returns(uint128)
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleSession) LastEraVetoOracleVoted() (*big.Int, error) {
+	return _MoonriverDelegatorCoverOracle.Contract.LastEraVetoOracleVoted(&_MoonriverDelegatorCoverOracle.CallOpts)
+}
+
+// LastEraVetoOracleVoted is a free data retrieval call binding the contract method 0x7bfa0000.
+//
+// Solidity: function lastEraVetoOracleVoted() view returns(uint128)
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleCallerSession) LastEraVetoOracleVoted() (*big.Int, error) {
+	return _MoonriverDelegatorCoverOracle.Contract.LastEraVetoOracleVoted(&_MoonriverDelegatorCoverOracle.CallOpts)
 }
 
 // Members is a free data retrieval call binding the contract method 0x5daf08ca.
@@ -565,6 +627,68 @@ func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleSession) Memb
 // Solidity: function members(uint256 ) view returns(address)
 func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleCallerSession) Members(arg0 *big.Int) (common.Address, error) {
 	return _MoonriverDelegatorCoverOracle.Contract.Members(&_MoonriverDelegatorCoverOracle.CallOpts, arg0)
+}
+
+// OraclePointBitmaps is a free data retrieval call binding the contract method 0xb98165f4.
+//
+// Solidity: function oraclePointBitmaps(address ) view returns(uint32)
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleCaller) OraclePointBitmaps(opts *bind.CallOpts, arg0 common.Address) (uint32, error) {
+	var out []interface{}
+	err := _MoonriverDelegatorCoverOracle.contract.Call(opts, &out, "oraclePointBitmaps", arg0)
+
+	if err != nil {
+		return *new(uint32), err
+	}
+
+	out0 := *abi.ConvertType(out[0], new(uint32)).(*uint32)
+
+	return out0, err
+
+}
+
+// OraclePointBitmaps is a free data retrieval call binding the contract method 0xb98165f4.
+//
+// Solidity: function oraclePointBitmaps(address ) view returns(uint32)
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleSession) OraclePointBitmaps(arg0 common.Address) (uint32, error) {
+	return _MoonriverDelegatorCoverOracle.Contract.OraclePointBitmaps(&_MoonriverDelegatorCoverOracle.CallOpts, arg0)
+}
+
+// OraclePointBitmaps is a free data retrieval call binding the contract method 0xb98165f4.
+//
+// Solidity: function oraclePointBitmaps(address ) view returns(uint32)
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleCallerSession) OraclePointBitmaps(arg0 common.Address) (uint32, error) {
+	return _MoonriverDelegatorCoverOracle.Contract.OraclePointBitmaps(&_MoonriverDelegatorCoverOracle.CallOpts, arg0)
+}
+
+// OraclesToCollators is a free data retrieval call binding the contract method 0xb857998a.
+//
+// Solidity: function oraclesToCollators(address ) view returns(address)
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleCaller) OraclesToCollators(opts *bind.CallOpts, arg0 common.Address) (common.Address, error) {
+	var out []interface{}
+	err := _MoonriverDelegatorCoverOracle.contract.Call(opts, &out, "oraclesToCollators", arg0)
+
+	if err != nil {
+		return *new(common.Address), err
+	}
+
+	out0 := *abi.ConvertType(out[0], new(common.Address)).(*common.Address)
+
+	return out0, err
+
+}
+
+// OraclesToCollators is a free data retrieval call binding the contract method 0xb857998a.
+//
+// Solidity: function oraclesToCollators(address ) view returns(address)
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleSession) OraclesToCollators(arg0 common.Address) (common.Address, error) {
+	return _MoonriverDelegatorCoverOracle.Contract.OraclesToCollators(&_MoonriverDelegatorCoverOracle.CallOpts, arg0)
+}
+
+// OraclesToCollators is a free data retrieval call binding the contract method 0xb857998a.
+//
+// Solidity: function oraclesToCollators(address ) view returns(address)
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleCallerSession) OraclesToCollators(arg0 common.Address) (common.Address, error) {
+	return _MoonriverDelegatorCoverOracle.Contract.OraclesToCollators(&_MoonriverDelegatorCoverOracle.CallOpts, arg0)
 }
 
 // Paused is a free data retrieval call binding the contract method 0x5c975abb.
@@ -629,37 +753,6 @@ func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleCallerSession
 	return _MoonriverDelegatorCoverOracle.Contract.Proxy(&_MoonriverDelegatorCoverOracle.CallOpts)
 }
 
-// ReportCounts is a free data retrieval call binding the contract method 0x498467ae.
-//
-// Solidity: function reportCounts(address ) view returns(uint256)
-func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleCaller) ReportCounts(opts *bind.CallOpts, arg0 common.Address) (*big.Int, error) {
-	var out []interface{}
-	err := _MoonriverDelegatorCoverOracle.contract.Call(opts, &out, "reportCounts", arg0)
-
-	if err != nil {
-		return *new(*big.Int), err
-	}
-
-	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
-
-	return out0, err
-
-}
-
-// ReportCounts is a free data retrieval call binding the contract method 0x498467ae.
-//
-// Solidity: function reportCounts(address ) view returns(uint256)
-func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleSession) ReportCounts(arg0 common.Address) (*big.Int, error) {
-	return _MoonriverDelegatorCoverOracle.Contract.ReportCounts(&_MoonriverDelegatorCoverOracle.CallOpts, arg0)
-}
-
-// ReportCounts is a free data retrieval call binding the contract method 0x498467ae.
-//
-// Solidity: function reportCounts(address ) view returns(uint256)
-func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleCallerSession) ReportCounts(arg0 common.Address) (*big.Int, error) {
-	return _MoonriverDelegatorCoverOracle.Contract.ReportCounts(&_MoonriverDelegatorCoverOracle.CallOpts, arg0)
-}
-
 // Staking is a free data retrieval call binding the contract method 0x4cf088d9.
 //
 // Solidity: function staking() view returns(address)
@@ -691,25 +784,87 @@ func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleCallerSession
 	return _MoonriverDelegatorCoverOracle.Contract.Staking(&_MoonriverDelegatorCoverOracle.CallOpts)
 }
 
-// AddOracleMember is a paid mutator transaction binding the contract method 0xb164e437.
+// Sudo is a free data retrieval call binding the contract method 0xe77c48e9.
 //
-// Solidity: function addOracleMember(address _oracleMember) returns()
-func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleTransactor) AddOracleMember(opts *bind.TransactOpts, _oracleMember common.Address) (*types.Transaction, error) {
-	return _MoonriverDelegatorCoverOracle.contract.Transact(opts, "addOracleMember", _oracleMember)
+// Solidity: function sudo() view returns(bool)
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleCaller) Sudo(opts *bind.CallOpts) (bool, error) {
+	var out []interface{}
+	err := _MoonriverDelegatorCoverOracle.contract.Call(opts, &out, "sudo")
+
+	if err != nil {
+		return *new(bool), err
+	}
+
+	out0 := *abi.ConvertType(out[0], new(bool)).(*bool)
+
+	return out0, err
+
 }
 
-// AddOracleMember is a paid mutator transaction binding the contract method 0xb164e437.
+// Sudo is a free data retrieval call binding the contract method 0xe77c48e9.
 //
-// Solidity: function addOracleMember(address _oracleMember) returns()
-func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleSession) AddOracleMember(_oracleMember common.Address) (*types.Transaction, error) {
-	return _MoonriverDelegatorCoverOracle.Contract.AddOracleMember(&_MoonriverDelegatorCoverOracle.TransactOpts, _oracleMember)
+// Solidity: function sudo() view returns(bool)
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleSession) Sudo() (bool, error) {
+	return _MoonriverDelegatorCoverOracle.Contract.Sudo(&_MoonriverDelegatorCoverOracle.CallOpts)
 }
 
-// AddOracleMember is a paid mutator transaction binding the contract method 0xb164e437.
+// Sudo is a free data retrieval call binding the contract method 0xe77c48e9.
 //
-// Solidity: function addOracleMember(address _oracleMember) returns()
-func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleTransactorSession) AddOracleMember(_oracleMember common.Address) (*types.Transaction, error) {
-	return _MoonriverDelegatorCoverOracle.Contract.AddOracleMember(&_MoonriverDelegatorCoverOracle.TransactOpts, _oracleMember)
+// Solidity: function sudo() view returns(bool)
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleCallerSession) Sudo() (bool, error) {
+	return _MoonriverDelegatorCoverOracle.Contract.Sudo(&_MoonriverDelegatorCoverOracle.CallOpts)
+}
+
+// VetoOracleMember is a free data retrieval call binding the contract method 0x30a8e602.
+//
+// Solidity: function vetoOracleMember() view returns(address)
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleCaller) VetoOracleMember(opts *bind.CallOpts) (common.Address, error) {
+	var out []interface{}
+	err := _MoonriverDelegatorCoverOracle.contract.Call(opts, &out, "vetoOracleMember")
+
+	if err != nil {
+		return *new(common.Address), err
+	}
+
+	out0 := *abi.ConvertType(out[0], new(common.Address)).(*common.Address)
+
+	return out0, err
+
+}
+
+// VetoOracleMember is a free data retrieval call binding the contract method 0x30a8e602.
+//
+// Solidity: function vetoOracleMember() view returns(address)
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleSession) VetoOracleMember() (common.Address, error) {
+	return _MoonriverDelegatorCoverOracle.Contract.VetoOracleMember(&_MoonriverDelegatorCoverOracle.CallOpts)
+}
+
+// VetoOracleMember is a free data retrieval call binding the contract method 0x30a8e602.
+//
+// Solidity: function vetoOracleMember() view returns(address)
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleCallerSession) VetoOracleMember() (common.Address, error) {
+	return _MoonriverDelegatorCoverOracle.Contract.VetoOracleMember(&_MoonriverDelegatorCoverOracle.CallOpts)
+}
+
+// AddOracleMember is a paid mutator transaction binding the contract method 0xc68bf1a0.
+//
+// Solidity: function addOracleMember(address _collator, address _oracleMember) returns()
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleTransactor) AddOracleMember(opts *bind.TransactOpts, _collator common.Address, _oracleMember common.Address) (*types.Transaction, error) {
+	return _MoonriverDelegatorCoverOracle.contract.Transact(opts, "addOracleMember", _collator, _oracleMember)
+}
+
+// AddOracleMember is a paid mutator transaction binding the contract method 0xc68bf1a0.
+//
+// Solidity: function addOracleMember(address _collator, address _oracleMember) returns()
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleSession) AddOracleMember(_collator common.Address, _oracleMember common.Address) (*types.Transaction, error) {
+	return _MoonriverDelegatorCoverOracle.Contract.AddOracleMember(&_MoonriverDelegatorCoverOracle.TransactOpts, _collator, _oracleMember)
+}
+
+// AddOracleMember is a paid mutator transaction binding the contract method 0xc68bf1a0.
+//
+// Solidity: function addOracleMember(address _collator, address _oracleMember) returns()
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleTransactorSession) AddOracleMember(_collator common.Address, _oracleMember common.Address) (*types.Transaction, error) {
+	return _MoonriverDelegatorCoverOracle.Contract.AddOracleMember(&_MoonriverDelegatorCoverOracle.TransactOpts, _collator, _oracleMember)
 }
 
 // AddRemovePushable is a paid mutator transaction binding the contract method 0x30206bcc.
@@ -817,46 +972,46 @@ func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleTransactorSes
 	return _MoonriverDelegatorCoverOracle.Contract.RegisterAsOracleMember(&_MoonriverDelegatorCoverOracle.TransactOpts, _collator)
 }
 
-// RemoveOracleMember is a paid mutator transaction binding the contract method 0xf98fae81.
+// RemoveOracleMember is a paid mutator transaction binding the contract method 0x85cea53f.
 //
-// Solidity: function removeOracleMember(address _oracleMember) returns()
-func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleTransactor) RemoveOracleMember(opts *bind.TransactOpts, _oracleMember common.Address) (*types.Transaction, error) {
-	return _MoonriverDelegatorCoverOracle.contract.Transact(opts, "removeOracleMember", _oracleMember)
+// Solidity: function removeOracleMember(address _collator, address _oracleMember) returns()
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleTransactor) RemoveOracleMember(opts *bind.TransactOpts, _collator common.Address, _oracleMember common.Address) (*types.Transaction, error) {
+	return _MoonriverDelegatorCoverOracle.contract.Transact(opts, "removeOracleMember", _collator, _oracleMember)
 }
 
-// RemoveOracleMember is a paid mutator transaction binding the contract method 0xf98fae81.
+// RemoveOracleMember is a paid mutator transaction binding the contract method 0x85cea53f.
 //
-// Solidity: function removeOracleMember(address _oracleMember) returns()
-func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleSession) RemoveOracleMember(_oracleMember common.Address) (*types.Transaction, error) {
-	return _MoonriverDelegatorCoverOracle.Contract.RemoveOracleMember(&_MoonriverDelegatorCoverOracle.TransactOpts, _oracleMember)
+// Solidity: function removeOracleMember(address _collator, address _oracleMember) returns()
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleSession) RemoveOracleMember(_collator common.Address, _oracleMember common.Address) (*types.Transaction, error) {
+	return _MoonriverDelegatorCoverOracle.Contract.RemoveOracleMember(&_MoonriverDelegatorCoverOracle.TransactOpts, _collator, _oracleMember)
 }
 
-// RemoveOracleMember is a paid mutator transaction binding the contract method 0xf98fae81.
+// RemoveOracleMember is a paid mutator transaction binding the contract method 0x85cea53f.
 //
-// Solidity: function removeOracleMember(address _oracleMember) returns()
-func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleTransactorSession) RemoveOracleMember(_oracleMember common.Address) (*types.Transaction, error) {
-	return _MoonriverDelegatorCoverOracle.Contract.RemoveOracleMember(&_MoonriverDelegatorCoverOracle.TransactOpts, _oracleMember)
+// Solidity: function removeOracleMember(address _collator, address _oracleMember) returns()
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleTransactorSession) RemoveOracleMember(_collator common.Address, _oracleMember common.Address) (*types.Transaction, error) {
+	return _MoonriverDelegatorCoverOracle.Contract.RemoveOracleMember(&_MoonriverDelegatorCoverOracle.TransactOpts, _collator, _oracleMember)
 }
 
-// RemoveSudo is a paid mutator transaction binding the contract method 0x906549b9.
+// RemoveSudo is a paid mutator transaction binding the contract method 0x075efca9.
 //
-// Solidity: function removeSudo() returns()
-func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleTransactor) RemoveSudo(opts *bind.TransactOpts) (*types.Transaction, error) {
-	return _MoonriverDelegatorCoverOracle.contract.Transact(opts, "removeSudo")
+// Solidity: function removeSudo(uint256 code, address _itsProxy, address _someCollator) returns()
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleTransactor) RemoveSudo(opts *bind.TransactOpts, code *big.Int, _itsProxy common.Address, _someCollator common.Address) (*types.Transaction, error) {
+	return _MoonriverDelegatorCoverOracle.contract.Transact(opts, "removeSudo", code, _itsProxy, _someCollator)
 }
 
-// RemoveSudo is a paid mutator transaction binding the contract method 0x906549b9.
+// RemoveSudo is a paid mutator transaction binding the contract method 0x075efca9.
 //
-// Solidity: function removeSudo() returns()
-func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleSession) RemoveSudo() (*types.Transaction, error) {
-	return _MoonriverDelegatorCoverOracle.Contract.RemoveSudo(&_MoonriverDelegatorCoverOracle.TransactOpts)
+// Solidity: function removeSudo(uint256 code, address _itsProxy, address _someCollator) returns()
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleSession) RemoveSudo(code *big.Int, _itsProxy common.Address, _someCollator common.Address) (*types.Transaction, error) {
+	return _MoonriverDelegatorCoverOracle.Contract.RemoveSudo(&_MoonriverDelegatorCoverOracle.TransactOpts, code, _itsProxy, _someCollator)
 }
 
-// RemoveSudo is a paid mutator transaction binding the contract method 0x906549b9.
+// RemoveSudo is a paid mutator transaction binding the contract method 0x075efca9.
 //
-// Solidity: function removeSudo() returns()
-func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleTransactorSession) RemoveSudo() (*types.Transaction, error) {
-	return _MoonriverDelegatorCoverOracle.Contract.RemoveSudo(&_MoonriverDelegatorCoverOracle.TransactOpts)
+// Solidity: function removeSudo(uint256 code, address _itsProxy, address _someCollator) returns()
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleTransactorSession) RemoveSudo(code *big.Int, _itsProxy common.Address, _someCollator common.Address) (*types.Transaction, error) {
+	return _MoonriverDelegatorCoverOracle.Contract.RemoveSudo(&_MoonriverDelegatorCoverOracle.TransactOpts, code, _itsProxy, _someCollator)
 }
 
 // ReportPara is a paid mutator transaction binding the contract method 0x47fd347b.
@@ -922,6 +1077,27 @@ func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleTransactorSes
 	return _MoonriverDelegatorCoverOracle.Contract.SetQuorum(&_MoonriverDelegatorCoverOracle.TransactOpts, _quorum)
 }
 
+// SetVetoOracleMember is a paid mutator transaction binding the contract method 0x24939907.
+//
+// Solidity: function setVetoOracleMember(address _vetoOracleMember) returns()
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleTransactor) SetVetoOracleMember(opts *bind.TransactOpts, _vetoOracleMember common.Address) (*types.Transaction, error) {
+	return _MoonriverDelegatorCoverOracle.contract.Transact(opts, "setVetoOracleMember", _vetoOracleMember)
+}
+
+// SetVetoOracleMember is a paid mutator transaction binding the contract method 0x24939907.
+//
+// Solidity: function setVetoOracleMember(address _vetoOracleMember) returns()
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleSession) SetVetoOracleMember(_vetoOracleMember common.Address) (*types.Transaction, error) {
+	return _MoonriverDelegatorCoverOracle.Contract.SetVetoOracleMember(&_MoonriverDelegatorCoverOracle.TransactOpts, _vetoOracleMember)
+}
+
+// SetVetoOracleMember is a paid mutator transaction binding the contract method 0x24939907.
+//
+// Solidity: function setVetoOracleMember(address _vetoOracleMember) returns()
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleTransactorSession) SetVetoOracleMember(_vetoOracleMember common.Address) (*types.Transaction, error) {
+	return _MoonriverDelegatorCoverOracle.Contract.SetVetoOracleMember(&_MoonriverDelegatorCoverOracle.TransactOpts, _vetoOracleMember)
+}
+
 // UnregisterOracleMember is a paid mutator transaction binding the contract method 0x6c5f47a0.
 //
 // Solidity: function unregisterOracleMember(address _oracleMember, address _collator) returns()
@@ -941,140 +1117,6 @@ func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleSession) Unre
 // Solidity: function unregisterOracleMember(address _oracleMember, address _collator) returns()
 func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleTransactorSession) UnregisterOracleMember(_oracleMember common.Address, _collator common.Address) (*types.Transaction, error) {
 	return _MoonriverDelegatorCoverOracle.Contract.UnregisterOracleMember(&_MoonriverDelegatorCoverOracle.TransactOpts, _oracleMember, _collator)
-}
-
-// MoonriverDelegatorCoverOracleInitializedIterator is returned from FilterInitialized and is used to iterate over the raw logs and unpacked data for Initialized events raised by the MoonriverDelegatorCoverOracle contract.
-type MoonriverDelegatorCoverOracleInitializedIterator struct {
-	Event *MoonriverDelegatorCoverOracleInitialized // Event containing the contract specifics and raw log
-
-	contract *bind.BoundContract // Generic contract to use for unpacking event data
-	event    string              // Event name to use for unpacking event data
-
-	logs chan types.Log        // Log channel receiving the found contract events
-	sub  ethereum.Subscription // Subscription for errors, completion and termination
-	done bool                  // Whether the subscription completed delivering logs
-	fail error                 // Occurred error to stop iteration
-}
-
-// Next advances the iterator to the subsequent event, returning whether there
-// are any more events found. In case of a retrieval or parsing error, false is
-// returned and Error() can be queried for the exact failure.
-func (it *MoonriverDelegatorCoverOracleInitializedIterator) Next() bool {
-	// If the iterator failed, stop iterating
-	if it.fail != nil {
-		return false
-	}
-	// If the iterator completed, deliver directly whatever's available
-	if it.done {
-		select {
-		case log := <-it.logs:
-			it.Event = new(MoonriverDelegatorCoverOracleInitialized)
-			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
-				it.fail = err
-				return false
-			}
-			it.Event.Raw = log
-			return true
-
-		default:
-			return false
-		}
-	}
-	// Iterator still in progress, wait for either a data or an error event
-	select {
-	case log := <-it.logs:
-		it.Event = new(MoonriverDelegatorCoverOracleInitialized)
-		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
-			it.fail = err
-			return false
-		}
-		it.Event.Raw = log
-		return true
-
-	case err := <-it.sub.Err():
-		it.done = true
-		it.fail = err
-		return it.Next()
-	}
-}
-
-// Error returns any retrieval or parsing error occurred during filtering.
-func (it *MoonriverDelegatorCoverOracleInitializedIterator) Error() error {
-	return it.fail
-}
-
-// Close terminates the iteration process, releasing any pending underlying
-// resources.
-func (it *MoonriverDelegatorCoverOracleInitializedIterator) Close() error {
-	it.sub.Unsubscribe()
-	return nil
-}
-
-// MoonriverDelegatorCoverOracleInitialized represents a Initialized event raised by the MoonriverDelegatorCoverOracle contract.
-type MoonriverDelegatorCoverOracleInitialized struct {
-	Version uint8
-	Raw     types.Log // Blockchain specific contextual infos
-}
-
-// FilterInitialized is a free log retrieval operation binding the contract event 0x7f26b83ff96e1f2b6a682f133852f6798a09c465da95921460cefb3847402498.
-//
-// Solidity: event Initialized(uint8 version)
-func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleFilterer) FilterInitialized(opts *bind.FilterOpts) (*MoonriverDelegatorCoverOracleInitializedIterator, error) {
-
-	logs, sub, err := _MoonriverDelegatorCoverOracle.contract.FilterLogs(opts, "Initialized")
-	if err != nil {
-		return nil, err
-	}
-	return &MoonriverDelegatorCoverOracleInitializedIterator{contract: _MoonriverDelegatorCoverOracle.contract, event: "Initialized", logs: logs, sub: sub}, nil
-}
-
-// WatchInitialized is a free log subscription operation binding the contract event 0x7f26b83ff96e1f2b6a682f133852f6798a09c465da95921460cefb3847402498.
-//
-// Solidity: event Initialized(uint8 version)
-func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleFilterer) WatchInitialized(opts *bind.WatchOpts, sink chan<- *MoonriverDelegatorCoverOracleInitialized) (event.Subscription, error) {
-
-	logs, sub, err := _MoonriverDelegatorCoverOracle.contract.WatchLogs(opts, "Initialized")
-	if err != nil {
-		return nil, err
-	}
-	return event.NewSubscription(func(quit <-chan struct{}) error {
-		defer sub.Unsubscribe()
-		for {
-			select {
-			case log := <-logs:
-				// New log arrived, parse the event and forward to the user
-				event := new(MoonriverDelegatorCoverOracleInitialized)
-				if err := _MoonriverDelegatorCoverOracle.contract.UnpackLog(event, "Initialized", log); err != nil {
-					return err
-				}
-				event.Raw = log
-
-				select {
-				case sink <- event:
-				case err := <-sub.Err():
-					return err
-				case <-quit:
-					return nil
-				}
-			case err := <-sub.Err():
-				return err
-			case <-quit:
-				return nil
-			}
-		}
-	}), nil
-}
-
-// ParseInitialized is a log parse operation binding the contract event 0x7f26b83ff96e1f2b6a682f133852f6798a09c465da95921460cefb3847402498.
-//
-// Solidity: event Initialized(uint8 version)
-func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleFilterer) ParseInitialized(log types.Log) (*MoonriverDelegatorCoverOracleInitialized, error) {
-	event := new(MoonriverDelegatorCoverOracleInitialized)
-	if err := _MoonriverDelegatorCoverOracle.contract.UnpackLog(event, "Initialized", log); err != nil {
-		return nil, err
-	}
-	event.Raw = log
-	return event, nil
 }
 
 // MoonriverDelegatorCoverOracleMemberAddedIterator is returned from FilterMemberAdded and is used to iterate over the raw logs and unpacked data for MemberAdded events raised by the MoonriverDelegatorCoverOracle contract.
@@ -1607,6 +1649,139 @@ func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleFilterer) Wat
 func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleFilterer) ParseQuorumChanged(log types.Log) (*MoonriverDelegatorCoverOracleQuorumChanged, error) {
 	event := new(MoonriverDelegatorCoverOracleQuorumChanged)
 	if err := _MoonriverDelegatorCoverOracle.contract.UnpackLog(event, "QuorumChanged", log); err != nil {
+		return nil, err
+	}
+	event.Raw = log
+	return event, nil
+}
+
+// MoonriverDelegatorCoverOracleSudoRemovedIterator is returned from FilterSudoRemoved and is used to iterate over the raw logs and unpacked data for SudoRemoved events raised by the MoonriverDelegatorCoverOracle contract.
+type MoonriverDelegatorCoverOracleSudoRemovedIterator struct {
+	Event *MoonriverDelegatorCoverOracleSudoRemoved // Event containing the contract specifics and raw log
+
+	contract *bind.BoundContract // Generic contract to use for unpacking event data
+	event    string              // Event name to use for unpacking event data
+
+	logs chan types.Log        // Log channel receiving the found contract events
+	sub  ethereum.Subscription // Subscription for errors, completion and termination
+	done bool                  // Whether the subscription completed delivering logs
+	fail error                 // Occurred error to stop iteration
+}
+
+// Next advances the iterator to the subsequent event, returning whether there
+// are any more events found. In case of a retrieval or parsing error, false is
+// returned and Error() can be queried for the exact failure.
+func (it *MoonriverDelegatorCoverOracleSudoRemovedIterator) Next() bool {
+	// If the iterator failed, stop iterating
+	if it.fail != nil {
+		return false
+	}
+	// If the iterator completed, deliver directly whatever's available
+	if it.done {
+		select {
+		case log := <-it.logs:
+			it.Event = new(MoonriverDelegatorCoverOracleSudoRemoved)
+			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
+				it.fail = err
+				return false
+			}
+			it.Event.Raw = log
+			return true
+
+		default:
+			return false
+		}
+	}
+	// Iterator still in progress, wait for either a data or an error event
+	select {
+	case log := <-it.logs:
+		it.Event = new(MoonriverDelegatorCoverOracleSudoRemoved)
+		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
+			it.fail = err
+			return false
+		}
+		it.Event.Raw = log
+		return true
+
+	case err := <-it.sub.Err():
+		it.done = true
+		it.fail = err
+		return it.Next()
+	}
+}
+
+// Error returns any retrieval or parsing error occurred during filtering.
+func (it *MoonriverDelegatorCoverOracleSudoRemovedIterator) Error() error {
+	return it.fail
+}
+
+// Close terminates the iteration process, releasing any pending underlying
+// resources.
+func (it *MoonriverDelegatorCoverOracleSudoRemovedIterator) Close() error {
+	it.sub.Unsubscribe()
+	return nil
+}
+
+// MoonriverDelegatorCoverOracleSudoRemoved represents a SudoRemoved event raised by the MoonriverDelegatorCoverOracle contract.
+type MoonriverDelegatorCoverOracleSudoRemoved struct {
+	Raw types.Log // Blockchain specific contextual infos
+}
+
+// FilterSudoRemoved is a free log retrieval operation binding the contract event 0x6bca71b4113b31893ecdb4c4b3dfc3bd62c1bab475715e9b46009104aa9a2582.
+//
+// Solidity: event SudoRemoved()
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleFilterer) FilterSudoRemoved(opts *bind.FilterOpts) (*MoonriverDelegatorCoverOracleSudoRemovedIterator, error) {
+
+	logs, sub, err := _MoonriverDelegatorCoverOracle.contract.FilterLogs(opts, "SudoRemoved")
+	if err != nil {
+		return nil, err
+	}
+	return &MoonriverDelegatorCoverOracleSudoRemovedIterator{contract: _MoonriverDelegatorCoverOracle.contract, event: "SudoRemoved", logs: logs, sub: sub}, nil
+}
+
+// WatchSudoRemoved is a free log subscription operation binding the contract event 0x6bca71b4113b31893ecdb4c4b3dfc3bd62c1bab475715e9b46009104aa9a2582.
+//
+// Solidity: event SudoRemoved()
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleFilterer) WatchSudoRemoved(opts *bind.WatchOpts, sink chan<- *MoonriverDelegatorCoverOracleSudoRemoved) (event.Subscription, error) {
+
+	logs, sub, err := _MoonriverDelegatorCoverOracle.contract.WatchLogs(opts, "SudoRemoved")
+	if err != nil {
+		return nil, err
+	}
+	return event.NewSubscription(func(quit <-chan struct{}) error {
+		defer sub.Unsubscribe()
+		for {
+			select {
+			case log := <-logs:
+				// New log arrived, parse the event and forward to the user
+				event := new(MoonriverDelegatorCoverOracleSudoRemoved)
+				if err := _MoonriverDelegatorCoverOracle.contract.UnpackLog(event, "SudoRemoved", log); err != nil {
+					return err
+				}
+				event.Raw = log
+
+				select {
+				case sink <- event:
+				case err := <-sub.Err():
+					return err
+				case <-quit:
+					return nil
+				}
+			case err := <-sub.Err():
+				return err
+			case <-quit:
+				return nil
+			}
+		}
+	}), nil
+}
+
+// ParseSudoRemoved is a log parse operation binding the contract event 0x6bca71b4113b31893ecdb4c4b3dfc3bd62c1bab475715e9b46009104aa9a2582.
+//
+// Solidity: event SudoRemoved()
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleFilterer) ParseSudoRemoved(log types.Log) (*MoonriverDelegatorCoverOracleSudoRemoved, error) {
+	event := new(MoonriverDelegatorCoverOracleSudoRemoved)
+	if err := _MoonriverDelegatorCoverOracle.contract.UnpackLog(event, "SudoRemoved", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log

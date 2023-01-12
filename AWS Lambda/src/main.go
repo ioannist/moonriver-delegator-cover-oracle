@@ -26,7 +26,8 @@ var (
 	url         = os.Getenv("ETH_URL")
 	client, err = ethclient.DialContext(ctx, url)
 )
-var ORACLE_MEMBER = os.Getenv("ORACLE_MEMBER")
+var ORACLE_MEMBER_ADDRESS = os.Getenv("ORACLE_MEMBER")
+var ORACLE_MEMBER = common.HexToAddress(os.Getenv("ORACLE_MEMBER"))
 var ORACLE_MASTER = common.HexToAddress(os.Getenv("ORACLE_MASTER"))
 var rpcUrl = os.Getenv("RPC_URL")
 var managerAddress common.Address
@@ -67,7 +68,7 @@ func handler(_ context.Context, req events.CloudWatchEvent) error {
 	time.Sleep(sleepTime * time.Millisecond)
 
 	fmt.Println("Query current era (round) from contract on chain")
-	eraFromContract, reportedByMe, err := isReportedLastEra(managerAddress)
+	eraFromContract, eraNonceFromContract, reportedByMe, err := isReportedLastEra(managerAddress)
 	if err != nil {
 		return err
 	}
@@ -100,11 +101,11 @@ func handler(_ context.Context, req events.CloudWatchEvent) error {
 	}
 	fmt.Printf("Detected %v collators with zero points in this round\n", collatorsWithZeroPoints)
 	if collatorsWithZeroPoints > len(od.Collators)*2/3 {
-		return fmt.Errorf("Too many colators have 0 points in this round; network/oracle failure? will not report.\n")
+		return fmt.Errorf("Too many collators have 0 points in this round; network/oracle failure? will not report.\n")
 	}
 
 	fmt.Println("Sign and send data to Oracle contract")
-	err = pushData(od.Round.Uint64(), &od)
+	err = pushData(od.Round.Uint64(), eraNonceFromContract, &od)
 	if err != nil {
 		return err
 	}
@@ -132,7 +133,7 @@ func queryChainEra() (exporter.ActiveEra, error) {
 	return xp.GetActiveEra()
 }
 
-func pushData(eraID uint64, data *oraclemaster.TypesOracleData) error {
+func pushData(eraID uint64, eraNonce uint64, data *oraclemaster.TypesOracleData) error {
 	nonce, err := client.PendingNonceAt(context.Background(), managerAddress)
 	if err != nil {
 		return err
@@ -153,19 +154,21 @@ func pushData(eraID uint64, data *oraclemaster.TypesOracleData) error {
 	if err != nil {
 		return err
 	}
-	_, err = oracleMaster.ReportRelay(
+	_, err = oracleMaster.ReportPara(
 		auth,
-		eraID,
+		ORACLE_MEMBER,
+		big.NewInt(int64(eraID)),
+		big.NewInt(int64(eraNonce)),
 		*data,
 	)
 	// fmt.Printf("Submitted tx hash: %v\n", tx.Hash())
 	return err
 }
 
-func isReportedLastEra(managerAddress common.Address) (uint64, bool, error) {
+func isReportedLastEra(managerAddress common.Address) (uint64, uint64, bool, error) {
 	oracleMaster, err := oraclemaster.NewMoonriverDelegatorCoverOracle(ORACLE_MASTER, client)
 	if err != nil {
-		return 0, false, err
+		return 0, 0, false, err
 	}
 	/*eraId, err := oracleMaster.EraId(&bind.CallOpts{
 		From: managerAddress,
@@ -174,7 +177,7 @@ func isReportedLastEra(managerAddress common.Address) (uint64, bool, error) {
 		From: managerAddress,
 	}, managerAddress)
 	fmt.Printf("Era from contract is %v\n", lastReported.LastEra)
-	return lastReported.LastEra, lastReported.IsReported, nil
+	return lastReported.LastEra.Uint64(), lastReported.LastEraNonce.Uint64(), lastReported.Reported, nil
 }
 
 func validateBalance(managerAddress common.Address) error {
@@ -191,7 +194,7 @@ func validateBalance(managerAddress common.Address) error {
 }
 
 func setupKeys() error {
-	privateKey, err = crypto.HexToECDSA(ORACLE_MEMBER)
+	privateKey, err = crypto.HexToECDSA(ORACLE_MEMBER_ADDRESS)
 	if err != nil {
 		return err
 	}
