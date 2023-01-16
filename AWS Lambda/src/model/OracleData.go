@@ -25,4 +25,5 @@ type OracleData struct {
 	BlockNumber   string         `json:"blockNumber"`
 	Awarded       string         `json:"awarded"`
 	Collators     []CollatorData `json:"collators"`
+	Finalize      bool           `json:"finalize"`
 }

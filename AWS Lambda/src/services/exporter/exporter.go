@@ -163,7 +163,7 @@ func (e *Exporter) GetOracleData(od *oraclemaster.TypesOracleData, blockNumber i
 		time.Sleep(sleepTime * time.Millisecond)
 		collatorInfos := []CollatorInfo{}
 		sort.Strings(collators)
-		
+
 		for _, collator := range collators {
 			var collatorInfo = CollatorInfo{
 				Address: collator,
