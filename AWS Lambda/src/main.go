@@ -36,6 +36,7 @@ var rpcUrl = os.Getenv("RPC_URL")
 var oracleAddress common.Address
 var privateKey *ecdsa.PrivateKey
 var GAS_LIMIT int
+var roundCompleted = false
 
 const (
 	sleepTime = 333
@@ -57,14 +58,28 @@ func handler(_ context.Context, req events.CloudWatchEvent) error {
 	}
 	fmt.Printf("Submitting from %v\n", oracleAddress)
 
-	fmt.Println("Check that oracle has enough balance to execute txs")
-	err = validateBalance(oracleAddress)
+	fmt.Println("Query chain data (substrate call) for previous round")
+	eraFromChain, err := queryChainEra()
+	if err != nil {
+		return err
+	}
+	fmt.Println("Query current era data from contract (1st)")
+	eraFromContract, _, _, _, err := isReportedLastEra(oracleAddress)
 	if err != nil {
 		return err
 	}
 
-	fmt.Println("Query chain data (substrate call) for previous round")
-	eraFromChain, err := queryChainEra()
+	if eraFromChain.Current <= eraFromContract {
+		return fmt.Errorf("Invalid era on contract or chain: %v vs %v", eraFromChain, eraFromContract)
+	}
+	if eraFromChain.Current-1 == eraFromContract && roundCompleted {
+		fmt.Println("Nothing to do")
+		return nil
+	}
+	roundCompleted = false
+
+	fmt.Println("Check that oracle has enough balance to execute txs")
+	err = validateBalance(oracleAddress)
 	if err != nil {
 		return err
 	}
@@ -99,9 +114,6 @@ func handler(_ context.Context, req events.CloudWatchEvent) error {
 		return err
 	}
 
-	if eraFromContract > eraFromChain.Current {
-		return fmt.Errorf("Invalid era on contract or chain: %v vs %v", eraFromChain, eraFromContract)
-	}
 	if eraFromChain.Current-1 == eraFromContract && reportedByMe {
 		fmt.Println("Already reported the last completed era")
 		return nil
@@ -157,6 +169,7 @@ func handler(_ context.Context, req events.CloudWatchEvent) error {
 	}
 	if len(filteredCollatorData) == 0 {
 		fmt.Println("No collators to report")
+		roundCompleted = true
 		return nil
 	}
 	od.Collators = filteredCollatorData
