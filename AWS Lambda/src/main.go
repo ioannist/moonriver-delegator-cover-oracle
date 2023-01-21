@@ -129,10 +129,10 @@ func handler(_ context.Context, req events.CloudWatchEvent) error {
 
 	if eraFromChain.Current-1 > eraFromContract || indexToReport == 0 {
 		// first, report all non-zero-points collators
-		if eraFromChain.Current-1 > eraFromContract {
+		//if eraFromChain.Current-1 > eraFromContract {
 			// the first caller for the new round will run clearReporting to start fresh, which will also increment era nonce
-			eraNonceFromContract++
-		}
+			// eraNonceFromContract++
+		//}
 		fmt.Println("Reporting non-zero-point collators")
 		for _, col := range od.Collators {
 			if col.Points.Cmp(big.NewInt(0)) == 1 {
