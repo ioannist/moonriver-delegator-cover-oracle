@@ -1,5 +1,5 @@
 :: golangci-lint run
-set _function="SmDelegatorCoverOracle"
+set _function="SmDelegatorCoverOracle2"
 echo %_function%
 set GOOS=linux
 cd src

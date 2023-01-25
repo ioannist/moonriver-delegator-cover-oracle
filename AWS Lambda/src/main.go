@@ -37,6 +37,20 @@ var oracleAddress common.Address
 var privateKey *ecdsa.PrivateKey
 var GAS_LIMIT int
 var roundCompleted = false
+var members = []common.Address{}
+var zeroAddress = common.HexToAddress("0x0000000000000000000000000000000000000000")
+
+type Member struct {
+	IsMember                 bool     `json:"isMember"`
+	Active                   bool     `json:"active"`
+	Deposit                  *big.Int `json:"deposit"`
+	MaxCoveredDelegation     *big.Int `json:"maxCoveredDelegation"`
+	DelegatorsReportedInEra  *big.Int `json:"delegatorsReportedInEra"`
+	LastPushedEra            *big.Int `json:"lastPushedEra"`
+	NoZeroPtsCoverAfterEra   *big.Int `json:"noZeroPtsCoverAfterEra"`
+	NoActiveSetCoverAfterEra *big.Int `json:"noActiveSetCoverAfterEra"`
+	WentInactiveEra          *big.Int `json:"wentInactiveEra"`
+}
 
 const (
 	sleepTime = 333
@@ -46,6 +60,7 @@ func init() {
 	GAS_LIMIT_i, _ := strconv.Atoi(os.Getenv("GAS_LIMIT"))
 	GAS_LIMIT = util.MaxInt(GAS_LIMIT_i, 10000000)
 	MAX_DELEGATORS_IN_REPORT, _ = strconv.Atoi(os.Getenv("MAX_DELEGATORS_IN_REPORT"))
+	fmt.Printf("Loaded members: %v\n", members)
 }
 
 func handler(_ context.Context, req events.CloudWatchEvent) error {
@@ -58,25 +73,35 @@ func handler(_ context.Context, req events.CloudWatchEvent) error {
 	}
 	fmt.Printf("Submitting from %v\n", oracleAddress)
 
-	fmt.Println("Query chain data (substrate call) for previous round")
-	eraFromChain, err := queryChainEra()
-	if err != nil {
-		return err
-	}
 	fmt.Println("Query current era data from contract (1st)")
 	eraFromContract, _, _, _, err := isReportedLastEra(oracleAddress)
 	if err != nil {
 		return err
 	}
-
+	fmt.Println("Query chain data (substrate call) for previous round")
+	eraFromChain, err := queryChainEra()
+	if err != nil {
+		return err
+	}
 	if eraFromChain.Current <= eraFromContract {
 		return fmt.Errorf("Invalid era on contract or chain: %v vs %v", eraFromChain, eraFromContract)
 	}
 	if eraFromChain.Current-1 == eraFromContract && roundCompleted {
 		fmt.Println("Nothing to do")
-		return nil
+		//return nil
 	}
 	roundCompleted = false
+
+	fmt.Println("Load active members")
+	memberCount, err := getMemberCount()
+	if err != nil {
+		return err
+	}
+	members, err = getActiveMemberAddresses(memberCount, eraFromContract)
+	if err != nil {
+		return err
+	}
+	fmt.Printf("Loaded members: %v\n", members)
 
 	fmt.Println("Check that oracle has enough balance to execute txs")
 	err = validateBalance(oracleAddress)
@@ -90,7 +115,7 @@ func handler(_ context.Context, req events.CloudWatchEvent) error {
 
 	// To get the data for round-1 (completed round), we must query on any block of the current round (we choose the first block)
 	// This will ensure that we are not quering a incomplete round, and we are not quering from a very remote block (no data)
-	err = queryOracleData(&od, int(eraFromChain.First), int(eraFromChain.Current-1))
+	err = queryOracleData(&od, int(eraFromChain.First), int(eraFromChain.Current-1), members)
 	if err != nil {
 		return err
 	}
@@ -130,8 +155,8 @@ func handler(_ context.Context, req events.CloudWatchEvent) error {
 	if eraFromChain.Current-1 > eraFromContract || indexToReport == 0 {
 		// first, report all non-zero-points collators
 		//if eraFromChain.Current-1 > eraFromContract {
-			// the first caller for the new round will run clearReporting to start fresh, which will also increment era nonce
-			// eraNonceFromContract++
+		// the first caller for the new round will run clearReporting to start fresh, which will also increment era nonce
+		// eraNonceFromContract++
 		//}
 		fmt.Println("Reporting non-zero-point collators")
 		for _, col := range od.Collators {
@@ -140,20 +165,20 @@ func handler(_ context.Context, req events.CloudWatchEvent) error {
 			}
 		}
 	} else {
-		// then, report any zero-point collators, one at a time
+		// then, report any zero-point or non-active collators, one at a time
 		collatorWithZeroPointsIndex := uint64(1)
 		for _, col := range od.Collators {
-			if col.Points.Cmp(big.NewInt(0)) == 0 {
+			member, err := getMember(col.CollatorAccount)
+			if col.Points.Cmp(big.NewInt(0)) == 0 || !col.Active {
 				// if the lastPushedEraNonce is the previous nonce, we processed
 				if collatorWithZeroPointsIndex == indexToReport {
 					fmt.Printf("Reporting zero-point collator %v with index %v\n", col.CollatorAccount, collatorWithZeroPointsIndex)
 					// split the report of each collator, to multiple reports, each one with a max of 150 delegators
-					delegatorsReportedInEra, err := getDelegatorsReportedInEra(col.CollatorAccount)
 					if err != nil {
 						return err
 					}
-					fmt.Printf("Sending delegators from index %v\n", delegatorsReportedInEra)
-					col.TopActiveDelegations = col.TopActiveDelegations[delegatorsReportedInEra:] // exclude previously submitted delegators
+					fmt.Printf("Sending delegators from index %v\n", member.DelegatorsReportedInEra.Uint64())
+					col.TopActiveDelegations = col.TopActiveDelegations[member.DelegatorsReportedInEra.Uint64():] // exclude previously submitted delegators
 					// if we cannot fit all remaining delegators in the report, then mark finalize as false
 					if len(col.TopActiveDelegations) > MAX_DELEGATORS_IN_REPORT {
 						fmt.Printf("Cannot finalize, will send %v delegators\n", MAX_DELEGATORS_IN_REPORT)
@@ -191,13 +216,13 @@ func handler(_ context.Context, req events.CloudWatchEvent) error {
 	return nil
 }
 
-func queryOracleData(od *oraclemaster.TypesOracleData, blockNum int, round int) error {
+func queryOracleData(od *oraclemaster.TypesOracleData, blockNum int, round int, members []common.Address) error {
 	var err error
 	xp, err := exporter.NewExporter(rpcUrl, "")
 	if err != nil {
 		return err
 	}
-	err = xp.GetOracleData(od, blockNum, round)
+	err = xp.GetOracleData(od, blockNum, round, members)
 	return err
 }
 
@@ -258,16 +283,71 @@ func isReportedLastEra(oracleAddress common.Address) (uint64, uint64, uint64, bo
 	return lastReported.LastEra.Uint64(), lastReported.LastEraNonce.Uint64(), lastReported.LastFirstEraNonce.Uint64(), lastReported.Reported, nil
 }
 
-func getDelegatorsReportedInEra(collator common.Address) (uint64, error) {
+func getMember(collator common.Address) (Member, error) {
+	inactivtyCover, err := inactivitycover.NewMoonriverDelegatorCoverOracle(INACTIVITY_COVER, client)
+	if err != nil {
+		return Member{}, err
+	}
+	isMember, active, deposit, maxCoveredDelegation, delegatorsReportedInEra, lastPushedEra, noZeroPtsCoverAfterEraZero, noActiveSetCoverAfterEra, wentInactiveEra, err := inactivtyCover.GetMember(&bind.CallOpts{
+		From: oracleAddress,
+	}, collator)
+	member := Member{
+		IsMember:                 isMember,
+		Active:                   active,
+		Deposit:                  deposit,
+		MaxCoveredDelegation:     maxCoveredDelegation,
+		DelegatorsReportedInEra:  delegatorsReportedInEra,
+		LastPushedEra:            lastPushedEra,
+		NoZeroPtsCoverAfterEra:   noZeroPtsCoverAfterEraZero,
+		NoActiveSetCoverAfterEra: noActiveSetCoverAfterEra,
+		WentInactiveEra:          wentInactiveEra,
+	}
+	fmt.Printf("collator delegatorsReportedInEra %v\n", delegatorsReportedInEra.Uint64())
+	return member, nil
+}
+
+func getMemberAddress(index int) (common.Address, error) {
+	inactivtyCover, err := inactivitycover.NewMoonriverDelegatorCoverOracle(INACTIVITY_COVER, client)
+	memberAddress, err := inactivtyCover.MemberAddresses(&bind.CallOpts{
+		From: oracleAddress,
+	}, big.NewInt(int64(index)))
+	return memberAddress, err
+}
+
+func getActiveMemberAddresses(count uint64, eraId uint64) ([]common.Address, error) {
+	members := []common.Address{}
+	inactivtyCover, err := inactivitycover.NewMoonriverDelegatorCoverOracle(INACTIVITY_COVER, client)
+	if err != nil {
+		return nil, err
+	}
+	for index := uint64(0); index < count; index++ {
+		memberAddress, err := inactivtyCover.MemberAddresses(&bind.CallOpts{
+			From: oracleAddress,
+		}, big.NewInt(int64(index)))
+		if err != nil {
+			return members, err
+		}
+		member, err := getMember(memberAddress)
+		// if the member is active, or it just went inactive (in the currently reported era)
+		if member.Active || member.WentInactiveEra.Uint64() == eraId {
+			members = append(members, memberAddress)
+		}
+	}
+	return members, nil
+}
+
+func getMemberCount() (uint64, error) {
 	inactivtyCover, err := inactivitycover.NewMoonriverDelegatorCoverOracle(INACTIVITY_COVER, client)
 	if err != nil {
 		return 0, err
 	}
-	_, _, _, _, delegatorsReportedInEra, _, _, _, err := inactivtyCover.GetMember(&bind.CallOpts{
+	count, err := inactivtyCover.GetMembersCount(&bind.CallOpts{
 		From: oracleAddress,
-	}, collator)
-	fmt.Printf("collator delegatorsReportedInEra %v\n", delegatorsReportedInEra.Uint64())
-	return delegatorsReportedInEra.Uint64(), nil
+	})
+	if err != nil {
+		return 0, err
+	}
+	return count.Uint64(), nil
 }
 
 func getFirstEraNonce() (uint64, error) {

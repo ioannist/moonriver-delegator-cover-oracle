@@ -59,7 +59,7 @@ type TypesOracleData struct {
 
 // MoonriverDelegatorCoverOracleMetaData contains all meta data concerning the MoonriverDelegatorCoverOracle contract.
 var MoonriverDelegatorCoverOracleMetaData = &bind.MetaData{
-	ABI: "[{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"member\",\"type\":\"address\"}],\"name\":\"MemberAdded\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"member\",\"type\":\"address\"}],\"name\":\"MemberRemoved\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"Paused\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint8\",\"name\":\"QUORUM\",\"type\":\"uint8\"}],\"name\":\"QuorumChanged\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[],\"name\":\"SudoRemoved\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"Unpaused\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"AUTH_MANAGER\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"INACTIVITY_COVER\",\"outputs\":[{\"internalType\":\"addresspayable\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"MAX_MEMBERS\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"ORACLE\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"QUORUM\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"collatorsToOracles\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"eraId\",\"outputs\":[{\"internalType\":\"uint128\",\"name\":\"\",\"type\":\"uint128\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"firstEraNonce\",\"outputs\":[{\"internalType\":\"uint128\",\"name\":\"\",\"type\":\"uint128\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"lastEraVetoOracleVoted\",\"outputs\":[{\"internalType\":\"uint128\",\"name\":\"\",\"type\":\"uint128\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"members\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"oraclePointBitmaps\",\"outputs\":[{\"internalType\":\"uint32\",\"name\":\"\",\"type\":\"uint32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"oraclesToCollators\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"paused\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"proxy\",\"outputs\":[{\"internalType\":\"contractIProxy\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"staking\",\"outputs\":[{\"internalType\":\"contractParachainStaking\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"sudo\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"vetoOracleMember\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_auth_manager\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_oracle\",\"type\":\"address\"},{\"internalType\":\"addresspayable\",\"name\":\"_inactivity_cover\",\"type\":\"address\"},{\"internalType\":\"uint8\",\"name\":\"_quorum\",\"type\":\"uint8\"}],\"name\":\"initialize\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint8\",\"name\":\"_quorum\",\"type\":\"uint8\"}],\"name\":\"setQuorum\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_collator\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_oracleMember\",\"type\":\"address\"}],\"name\":\"addOracleMember\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_collator\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_oracleMember\",\"type\":\"address\"}],\"name\":\"removeOracleMember\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"addresspayable\",\"name\":\"_pushable\",\"type\":\"address\"},{\"internalType\":\"bool\",\"name\":\"_toAdd\",\"type\":\"bool\"}],\"name\":\"addRemovePushable\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"clearReporting\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"code\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"_itsProxy\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_someCollator\",\"type\":\"address\"}],\"name\":\"removeSudo\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_vetoOracleMember\",\"type\":\"address\"}],\"name\":\"setVetoOracleMember\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"pause\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"resume\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_collator\",\"type\":\"address\"}],\"name\":\"registerAsOracleMember\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_oracleMember\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_collator\",\"type\":\"address\"}],\"name\":\"unregisterOracleMember\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_collator\",\"type\":\"address\"},{\"internalType\":\"uint128\",\"name\":\"_eraId\",\"type\":\"uint128\"},{\"internalType\":\"uint128\",\"name\":\"_eraNonce\",\"type\":\"uint128\"},{\"components\":[{\"internalType\":\"uint256\",\"name\":\"totalStaked\",\"type\":\"uint256\"},{\"internalType\":\"uint128\",\"name\":\"totalSelected\",\"type\":\"uint128\"},{\"internalType\":\"uint128\",\"name\":\"orbitersCount\",\"type\":\"uint128\"},{\"internalType\":\"uint128\",\"name\":\"round\",\"type\":\"uint128\"},{\"internalType\":\"bytes32\",\"name\":\"blockHash\",\"type\":\"bytes32\"},{\"internalType\":\"uint128\",\"name\":\"blockNumber\",\"type\":\"uint128\"},{\"internalType\":\"uint128\",\"name\":\"awarded\",\"type\":\"uint128\"},{\"components\":[{\"internalType\":\"address\",\"name\":\"collatorAccount\",\"type\":\"address\"},{\"internalType\":\"uint128\",\"name\":\"points\",\"type\":\"uint128\"},{\"internalType\":\"bool\",\"name\":\"active\",\"type\":\"bool\"},{\"internalType\":\"uint256\",\"name\":\"bond\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"delegationsTotal\",\"type\":\"uint256\"},{\"components\":[{\"internalType\":\"address\",\"name\":\"ownerAccount\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"internalType\":\"structTypes.DelegationsData[]\",\"name\":\"topActiveDelegations\",\"type\":\"tuple[]\"}],\"internalType\":\"structTypes.CollatorData[]\",\"name\":\"collators\",\"type\":\"tuple[]\"},{\"internalType\":\"bool\",\"name\":\"finalize\",\"type\":\"bool\"}],\"internalType\":\"structTypes.OracleData\",\"name\":\"_report\",\"type\":\"tuple\"}],\"name\":\"reportPara\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_oracleMember\",\"type\":\"address\"}],\"name\":\"isReportedLastEra\",\"outputs\":[{\"internalType\":\"uint128\",\"name\":\"lastEra\",\"type\":\"uint128\"},{\"internalType\":\"uint128\",\"name\":\"lastEraNonce\",\"type\":\"uint128\"},{\"internalType\":\"uint128\",\"name\":\"lastFirstEraNonce\",\"type\":\"uint128\"},{\"internalType\":\"bool\",\"name\":\"reported\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getOracle\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_oracleMember\",\"type\":\"address\"}],\"name\":\"getOraclePointBitmap\",\"outputs\":[{\"internalType\":\"uint32\",\"name\":\"\",\"type\":\"uint32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"_getEra\",\"outputs\":[{\"internalType\":\"uint128\",\"name\":\"\",\"type\":\"uint128\"}],\"stateMutability\":\"view\",\"type\":\"function\"}]",
+	ABI: "[{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"member\",\"type\":\"address\"}],\"name\":\"MemberAdded\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"member\",\"type\":\"address\"}],\"name\":\"MemberRemoved\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"Paused\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint8\",\"name\":\"QUORUM\",\"type\":\"uint8\"}],\"name\":\"QuorumChanged\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[],\"name\":\"SudoRemoved\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"Unpaused\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"AUTH_MANAGER\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"INACTIVITY_COVER\",\"outputs\":[{\"internalType\":\"addresspayable\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"MAX_MEMBERS\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"ORACLE\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"QUORUM\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"collatorsToOracles\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"eraId\",\"outputs\":[{\"internalType\":\"uint128\",\"name\":\"\",\"type\":\"uint128\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"firstEraNonce\",\"outputs\":[{\"internalType\":\"uint128\",\"name\":\"\",\"type\":\"uint128\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"lastEraVetoOracleVoted\",\"outputs\":[{\"internalType\":\"uint128\",\"name\":\"\",\"type\":\"uint128\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"members\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"oracleBinaryConfig\",\"outputs\":[{\"internalType\":\"uint128\",\"name\":\"MAX_DELEGATORS_IN_REPORT\",\"type\":\"uint128\"},{\"internalType\":\"uint128\",\"name\":\"RUN_PERIOD_IN_SECONDS\",\"type\":\"uint128\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"oraclePointBitmaps\",\"outputs\":[{\"internalType\":\"uint32\",\"name\":\"\",\"type\":\"uint32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"oraclesToCollators\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"paused\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"proxy\",\"outputs\":[{\"internalType\":\"contractIProxy\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"staking\",\"outputs\":[{\"internalType\":\"contractParachainStaking\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"sudo\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"vetoOracleMember\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_auth_manager\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_oracle\",\"type\":\"address\"},{\"internalType\":\"addresspayable\",\"name\":\"_inactivity_cover\",\"type\":\"address\"},{\"internalType\":\"uint8\",\"name\":\"_quorum\",\"type\":\"uint8\"}],\"name\":\"initialize\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint128\",\"name\":\"maxDelegatorsInReport\",\"type\":\"uint128\"},{\"internalType\":\"uint128\",\"name\":\"runPeriodInSeconds\",\"type\":\"uint128\"}],\"name\":\"setOracleBinaryConfig\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint8\",\"name\":\"_quorum\",\"type\":\"uint8\"}],\"name\":\"setQuorum\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_collator\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_oracleMember\",\"type\":\"address\"}],\"name\":\"addOracleMember\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_collator\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_oracleMember\",\"type\":\"address\"}],\"name\":\"removeOracleMember\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"addresspayable\",\"name\":\"_pushable\",\"type\":\"address\"},{\"internalType\":\"bool\",\"name\":\"_toAdd\",\"type\":\"bool\"}],\"name\":\"addRemovePushable\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"clearReporting\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"code\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"_itsProxy\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_someCollator\",\"type\":\"address\"}],\"name\":\"removeSudo\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_vetoOracleMember\",\"type\":\"address\"}],\"name\":\"setVetoOracleMember\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"pause\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"resume\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_collator\",\"type\":\"address\"}],\"name\":\"registerAsOracleMember\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_oracleMember\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_collator\",\"type\":\"address\"}],\"name\":\"unregisterOracleMember\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_collator\",\"type\":\"address\"},{\"internalType\":\"uint128\",\"name\":\"_eraId\",\"type\":\"uint128\"},{\"internalType\":\"uint128\",\"name\":\"_eraNonce\",\"type\":\"uint128\"},{\"components\":[{\"internalType\":\"uint256\",\"name\":\"totalStaked\",\"type\":\"uint256\"},{\"internalType\":\"uint128\",\"name\":\"totalSelected\",\"type\":\"uint128\"},{\"internalType\":\"uint128\",\"name\":\"orbitersCount\",\"type\":\"uint128\"},{\"internalType\":\"uint128\",\"name\":\"round\",\"type\":\"uint128\"},{\"internalType\":\"bytes32\",\"name\":\"blockHash\",\"type\":\"bytes32\"},{\"internalType\":\"uint128\",\"name\":\"blockNumber\",\"type\":\"uint128\"},{\"internalType\":\"uint128\",\"name\":\"awarded\",\"type\":\"uint128\"},{\"components\":[{\"internalType\":\"address\",\"name\":\"collatorAccount\",\"type\":\"address\"},{\"internalType\":\"uint128\",\"name\":\"points\",\"type\":\"uint128\"},{\"internalType\":\"bool\",\"name\":\"active\",\"type\":\"bool\"},{\"internalType\":\"uint256\",\"name\":\"bond\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"delegationsTotal\",\"type\":\"uint256\"},{\"components\":[{\"internalType\":\"address\",\"name\":\"ownerAccount\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"internalType\":\"structTypes.DelegationsData[]\",\"name\":\"topActiveDelegations\",\"type\":\"tuple[]\"}],\"internalType\":\"structTypes.CollatorData[]\",\"name\":\"collators\",\"type\":\"tuple[]\"},{\"internalType\":\"bool\",\"name\":\"finalize\",\"type\":\"bool\"}],\"internalType\":\"structTypes.OracleData\",\"name\":\"_report\",\"type\":\"tuple\"}],\"name\":\"reportPara\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_oracleMember\",\"type\":\"address\"}],\"name\":\"isReportedLastEra\",\"outputs\":[{\"internalType\":\"uint128\",\"name\":\"lastEra\",\"type\":\"uint128\"},{\"internalType\":\"uint128\",\"name\":\"lastEraNonce\",\"type\":\"uint128\"},{\"internalType\":\"uint128\",\"name\":\"lastFirstEraNonce\",\"type\":\"uint128\"},{\"internalType\":\"bool\",\"name\":\"reported\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getOracleBinaryConfig\",\"outputs\":[{\"internalType\":\"uint128\",\"name\":\"\",\"type\":\"uint128\"},{\"internalType\":\"uint128\",\"name\":\"\",\"type\":\"uint128\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getOracle\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_oracleMember\",\"type\":\"address\"}],\"name\":\"getOraclePointBitmap\",\"outputs\":[{\"internalType\":\"uint32\",\"name\":\"\",\"type\":\"uint32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getMembersCount\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"_getEra\",\"outputs\":[{\"internalType\":\"uint128\",\"name\":\"\",\"type\":\"uint128\"}],\"stateMutability\":\"view\",\"type\":\"function\"}]",
 }
 
 // MoonriverDelegatorCoverOracleABI is the input ABI used to generate the binding from.
@@ -487,6 +487,37 @@ func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleCallerSession
 	return _MoonriverDelegatorCoverOracle.Contract.FirstEraNonce(&_MoonriverDelegatorCoverOracle.CallOpts)
 }
 
+// GetMembersCount is a free data retrieval call binding the contract method 0x09772f8f.
+//
+// Solidity: function getMembersCount() view returns(uint256)
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleCaller) GetMembersCount(opts *bind.CallOpts) (*big.Int, error) {
+	var out []interface{}
+	err := _MoonriverDelegatorCoverOracle.contract.Call(opts, &out, "getMembersCount")
+
+	if err != nil {
+		return *new(*big.Int), err
+	}
+
+	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
+
+	return out0, err
+
+}
+
+// GetMembersCount is a free data retrieval call binding the contract method 0x09772f8f.
+//
+// Solidity: function getMembersCount() view returns(uint256)
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleSession) GetMembersCount() (*big.Int, error) {
+	return _MoonriverDelegatorCoverOracle.Contract.GetMembersCount(&_MoonriverDelegatorCoverOracle.CallOpts)
+}
+
+// GetMembersCount is a free data retrieval call binding the contract method 0x09772f8f.
+//
+// Solidity: function getMembersCount() view returns(uint256)
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleCallerSession) GetMembersCount() (*big.Int, error) {
+	return _MoonriverDelegatorCoverOracle.Contract.GetMembersCount(&_MoonriverDelegatorCoverOracle.CallOpts)
+}
+
 // GetOracle is a free data retrieval call binding the contract method 0x833b1fce.
 //
 // Solidity: function getOracle() view returns(address)
@@ -516,6 +547,38 @@ func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleSession) GetO
 // Solidity: function getOracle() view returns(address)
 func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleCallerSession) GetOracle() (common.Address, error) {
 	return _MoonriverDelegatorCoverOracle.Contract.GetOracle(&_MoonriverDelegatorCoverOracle.CallOpts)
+}
+
+// GetOracleBinaryConfig is a free data retrieval call binding the contract method 0xe9c53598.
+//
+// Solidity: function getOracleBinaryConfig() view returns(uint128, uint128)
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleCaller) GetOracleBinaryConfig(opts *bind.CallOpts) (*big.Int, *big.Int, error) {
+	var out []interface{}
+	err := _MoonriverDelegatorCoverOracle.contract.Call(opts, &out, "getOracleBinaryConfig")
+
+	if err != nil {
+		return *new(*big.Int), *new(*big.Int), err
+	}
+
+	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
+	out1 := *abi.ConvertType(out[1], new(*big.Int)).(**big.Int)
+
+	return out0, out1, err
+
+}
+
+// GetOracleBinaryConfig is a free data retrieval call binding the contract method 0xe9c53598.
+//
+// Solidity: function getOracleBinaryConfig() view returns(uint128, uint128)
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleSession) GetOracleBinaryConfig() (*big.Int, *big.Int, error) {
+	return _MoonriverDelegatorCoverOracle.Contract.GetOracleBinaryConfig(&_MoonriverDelegatorCoverOracle.CallOpts)
+}
+
+// GetOracleBinaryConfig is a free data retrieval call binding the contract method 0xe9c53598.
+//
+// Solidity: function getOracleBinaryConfig() view returns(uint128, uint128)
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleCallerSession) GetOracleBinaryConfig() (*big.Int, *big.Int, error) {
+	return _MoonriverDelegatorCoverOracle.Contract.GetOracleBinaryConfig(&_MoonriverDelegatorCoverOracle.CallOpts)
 }
 
 // GetOraclePointBitmap is a free data retrieval call binding the contract method 0xedfcaad4.
@@ -664,6 +727,51 @@ func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleSession) Memb
 // Solidity: function members(uint256 ) view returns(address)
 func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleCallerSession) Members(arg0 *big.Int) (common.Address, error) {
 	return _MoonriverDelegatorCoverOracle.Contract.Members(&_MoonriverDelegatorCoverOracle.CallOpts, arg0)
+}
+
+// OracleBinaryConfig is a free data retrieval call binding the contract method 0x7bfd54bb.
+//
+// Solidity: function oracleBinaryConfig() view returns(uint128 MAX_DELEGATORS_IN_REPORT, uint128 RUN_PERIOD_IN_SECONDS)
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleCaller) OracleBinaryConfig(opts *bind.CallOpts) (struct {
+	MAXDELEGATORSINREPORT *big.Int
+	RUNPERIODINSECONDS    *big.Int
+}, error) {
+	var out []interface{}
+	err := _MoonriverDelegatorCoverOracle.contract.Call(opts, &out, "oracleBinaryConfig")
+
+	outstruct := new(struct {
+		MAXDELEGATORSINREPORT *big.Int
+		RUNPERIODINSECONDS    *big.Int
+	})
+	if err != nil {
+		return *outstruct, err
+	}
+
+	outstruct.MAXDELEGATORSINREPORT = *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
+	outstruct.RUNPERIODINSECONDS = *abi.ConvertType(out[1], new(*big.Int)).(**big.Int)
+
+	return *outstruct, err
+
+}
+
+// OracleBinaryConfig is a free data retrieval call binding the contract method 0x7bfd54bb.
+//
+// Solidity: function oracleBinaryConfig() view returns(uint128 MAX_DELEGATORS_IN_REPORT, uint128 RUN_PERIOD_IN_SECONDS)
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleSession) OracleBinaryConfig() (struct {
+	MAXDELEGATORSINREPORT *big.Int
+	RUNPERIODINSECONDS    *big.Int
+}, error) {
+	return _MoonriverDelegatorCoverOracle.Contract.OracleBinaryConfig(&_MoonriverDelegatorCoverOracle.CallOpts)
+}
+
+// OracleBinaryConfig is a free data retrieval call binding the contract method 0x7bfd54bb.
+//
+// Solidity: function oracleBinaryConfig() view returns(uint128 MAX_DELEGATORS_IN_REPORT, uint128 RUN_PERIOD_IN_SECONDS)
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleCallerSession) OracleBinaryConfig() (struct {
+	MAXDELEGATORSINREPORT *big.Int
+	RUNPERIODINSECONDS    *big.Int
+}, error) {
+	return _MoonriverDelegatorCoverOracle.Contract.OracleBinaryConfig(&_MoonriverDelegatorCoverOracle.CallOpts)
 }
 
 // OraclePointBitmaps is a free data retrieval call binding the contract method 0xb98165f4.
@@ -1091,6 +1199,27 @@ func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleSession) Resu
 // Solidity: function resume() returns()
 func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleTransactorSession) Resume() (*types.Transaction, error) {
 	return _MoonriverDelegatorCoverOracle.Contract.Resume(&_MoonriverDelegatorCoverOracle.TransactOpts)
+}
+
+// SetOracleBinaryConfig is a paid mutator transaction binding the contract method 0x5d349fa9.
+//
+// Solidity: function setOracleBinaryConfig(uint128 maxDelegatorsInReport, uint128 runPeriodInSeconds) returns()
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleTransactor) SetOracleBinaryConfig(opts *bind.TransactOpts, maxDelegatorsInReport *big.Int, runPeriodInSeconds *big.Int) (*types.Transaction, error) {
+	return _MoonriverDelegatorCoverOracle.contract.Transact(opts, "setOracleBinaryConfig", maxDelegatorsInReport, runPeriodInSeconds)
+}
+
+// SetOracleBinaryConfig is a paid mutator transaction binding the contract method 0x5d349fa9.
+//
+// Solidity: function setOracleBinaryConfig(uint128 maxDelegatorsInReport, uint128 runPeriodInSeconds) returns()
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleSession) SetOracleBinaryConfig(maxDelegatorsInReport *big.Int, runPeriodInSeconds *big.Int) (*types.Transaction, error) {
+	return _MoonriverDelegatorCoverOracle.Contract.SetOracleBinaryConfig(&_MoonriverDelegatorCoverOracle.TransactOpts, maxDelegatorsInReport, runPeriodInSeconds)
+}
+
+// SetOracleBinaryConfig is a paid mutator transaction binding the contract method 0x5d349fa9.
+//
+// Solidity: function setOracleBinaryConfig(uint128 maxDelegatorsInReport, uint128 runPeriodInSeconds) returns()
+func (_MoonriverDelegatorCoverOracle *MoonriverDelegatorCoverOracleTransactorSession) SetOracleBinaryConfig(maxDelegatorsInReport *big.Int, runPeriodInSeconds *big.Int) (*types.Transaction, error) {
+	return _MoonriverDelegatorCoverOracle.Contract.SetOracleBinaryConfig(&_MoonriverDelegatorCoverOracle.TransactOpts, maxDelegatorsInReport, runPeriodInSeconds)
 }
 
 // SetQuorum is a paid mutator transaction binding the contract method 0x6dcab78f.

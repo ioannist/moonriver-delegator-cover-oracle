@@ -6,7 +6,6 @@ import (
 	"encoding/json"
 	"fmt"
 	"math/big"
-	"sort"
 	"time"
 
 	"github.com/ethereum/go-ethereum/common"
@@ -52,6 +51,11 @@ type CollatorInfo struct {
 	Status                        map[string]any `json:"status"`
 }
 
+type PoolCandidate struct {
+	Owner  string `json:"owner"`
+	Amount string `json:"amount"`
+}
+
 const (
 	sleepTime      = 333
 	metadataSpecID = 1
@@ -95,7 +99,7 @@ func (e *Exporter) GetActiveEra() (ActiveEra, error) {
 	return activeEra, nil
 }
 
-func (e *Exporter) GetOracleData(od *oraclemaster.TypesOracleData, blockNumber int, round int) error {
+func (e *Exporter) GetOracleData(od *oraclemaster.TypesOracleData, blockNumber int, round int, members []common.Address) error {
 	conn, _, err := ws.DefaultDialer.Dial(e.endpoint, nil)
 	if err != nil {
 		return err
@@ -153,68 +157,68 @@ func (e *Exporter) GetOracleData(od *oraclemaster.TypesOracleData, blockNumber i
 	fmt.Printf("points: %v\n", od.Awarded)
 	time.Sleep(sleepTime * time.Millisecond)
 
-	var collators []string
-	if storage, err := readStorage(conn, ps, "selectedCandidates", blockHash); err != nil {
+	/*var collators []PoolCandidate
+	if storage, err := readStorage(conn, ps, "candidatePool", blockHash); err != nil {
 		return err
 	} else if err = json.Unmarshal([]byte(storage), &collators); err != nil {
 		return fmt.Errorf("storage session.validators invalid: %w", err)
-	} else {
+	}*/
 
-		time.Sleep(sleepTime * time.Millisecond)
-		collatorInfos := []CollatorInfo{}
-		sort.Strings(collators)
+	time.Sleep(sleepTime * time.Millisecond)
+	collatorInfos := []CollatorInfo{}
 
-		for _, collator := range collators {
-			var collatorInfo = CollatorInfo{
-				Address: collator,
-			}
-			if storage, err := readStorage(conn, ps, "candidateInfo", blockHash, collator); err != nil {
-				fmt.Printf("Could not get data for collator: %v\n", collator)
-			} else if err = json.Unmarshal([]byte(storage), &collatorInfo); err != nil {
-				fmt.Printf("storage parachainStaking.collatorInfo invalid: %v\n", err)
-			} else {
-				// fmt.Printf("%+v\n", collatorInfo)
-				collatorInfos = append(collatorInfos, collatorInfo)
-			}
+	for _, memberAddress := range members {
+		var collatorInfo = CollatorInfo{
+			Address: memberAddress.Hex(),
 		}
-
-		for _, collatorInfo := range collatorInfos {
-			var collatorData oraclemaster.TypesCollatorData
-			if data, err := readStorage(conn, ps, "awardedPts", blockHash, util.BytesToHex(encodedEra), collatorInfo.Address); err != nil {
-				return err
-			} else {
-
-				time.Sleep(sleepTime * time.Millisecond)
-				collatorData.Points = stringToBigInt(data.ToString())
-				collatorData.Active = collatorInfo.Status["Active"] == nil
-				collatorData.Bond = stringToBigInt(collatorInfo.Bond)
-				collatorData.CollatorAccount = common.HexToAddress(collatorInfo.Address)
-				collatorData.TopActiveDelegations = []oraclemaster.TypesDelegationsData{}
-				collatorData.DelegationsTotal = new(big.Int).Sub(stringToBigInt(collatorInfo.TotalCounted), stringToBigInt(collatorInfo.Bond))
-
-				if collatorData.Points.Cmp(big.NewInt(0)) == 0 {
-					var topDelegations Delegations
-					if storage, err := readStorage(conn, ps, "topDelegations", blockHash, collatorInfo.Address); err != nil {
-						return err
-					} else if err = json.Unmarshal([]byte(storage), &topDelegations); err != nil {
-						return fmt.Errorf("storage session.validators invalid: %w", err)
-					} else {
-						for _, delegation := range topDelegations.Delegations {
-							deleg := oraclemaster.TypesDelegationsData{
-								OwnerAccount: common.HexToAddress(delegation.Owner),
-								Amount:       stringToBigInt(delegation.Amount),
-							}
-							collatorData.TopActiveDelegations = append(collatorData.TopActiveDelegations, deleg)
-						}
-					}
-					time.Sleep(sleepTime * time.Millisecond)
-				}
-
-			}
-			od.Collators = append(od.Collators, collatorData)
-			// fmt.Printf("%+v\n", collatorData)
+		if storage, err := readStorage(conn, ps, "candidateInfo", blockHash, memberAddress.Hex()); err != nil {
+			fmt.Printf("Could not get data for collator: %v\n", memberAddress.Hex())
+		} else if err = json.Unmarshal([]byte(storage), &collatorInfo); err != nil {
+			fmt.Printf("storage parachainStaking.collatorInfo invalid: %v\n", err)
+		} else {
+			// fmt.Printf("%+v\n", collatorInfo)
+			collatorInfos = append(collatorInfos, collatorInfo)
 		}
 	}
+
+	for _, collatorInfo := range collatorInfos {
+		var collatorData oraclemaster.TypesCollatorData
+		if data, err := readStorage(conn, ps, "awardedPts", blockHash, util.BytesToHex(encodedEra), collatorInfo.Address); err != nil {
+			return err
+		} else {
+
+			time.Sleep(sleepTime * time.Millisecond)
+			collatorData.Points = stringToBigInt(data.ToString())
+			_, isActive := collatorInfo.Status["Active"]
+			collatorData.Active = isActive
+			collatorData.Bond = stringToBigInt(collatorInfo.Bond)
+			collatorData.CollatorAccount = common.HexToAddress(collatorInfo.Address)
+			collatorData.TopActiveDelegations = []oraclemaster.TypesDelegationsData{}
+			collatorData.DelegationsTotal = new(big.Int).Sub(stringToBigInt(collatorInfo.TotalCounted), stringToBigInt(collatorInfo.Bond))
+
+			if collatorData.Points.Cmp(big.NewInt(0)) == 0 {
+				var topDelegations Delegations
+				if storage, err := readStorage(conn, ps, "topDelegations", blockHash, collatorInfo.Address); err != nil {
+					return err
+				} else if err = json.Unmarshal([]byte(storage), &topDelegations); err != nil {
+					return fmt.Errorf("storage session.validators invalid: %w", err)
+				} else {
+					for _, delegation := range topDelegations.Delegations {
+						deleg := oraclemaster.TypesDelegationsData{
+							OwnerAccount: common.HexToAddress(delegation.Owner),
+							Amount:       stringToBigInt(delegation.Amount),
+						}
+						collatorData.TopActiveDelegations = append(collatorData.TopActiveDelegations, deleg)
+					}
+				}
+				time.Sleep(sleepTime * time.Millisecond)
+			}
+
+		}
+		od.Collators = append(od.Collators, collatorData)
+		// fmt.Printf("%+v\n", collatorData)
+	}
+
 	return nil
 }
 
