@@ -88,7 +88,7 @@ func handler(_ context.Context, req events.CloudWatchEvent) error {
 	}
 	if eraFromChain.Current-1 == eraFromContract && roundCompleted {
 		fmt.Println("Nothing to do")
-		//return nil
+		return nil
 	}
 	roundCompleted = false
 
@@ -111,7 +111,6 @@ func handler(_ context.Context, req events.CloudWatchEvent) error {
 
 	// Prepare oracle data structure
 	od := oraclemaster.TypesOracleData{}
-	od.Finalize = true // default is to send all data for the collator/s
 
 	// To get the data for round-1 (completed round), we must query on any block of the current round (we choose the first block)
 	// This will ensure that we are not quering a incomplete round, and we are not quering from a very remote block (no data)
@@ -152,6 +151,7 @@ func handler(_ context.Context, req events.CloudWatchEvent) error {
 		return fmt.Errorf("Invalid eraNonceFromContract %v or firstEraNonce %v\n", eraNonceFromContract, firstEraNonceFromContract)
 	}
 
+	od.Finalize = true // default is to send all data for the collator/s
 	if eraFromChain.Current-1 > eraFromContract || indexToReport == 0 {
 		// first, report all non-zero-points collators
 		//if eraFromChain.Current-1 > eraFromContract {
@@ -169,6 +169,7 @@ func handler(_ context.Context, req events.CloudWatchEvent) error {
 		collatorWithZeroPointsIndex := uint64(1)
 		for _, col := range od.Collators {
 			member, err := getMember(col.CollatorAccount)
+			fmt.Printf("zero-point member:\n%+v\n", member)
 			if col.Points.Cmp(big.NewInt(0)) == 0 || !col.Active {
 				// if the lastPushedEraNonce is the previous nonce, we processed
 				if collatorWithZeroPointsIndex == indexToReport {
@@ -302,7 +303,6 @@ func getMember(collator common.Address) (Member, error) {
 		NoActiveSetCoverAfterEra: noActiveSetCoverAfterEra,
 		WentInactiveEra:          wentInactiveEra,
 	}
-	fmt.Printf("collator delegatorsReportedInEra %v\n", delegatorsReportedInEra.Uint64())
 	return member, nil
 }
 
@@ -328,9 +328,13 @@ func getActiveMemberAddresses(count uint64, eraId uint64) ([]common.Address, err
 			return members, err
 		}
 		member, err := getMember(memberAddress)
+		if err != nil {
+			return members, err
+		}
 		// if the member is active, or it just went inactive (in the currently reported era)
 		if member.Active || member.WentInactiveEra.Uint64() == eraId {
 			members = append(members, memberAddress)
+			fmt.Printf("member loaded:\n%+v\n", member)
 		}
 	}
 	return members, nil

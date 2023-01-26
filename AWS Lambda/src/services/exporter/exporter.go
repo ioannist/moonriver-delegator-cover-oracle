@@ -206,7 +206,7 @@ func (e *Exporter) GetOracleData(od *oraclemaster.TypesOracleData, blockNumber i
 					for _, delegation := range topDelegations.Delegations {
 						deleg := oraclemaster.TypesDelegationsData{
 							OwnerAccount: common.HexToAddress(delegation.Owner),
-							Amount:       stringToBigInt(delegation.Amount),
+							Amount:       stringToBigInt(delegation.Amount), // not required -> sourced from staking precompile in contract
 						}
 						collatorData.TopActiveDelegations = append(collatorData.TopActiveDelegations, deleg)
 					}
