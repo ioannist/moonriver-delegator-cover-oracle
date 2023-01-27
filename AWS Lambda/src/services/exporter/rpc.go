@@ -27,6 +27,7 @@ const (
 	wsEvent
 	wsSpec
 )
+const nilStorage = storage.StateStorage("null")
 
 func prepareMetadata(conn *ws.Conn) error {
 	response, err := sendWsRequest(conn, rpc.StateGetMetadata(0))
@@ -90,8 +91,7 @@ func getBlockHash(conn *ws.Conn, block int) (string, error) {
 }
 
 func readStorage(conn *ws.Conn, storageSection string, storageMethod string, blockHash string, args ...string) (storage.StateStorage, error) {
-	nilStorage := storage.StateStorage("null")
-
+	
 	storageKey := storageKey.EncodeStorageKey(storageSection, storageMethod, args...)
 	logrus.Tracef("Encoded storage key: %s", storageKey)
 

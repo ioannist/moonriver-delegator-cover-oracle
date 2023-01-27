@@ -265,7 +265,7 @@ CollatorLoop:
 						return err
 					}
 					if !exists {
-						fmt.Println(">> Past the contract's history")
+						fmt.Println(">> Past the contract's history. Skipping member report. <<")
 						break CollatorLoop
 					}
 					bHash := common.Bytes2Hex(bh[:])
@@ -273,6 +273,9 @@ CollatorLoop:
 					storage, err := readStorage(conn, ps, "topDelegations", bHash, collatorInfo.Address)
 					if err != nil {
 						return err
+					}
+					if storage == nilStorage {
+						continue
 					}
 					err = json.Unmarshal([]byte(storage), &topDelegations)
 					if err != nil {
