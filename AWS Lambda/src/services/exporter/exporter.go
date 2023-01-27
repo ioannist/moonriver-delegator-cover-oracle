@@ -6,13 +6,17 @@ import (
 	"encoding/json"
 	"fmt"
 	"math/big"
+	"os"
 	"time"
 
+	"github.com/ethereum/go-ethereum/accounts/abi/bind"
 	"github.com/ethereum/go-ethereum/common"
+	"github.com/ethereum/go-ethereum/ethclient"
 	ws "github.com/gorilla/websocket"
 	"github.com/itering/subscan/util"
 	"github.com/itering/substrate-api-rpc"
 	"github.com/prometheus/client_golang/prometheus"
+	oracle "stakebaby.com/moonriver-delegator-cover-oracle/model/oracle"
 	oraclemaster "stakebaby.com/moonriver-delegator-cover-oracle/model/oraclemaster"
 )
 
@@ -70,8 +74,11 @@ const (
 	metadataSpecID = 1
 )
 
+var ORACLE = common.HexToAddress(os.Getenv("ORACLE"))
+
 //go:embed moonbeam-types.json
 var customTypes []byte
+var delegationsCache = map[string]Delegations{}
 
 func NewExporter(endpoint string, customTypesFilePath string) (*Exporter, error) {
 	conn, _, err := ws.DefaultDialer.Dial(endpoint, nil)
@@ -108,7 +115,7 @@ func (e *Exporter) GetActiveEra() (ActiveEra, error) {
 	return activeEra, nil
 }
 
-func (e *Exporter) GetOracleData(od *oraclemaster.TypesOracleData, blockNumber int, round int, members []common.Address) error {
+func (e *Exporter) GetOracleData(od *oraclemaster.TypesOracleData, blockNumber int, round int, members []common.Address, client *ethclient.Client, oracleAddress common.Address) error {
 	conn, _, err := ws.DefaultDialer.Dial(e.endpoint, nil)
 	if err != nil {
 		return err
@@ -166,12 +173,16 @@ func (e *Exporter) GetOracleData(od *oraclemaster.TypesOracleData, blockNumber i
 	fmt.Printf("points: %v\n", od.Awarded)
 	time.Sleep(sleepTime * time.Millisecond)
 
-	/*var collators []PoolCandidate
+	var candidates []PoolCandidate
+	candidatesMap := map[string]struct{}{}
 	if storage, err := readStorage(conn, ps, "candidatePool", blockHash); err != nil {
 		return err
-	} else if err = json.Unmarshal([]byte(storage), &collators); err != nil {
+	} else if err = json.Unmarshal([]byte(storage), &candidates); err != nil {
 		return fmt.Errorf("storage session.validators invalid: %w", err)
-	}*/
+	}
+	for _, cand := range candidates {
+		candidatesMap[cand.Owner] = struct{}{}
+	}
 
 	time.Sleep(sleepTime * time.Millisecond)
 	collatorInfos := []CollatorInfo{}
@@ -190,25 +201,46 @@ func (e *Exporter) GetOracleData(od *oraclemaster.TypesOracleData, blockNumber i
 		}
 	}
 
+CollatorLoop:
 	for _, collatorInfo := range collatorInfos {
-		var collatorData oraclemaster.TypesCollatorData
-		if data, err := readStorage(conn, ps, "awardedPts", blockHash, util.BytesToHex(encodedEra), collatorInfo.Address); err != nil {
-			return err
-		} else {
-			time.Sleep(sleepTime * time.Millisecond)
-			collatorData.Points = stringToBigInt(data.ToString())
-			_, isActive := collatorInfo.Status["Active"]
-			collatorData.Active = isActive
-			collatorData.Bond = stringToBigInt(collatorInfo.Bond)
-			collatorData.CollatorAccount = common.HexToAddress(collatorInfo.Address)
-			collatorData.TopActiveDelegations = []oraclemaster.TypesDelegationsData{}
-			collatorData.DelegationsTotal = new(big.Int).Sub(stringToBigInt(collatorInfo.TotalCounted), stringToBigInt(collatorInfo.Bond))
 
-			if collatorData.Points.Cmp(big.NewInt(0)) == 0 {
+		var collatorData oraclemaster.TypesCollatorData
+		data, err := readStorage(conn, ps, "awardedPts", blockHash, util.BytesToHex(encodedEra), collatorInfo.Address)
+		if err != nil {
+			return err
+		}
+
+		time.Sleep(sleepTime * time.Millisecond)
+		collatorData.Points = stringToBigInt(data.ToString())
+		_, isActive := collatorInfo.Status["Active"]
+		collatorData.Active = isActive
+		collatorData.Bond = stringToBigInt(collatorInfo.Bond)
+		collatorData.CollatorAccount = common.HexToAddress(collatorInfo.Address)
+		collatorData.TopActiveDelegations = []oraclemaster.TypesDelegationsData{}
+		collatorData.DelegationsTotal = new(big.Int).Sub(stringToBigInt(collatorInfo.TotalCounted), stringToBigInt(collatorInfo.Bond))
+
+		if collatorData.Points.Cmp(big.NewInt(0)) == 0 {
+
+			var topDelegations Delegations
+			scheduledRequestsByDelegator := map[string]DelegationScheduledRequests{}
+
+			// first, look for topDelegations in current round
+			fmt.Printf("Looking for delegations in current round %v. ", round)
+			storage, err := readStorage(conn, ps, "topDelegations", blockHash, collatorInfo.Address)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal([]byte(storage), &topDelegations)
+			if err != nil {
+				return fmt.Errorf("storage session.validators invalid: %w", err)
+			}
+
+			if len(topDelegations.Delegations) > 0 {
+				fmt.Println("Found delegations in current round!")
+				delegationsCache[collatorInfo.Address] = topDelegations
 
 				fmt.Printf("Get scheduled requests for %v\n", collatorInfo.Address)
 				scheduledRequests := []DelegationScheduledRequests{}
-				scheduledRequestsByDelegator := map[string]DelegationScheduledRequests{}
 				if data, err := readStorage(conn, ps, "delegationScheduledRequests", blockHash); err != nil {
 					return err
 				} else {
@@ -220,36 +252,80 @@ func (e *Exporter) GetOracleData(od *oraclemaster.TypesOracleData, blockNumber i
 				for _, r := range scheduledRequests {
 					scheduledRequestsByDelegator[r.Delegator] = r
 				}
-
-				var topDelegations Delegations
-				if storage, err := readStorage(conn, ps, "topDelegations", blockHash, collatorInfo.Address); err != nil {
-					return err
-				} else if err = json.Unmarshal([]byte(storage), &topDelegations); err != nil {
-					return fmt.Errorf("storage session.validators invalid: %w", err)
-				} else {
-					for _, delegation := range topDelegations.Delegations {
-						if dr, ok := scheduledRequestsByDelegator[delegation.Owner]; ok {
-							if dr.Action.Revoke != "" || dr.Action.Decrease != "" {
-								fmt.Printf("Skipping delegation because decrease or revoke pending: %v\n", dr.Delegator)
-								continue
-							}
-						}
-						deleg := oraclemaster.TypesDelegationsData{
-							OwnerAccount: common.HexToAddress(delegation.Owner),
-							Amount:       stringToBigInt(delegation.Amount), // not required -> sourced from staking precompile in contract
-						}
-						collatorData.TopActiveDelegations = append(collatorData.TopActiveDelegations, deleg)
+			} else {
+				// if we don't find any, start looking in the past
+				for r := int64(round - 1); round > 0; round-- {
+					fmt.Printf("Looking for delegations in round %v", r)
+					topDelegations, ok := delegationsCache[collatorInfo.Address]
+					if ok {
+						break
+					}
+					bh, exists, err := getReportBlockHash(big.NewInt(r), client, oracleAddress)
+					if err != nil {
+						return err
+					}
+					if !exists {
+						fmt.Println(">> Past the contract's history")
+						break CollatorLoop
+					}
+					bHash := common.Bytes2Hex(bh[:])
+					fmt.Printf(", block hash %v\n", bHash)
+					storage, err := readStorage(conn, ps, "topDelegations", bHash, collatorInfo.Address)
+					if err != nil {
+						return err
+					}
+					err = json.Unmarshal([]byte(storage), &topDelegations)
+					if err != nil {
+						return fmt.Errorf("storage session.validators invalid: %w", err)
+					}
+					if len(topDelegations.Delegations) > 0 {
+						fmt.Println("Found delegations!")
+						delegationsCache[collatorInfo.Address] = topDelegations
+						break
 					}
 				}
-				time.Sleep(sleepTime * time.Millisecond)
+			}
+
+			for _, delegation := range topDelegations.Delegations {
+				if dr, ok := scheduledRequestsByDelegator[delegation.Owner]; ok {
+					if dr.Action.Revoke != "" || dr.Action.Decrease != "" {
+						fmt.Printf("Skipping delegation because decrease or revoke pending: %v\n", dr.Delegator)
+						continue
+					}
+				}
+				deleg := oraclemaster.TypesDelegationsData{
+					OwnerAccount: common.HexToAddress(delegation.Owner),
+					Amount:       stringToBigInt(delegation.Amount), // not required -> sourced from staking precompile in contract
+				}
+				collatorData.TopActiveDelegations = append(collatorData.TopActiveDelegations, deleg)
 			}
 
 		}
+
 		od.Collators = append(od.Collators, collatorData)
 		// fmt.Printf("%+v\n", collatorData)
 	}
 
 	return nil
+}
+
+func getReportBlockHash(eraId *big.Int, client *ethclient.Client, oracleAddress common.Address) ([32]byte, bool, error) {
+	oracle, err := oracle.NewMoonriverDelegatorCoverOracle(ORACLE, client)
+	if err != nil {
+		return [32]byte{}, false, err
+	}
+	blockHash, err := oracle.GetReportBlockHash(&bind.CallOpts{
+		From: oracleAddress,
+	}, eraId)
+	if err != nil {
+		return blockHash, false, err
+	}
+	for _, v := range blockHash {
+		if v != 0 {
+			return blockHash, true, nil
+		}
+	}
+	return blockHash, false, nil
 }
 
 func stringToBigInt(s string) *big.Int {

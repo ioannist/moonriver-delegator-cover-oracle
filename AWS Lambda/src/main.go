@@ -123,7 +123,7 @@ func handler(ctx context.Context, req events.CloudWatchEvent) error {
 
 	// To get the data for round-1 (completed round), we must query on any block of the current round (we choose the first block)
 	// This will ensure that we are not quering a incomplete round, and we are not quering from a very remote block (no data)
-	err = queryOracleData(&od, int(eraFromChain.First), int(eraFromChain.Current-1), members)
+	err = queryOracleData(&od, int(eraFromChain.First), int(eraFromChain.Current-1), members, client, oracleAddress)
 	if err != nil {
 		return err
 	}
@@ -209,10 +209,10 @@ func handler(ctx context.Context, req events.CloudWatchEvent) error {
 	od.Collators = filteredCollatorData
 
 	fmt.Println("Sign and send data to Oracle contract")
-	err = pushData(ctx, od.Round.Uint64(), eraNonceFromContract, &od, 0)
+	_, err = pushData(ctx, od.Round.Uint64(), eraNonceFromContract, &od, 0)
 	if err != nil {
 		if strings.Contains(strings.ToLower(err.Error()), "already known") {
-			err = pushData(ctx, od.Round.Uint64(), eraNonceFromContract, &od, 1)
+			_, err = pushData(ctx, od.Round.Uint64(), eraNonceFromContract, &od, 1)
 			if err != nil {
 				return err
 			}
@@ -225,13 +225,13 @@ func handler(ctx context.Context, req events.CloudWatchEvent) error {
 	return nil
 }
 
-func queryOracleData(od *oraclemaster.TypesOracleData, blockNum int, round int, members []common.Address) error {
+func queryOracleData(od *oraclemaster.TypesOracleData, blockNum int, round int, members []common.Address, client *ethclient.Client, oracleAddress common.Address) error {
 	var err error
 	xp, err := exporter.NewExporter(rpcUrl, "")
 	if err != nil {
 		return err
 	}
-	err = xp.GetOracleData(od, blockNum, round, members)
+	err = xp.GetOracleData(od, blockNum, round, members, client, oracleAddress)
 	return err
 }
 
@@ -244,28 +244,29 @@ func queryChainEra() (exporter.ActiveEra, error) {
 	return xp.GetActiveEra()
 }
 
-func pushData(ctx context.Context, eraID uint64, eraNonce uint64, data *oraclemaster.TypesOracleData, noncePlus int64) error {
-	
+func pushData(ctx context.Context, eraID uint64, eraNonce uint64, data *oraclemaster.TypesOracleData, noncePlus int64) (bool, error) {
+
 	// the following check is useful in periods of extreme network load
 	// we stop submitting txs until the previous tx is resolved
 	if prevTxHash.Big().Cmp(common.Big0) != 0 {
 		_, isPending, err := client.TransactionByHash(ctx, prevTxHash)
-		if err != nil {
-			return err
+		if err != nil && !strings.Contains(strings.ToLower(err.Error()), "not found") {
+			return false, err
 		}
 		if isPending {
-			return fmt.Errorf("The previous tx is still pending; will wait\n")
+			fmt.Printf("The previous tx is still pending; will wait\n")
+			return true, nil
 		}
 	}
 
 	nonce, err := client.PendingNonceAt(ctx, oracleAddress)
 	if err != nil {
-		return err
+		return false, err
 	}
 
 	gasPrice, err := client.SuggestGasPrice(ctx)
 	if err != nil {
-		return err
+		return false, err
 	}
 	fmt.Printf("gasPrice %v, nonce %v\n", gasPrice, nonce)
 
@@ -278,7 +279,7 @@ func pushData(ctx context.Context, eraID uint64, eraNonce uint64, data *oraclema
 
 	oracleMaster, err := oraclemaster.NewMoonriverDelegatorCoverOracle(ORACLE_MASTER, client)
 	if err != nil {
-		return err
+		return false, err
 	}
 	tx, err := oracleMaster.ReportPara(
 		auth,
@@ -287,9 +288,13 @@ func pushData(ctx context.Context, eraID uint64, eraNonce uint64, data *oraclema
 		big.NewInt(int64(eraNonce)),
 		*data,
 	)
+	if err != nil {
+		return false, err
+	}
+
 	prevTxHash = tx.Hash()
 	fmt.Printf("Submitted tx hash: %v, with nonce %v\n", tx.Hash(), tx.Nonce())
-	return err
+	return true, nil
 }
 
 func isReportedLastEra(oracleAddress common.Address) (uint64, uint64, uint64, bool, error) {
