@@ -43,6 +43,7 @@ var privateKey *ecdsa.PrivateKey
 var GAS_LIMIT int
 var members = []common.Address{}
 var zeroAddress = common.HexToAddress("0x0000000000000000000000000000000000000000")
+var prevTxHash common.Hash = common.BigToHash(common.Big0)
 
 type Member struct {
 	IsMember                 bool     `json:"isMember"`
@@ -244,6 +245,19 @@ func queryChainEra() (exporter.ActiveEra, error) {
 }
 
 func pushData(ctx context.Context, eraID uint64, eraNonce uint64, data *oraclemaster.TypesOracleData, noncePlus int64) error {
+	
+	// the following check is useful in periods of extreme network load
+	// we stop submitting txs until the previous tx is resolved
+	if prevTxHash.Big().Cmp(common.Big0) != 0 {
+		_, isPending, err := client.TransactionByHash(ctx, prevTxHash)
+		if err != nil {
+			return err
+		}
+		if isPending {
+			return fmt.Errorf("The previous tx is still pending; will wait\n")
+		}
+	}
+
 	nonce, err := client.PendingNonceAt(ctx, oracleAddress)
 	if err != nil {
 		return err
@@ -257,22 +271,24 @@ func pushData(ctx context.Context, eraID uint64, eraNonce uint64, data *oraclema
 
 	auth := bind.NewKeyedTransactor(privateKey)
 	auth.Nonce = big.NewInt(int64(nonce) + noncePlus)
-	auth.Value = big.NewInt(0)        // in wei
-	auth.GasLimit = uint64(GAS_LIMIT) // in units
-	auth.GasPrice = gasPrice          //big.NewInt(1)
+	auth.Value = big.NewInt(0)                                 // in wei
+	auth.GasLimit = uint64(GAS_LIMIT)                          // in units
+	auth.GasPrice = big.NewInt(0).Mul(big.NewInt(3), gasPrice) //big.NewInt(1)
+	auth.GasPrice.Div(auth.GasPrice, big.NewInt(2))
 
 	oracleMaster, err := oraclemaster.NewMoonriverDelegatorCoverOracle(ORACLE_MASTER, client)
 	if err != nil {
 		return err
 	}
-	_, err = oracleMaster.ReportPara(
+	tx, err := oracleMaster.ReportPara(
 		auth,
 		oracleAddress,
 		big.NewInt(int64(eraID)),
 		big.NewInt(int64(eraNonce)),
 		*data,
 	)
-	// fmt.Printf("Submitted tx hash: %v\n", tx.Hash())
+	prevTxHash = tx.Hash()
+	fmt.Printf("Submitted tx hash: %v, with nonce %v\n", tx.Hash(), tx.Nonce())
 	return err
 }
 
