@@ -28,8 +28,14 @@ Go to your AWS Lambda in the AWS console and save the following Env variables in
 
 `GAS_LIMIT`: 10000000 will do, **Required**.
 
-`ORACLE_MASTER`: 0x09b3941c7c75928770a10FbabAd706cBddf559Ee, **Required**.
+`ORACLE_MASTER`: the address of the ORACLE MASTER contract, **Required**.
 
-`ORACLE_MEMBER`: the private key of your account that you will use to sign oracle reports, **Required**.
+`INACTIVITY_COVER`: the address of the INACTIVITY COVER contract, **Required**.
+
+`ORACLE_MEMBER_PKEY`: the private key of your account that you will use to sign oracle reports, **Required**.
 
 `RPC_URL`: the rpc endpoint for Moonriver, **Required**.
+
+`MAX_DELEGATORS_IN_REPORT`: up to how many delegators to submit in a report for one collator, **Required**.
+
+

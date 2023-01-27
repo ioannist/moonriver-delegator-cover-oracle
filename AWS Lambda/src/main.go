@@ -22,11 +22,16 @@ import (
 	"stakebaby.com/moonriver-delegator-cover-oracle/util"
 )
 
-var (
-	ctx         = context.Background()
-	url         = os.Getenv("ETH_URL")
-	client, err = ethclient.DialContext(ctx, url)
-)
+/**
+TODO
+* fetch constants from contract
+* exclude revokes and decreases
+* go back in time if no delegators
+**/
+
+var client *ethclient.Client
+var err error
+var url = os.Getenv("ETH_URL")
 var ORACLE_MEMBER_PKEY = os.Getenv("ORACLE_MEMBER_PKEY")
 var ORACLE_MEMBER = common.HexToAddress(os.Getenv("ORACLE_MEMBER"))
 var ORACLE_MASTER = common.HexToAddress(os.Getenv("ORACLE_MASTER"))
@@ -36,7 +41,6 @@ var rpcUrl = os.Getenv("RPC_URL")
 var oracleAddress common.Address
 var privateKey *ecdsa.PrivateKey
 var GAS_LIMIT int
-var roundCompleted = false
 var members = []common.Address{}
 var zeroAddress = common.HexToAddress("0x0000000000000000000000000000000000000000")
 
@@ -50,6 +54,7 @@ type Member struct {
 	NoZeroPtsCoverAfterEra   *big.Int `json:"noZeroPtsCoverAfterEra"`
 	NoActiveSetCoverAfterEra *big.Int `json:"noActiveSetCoverAfterEra"`
 	WentInactiveEra          *big.Int `json:"wentInactiveEra"`
+	WentActiveEra            *big.Int `json:"wentActiveEra"`
 }
 
 const (
@@ -63,8 +68,10 @@ func init() {
 	fmt.Printf("Loaded members: %v\n", members)
 }
 
-func handler(_ context.Context, req events.CloudWatchEvent) error {
+func handler(ctx context.Context, req events.CloudWatchEvent) error {
+
 	fmt.Printf("\n%+v\n", req)
+	client, err = ethclient.DialContext(ctx, url)
 
 	fmt.Println("Set up oracle key and address")
 	err = setupKeys()
@@ -72,6 +79,12 @@ func handler(_ context.Context, req events.CloudWatchEvent) error {
 		return err
 	}
 	fmt.Printf("Submitting from %v\n", oracleAddress)
+
+	fmt.Println("Get oracle config from contract")
+	maxDelegatorsInReport, _, err := getOracleConfig()
+	if maxDelegatorsInReport != 0 {
+		MAX_DELEGATORS_IN_REPORT = int(maxDelegatorsInReport)
+	}
 
 	fmt.Println("Query current era data from contract (1st)")
 	eraFromContract, _, _, _, err := isReportedLastEra(oracleAddress)
@@ -86,25 +99,20 @@ func handler(_ context.Context, req events.CloudWatchEvent) error {
 	if eraFromChain.Current <= eraFromContract {
 		return fmt.Errorf("Invalid era on contract or chain: %v vs %v", eraFromChain, eraFromContract)
 	}
-	if eraFromChain.Current-1 == eraFromContract && roundCompleted {
-		fmt.Println("Nothing to do")
-		return nil
-	}
-	roundCompleted = false
 
 	fmt.Println("Load active members")
 	memberCount, err := getMemberCount()
 	if err != nil {
 		return err
 	}
-	members, err = getActiveMemberAddresses(memberCount, eraFromContract)
+	members, err = getActiveMemberAddresses(memberCount, eraFromChain.Current-1)
 	if err != nil {
 		return err
 	}
 	fmt.Printf("Loaded members: %v\n", members)
 
 	fmt.Println("Check that oracle has enough balance to execute txs")
-	err = validateBalance(oracleAddress)
+	err = validateBalance(ctx, oracleAddress)
 	if err != nil {
 		return err
 	}
@@ -169,7 +177,7 @@ func handler(_ context.Context, req events.CloudWatchEvent) error {
 		collatorWithZeroPointsIndex := uint64(1)
 		for _, col := range od.Collators {
 			member, err := getMember(col.CollatorAccount)
-			fmt.Printf("zero-point member:\n%+v\n", member)
+			// fmt.Printf("member:\n%+v\n", member)
 			if col.Points.Cmp(big.NewInt(0)) == 0 || !col.Active {
 				// if the lastPushedEraNonce is the previous nonce, we processed
 				if collatorWithZeroPointsIndex == indexToReport {
@@ -195,16 +203,15 @@ func handler(_ context.Context, req events.CloudWatchEvent) error {
 	}
 	if len(filteredCollatorData) == 0 {
 		fmt.Println("No collators to report")
-		roundCompleted = true
 		return nil
 	}
 	od.Collators = filteredCollatorData
 
 	fmt.Println("Sign and send data to Oracle contract")
-	err = pushData(od.Round.Uint64(), eraNonceFromContract, &od, 0)
+	err = pushData(ctx, od.Round.Uint64(), eraNonceFromContract, &od, 0)
 	if err != nil {
 		if strings.Contains(strings.ToLower(err.Error()), "already known") {
-			err = pushData(od.Round.Uint64(), eraNonceFromContract, &od, 1)
+			err = pushData(ctx, od.Round.Uint64(), eraNonceFromContract, &od, 1)
 			if err != nil {
 				return err
 			}
@@ -236,13 +243,13 @@ func queryChainEra() (exporter.ActiveEra, error) {
 	return xp.GetActiveEra()
 }
 
-func pushData(eraID uint64, eraNonce uint64, data *oraclemaster.TypesOracleData, noncePlus int64) error {
-	nonce, err := client.PendingNonceAt(context.Background(), oracleAddress)
+func pushData(ctx context.Context, eraID uint64, eraNonce uint64, data *oraclemaster.TypesOracleData, noncePlus int64) error {
+	nonce, err := client.PendingNonceAt(ctx, oracleAddress)
 	if err != nil {
 		return err
 	}
 
-	gasPrice, err := client.SuggestGasPrice(context.Background())
+	gasPrice, err := client.SuggestGasPrice(ctx)
 	if err != nil {
 		return err
 	}
@@ -289,7 +296,7 @@ func getMember(collator common.Address) (Member, error) {
 	if err != nil {
 		return Member{}, err
 	}
-	isMember, active, deposit, maxCoveredDelegation, delegatorsReportedInEra, lastPushedEra, noZeroPtsCoverAfterEraZero, noActiveSetCoverAfterEra, wentInactiveEra, err := inactivtyCover.GetMember(&bind.CallOpts{
+	isMember, active, deposit, maxCoveredDelegation, delegatorsReportedInEra, lastPushedEra, noZeroPtsCoverAfterEraZero, noActiveSetCoverAfterEra, wentInactiveEra, wentActiveEra, err := inactivtyCover.GetMember(&bind.CallOpts{
 		From: oracleAddress,
 	}, collator)
 	member := Member{
@@ -302,6 +309,7 @@ func getMember(collator common.Address) (Member, error) {
 		NoZeroPtsCoverAfterEra:   noZeroPtsCoverAfterEraZero,
 		NoActiveSetCoverAfterEra: noActiveSetCoverAfterEra,
 		WentInactiveEra:          wentInactiveEra,
+		WentActiveEra:            wentActiveEra,
 	}
 	return member, nil
 }
@@ -331,8 +339,10 @@ func getActiveMemberAddresses(count uint64, eraId uint64) ([]common.Address, err
 		if err != nil {
 			return members, err
 		}
-		// if the member is active, or it just went inactive (in the currently reported era)
-		if member.Active || member.WentInactiveEra.Uint64() == eraId {
+		fmt.Printf("%+v\n", member)
+		// if the member is active (but it was not activated in the round being currently reported),
+		// or if it just went inactive (in the currently reported era)
+		if (member.Active && member.WentActiveEra.Uint64() < eraId) || member.WentInactiveEra.Uint64() == eraId {
 			members = append(members, memberAddress)
 			fmt.Printf("member loaded:\n%+v\n", member)
 		}
@@ -354,6 +364,17 @@ func getMemberCount() (uint64, error) {
 	return count.Uint64(), nil
 }
 
+func getOracleConfig() (uint64, uint64, error) {
+	oracleMaster, err := oraclemaster.NewMoonriverDelegatorCoverOracle(ORACLE_MASTER, client)
+	if err != nil {
+		return 0, 0, err
+	}
+	maxDelegatorsInReport, runPeriodInSeconds, err := oracleMaster.GetOracleBinaryConfig(&bind.CallOpts{
+		From: oracleAddress,
+	})
+	return maxDelegatorsInReport.Uint64(), runPeriodInSeconds.Uint64(), nil
+}
+
 func getFirstEraNonce() (uint64, error) {
 	oracleMaster, err := oraclemaster.NewMoonriverDelegatorCoverOracle(ORACLE_MASTER, client)
 	if err != nil {
@@ -366,7 +387,7 @@ func getFirstEraNonce() (uint64, error) {
 	return firstEraNonce.Uint64(), nil
 }
 
-func validateBalance(oracleAddress common.Address) error {
+func validateBalance(ctx context.Context, oracleAddress common.Address) error {
 	balance, err := client.BalanceAt(ctx, oracleAddress, nil)
 	if err != nil {
 		return err

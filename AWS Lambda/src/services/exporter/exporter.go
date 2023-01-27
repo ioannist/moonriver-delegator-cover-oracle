@@ -38,6 +38,15 @@ type Delegations struct {
 	Delegations []Delegation `json:"delegations"`
 }
 
+type DelegationScheduledRequests struct {
+	Delegator      string `json:"delegator"`
+	WhenExecutable string `json:"whenExecutable"`
+	Action         struct {
+		Revoke   string `json:"Revoke,omitempty"`
+		Decrease string `json:"Decrease,omitempty"`
+	} `json:"action"`
+}
+
 type CollatorInfo struct {
 	Address                       string
 	Bond                          string         `json:"bond"`
@@ -186,7 +195,6 @@ func (e *Exporter) GetOracleData(od *oraclemaster.TypesOracleData, blockNumber i
 		if data, err := readStorage(conn, ps, "awardedPts", blockHash, util.BytesToHex(encodedEra), collatorInfo.Address); err != nil {
 			return err
 		} else {
-
 			time.Sleep(sleepTime * time.Millisecond)
 			collatorData.Points = stringToBigInt(data.ToString())
 			_, isActive := collatorInfo.Status["Active"]
@@ -197,6 +205,22 @@ func (e *Exporter) GetOracleData(od *oraclemaster.TypesOracleData, blockNumber i
 			collatorData.DelegationsTotal = new(big.Int).Sub(stringToBigInt(collatorInfo.TotalCounted), stringToBigInt(collatorInfo.Bond))
 
 			if collatorData.Points.Cmp(big.NewInt(0)) == 0 {
+
+				fmt.Printf("Get scheduled requests for %v\n", collatorInfo.Address)
+				scheduledRequests := []DelegationScheduledRequests{}
+				scheduledRequestsByDelegator := map[string]DelegationScheduledRequests{}
+				if data, err := readStorage(conn, ps, "delegationScheduledRequests", blockHash); err != nil {
+					return err
+				} else {
+					err = json.Unmarshal([]byte(data), &scheduledRequests)
+					if err != nil {
+						return err
+					}
+				}
+				for _, r := range scheduledRequests {
+					scheduledRequestsByDelegator[r.Delegator] = r
+				}
+
 				var topDelegations Delegations
 				if storage, err := readStorage(conn, ps, "topDelegations", blockHash, collatorInfo.Address); err != nil {
 					return err
@@ -204,6 +228,12 @@ func (e *Exporter) GetOracleData(od *oraclemaster.TypesOracleData, blockNumber i
 					return fmt.Errorf("storage session.validators invalid: %w", err)
 				} else {
 					for _, delegation := range topDelegations.Delegations {
+						if dr, ok := scheduledRequestsByDelegator[delegation.Owner]; ok {
+							if dr.Action.Revoke != "" || dr.Action.Decrease != "" {
+								fmt.Printf("Skipping delegation because decrease or revoke pending: %v\n", dr.Delegator)
+								continue
+							}
+						}
 						deleg := oraclemaster.TypesDelegationsData{
 							OwnerAccount: common.HexToAddress(delegation.Owner),
 							Amount:       stringToBigInt(delegation.Amount), // not required -> sourced from staking precompile in contract
