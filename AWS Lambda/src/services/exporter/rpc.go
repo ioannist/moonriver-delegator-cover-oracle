@@ -91,7 +91,7 @@ func getBlockHash(conn *ws.Conn, block int) (string, error) {
 }
 
 func readStorage(conn *ws.Conn, storageSection string, storageMethod string, blockHash string, args ...string) (storage.StateStorage, error) {
-	
+
 	storageKey := storageKey.EncodeStorageKey(storageSection, storageMethod, args...)
 	logrus.Tracef("Encoded storage key: %s", storageKey)
 

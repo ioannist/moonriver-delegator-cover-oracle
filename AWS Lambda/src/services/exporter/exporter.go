@@ -70,8 +70,9 @@ type PoolCandidate struct {
 }
 
 const (
-	sleepTime      = 333
-	metadataSpecID = 1
+	sleepTime         = 333
+	metadataSpecID    = 1
+	maxRoundsLookBack = 12 * 30 * 3 // (3 months) TODO change for moonbeam
 )
 
 var ORACLE = common.HexToAddress(os.Getenv("ORACLE"))
@@ -126,7 +127,7 @@ func (e *Exporter) GetOracleData(od *oraclemaster.TypesOracleData, blockNumber i
 	if err != nil {
 		return err
 	}
-	copy(od.BlockHash[:], blockHash)
+	copy(od.BlockHash[:], common.HexToHash(blockHash).Bytes())
 	od.Collators = []oraclemaster.TypesCollatorData{}
 	od.BlockNumber = big.NewInt(int64(blockNumber))
 	od.Round = big.NewInt(int64(round))
@@ -254,22 +255,34 @@ CollatorLoop:
 				}
 			} else {
 				// if we don't find any, start looking in the past
-				for r := int64(round - 1); round > 0; round-- {
-					fmt.Printf("Looking for delegations in round %v", r)
+				roundHorizon := int64(round - maxRoundsLookBack)
+				for roundPast := int64(round - 1); round > 0; roundPast-- {
+					if roundPast == roundHorizon {
+						fmt.Println(">> Reached look-back horizon. Skipping member report. <<")
+						delegationsCache[collatorInfo.Address] = Delegations{} // empty delegations
+						continue CollatorLoop
+					}
+					fmt.Printf("Looking for delegations in round %v\n", roundPast)
 					topDelegations, ok := delegationsCache[collatorInfo.Address]
 					if ok {
+						fmt.Println("Found in cache")
+						if len(topDelegations.Delegations) == 0 {
+							fmt.Println(">> No delegations. Skipping member report. <<")
+							continue CollatorLoop
+						}
 						break
 					}
-					bh, exists, err := getReportBlockHash(big.NewInt(r), client, oracleAddress)
+					bh, exists, err := getReportBlockHash(big.NewInt(roundPast), client, oracleAddress)
 					if err != nil {
 						return err
 					}
 					if !exists {
 						fmt.Println(">> Past the contract's history. Skipping member report. <<")
-						break CollatorLoop
+						delegationsCache[collatorInfo.Address] = Delegations{} // empty delegations
+						continue CollatorLoop
 					}
 					bHash := common.Bytes2Hex(bh[:])
-					fmt.Printf(", block hash %v\n", bHash)
+					fmt.Printf("Fetched block hash %v\n", bHash)
 					storage, err := readStorage(conn, ps, "topDelegations", bHash, collatorInfo.Address)
 					if err != nil {
 						return err
