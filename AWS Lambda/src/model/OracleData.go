@@ -12,8 +12,6 @@ type CollatorData struct {
 	Bond                 string            `json:"bond"`
 	DelegationsTotal     string            `json:"delegationsTotal"`
 	TopActiveDelegations []DelegationsData `json:"topActiveDelegations"`
-	BottomDelegations    []DelegationsData `json:"bottomDelegations"`
-	TopDelegations       []DelegationsData `json:"topDelegations"`
 }
 
 type OracleData struct {

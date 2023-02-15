@@ -10,3 +10,6 @@ C:\Program Files\Geth> .\abigen.exe --abi="F:\PROJECTS\GITHUB PROJECTS\moonriver
 
 To generate an ABI from Sol
 solcjs --abi .\contracts\Oracle.sol --include-path node_modules/ --base-path .
+
+2,945
+3,624
