@@ -311,7 +311,7 @@ CollatorLoop:
 				}
 				deleg := oraclemaster.TypesDelegationsData{
 					OwnerAccount: common.HexToAddress(delegation.Owner),
-					Amount:       stringToBigInt(delegation.Amount), // not required -> sourced from staking precompile in contract
+					Amount:       stringToBigInt("0"), // was delegation.Amount // not required -> sourced from staking precompile in contract
 				}
 				collatorData.TopActiveDelegations = append(collatorData.TopActiveDelegations, deleg)
 			}

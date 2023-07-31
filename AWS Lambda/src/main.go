@@ -8,12 +8,14 @@ import (
 	"os"
 	"strconv"
 	"strings"
+	"time"
 
 	"github.com/aws/aws-lambda-go/events"
 	"github.com/aws/aws-lambda-go/lambda"
 
 	"github.com/ethereum/go-ethereum/accounts/abi/bind"
 	"github.com/ethereum/go-ethereum/common"
+	"github.com/ethereum/go-ethereum/core/types"
 	"github.com/ethereum/go-ethereum/crypto"
 	"github.com/ethereum/go-ethereum/ethclient"
 	inactivitycover "stakebaby.com/moonriver-delegator-cover-oracle/model/inactivitycover"
@@ -140,6 +142,10 @@ func handler(ctx context.Context, req events.CloudWatchEvent) error {
 		return fmt.Errorf("Too many collators have 0 points in this round; network/oracle failure? will not report.\n")
 	}
 
+	if collatorsWithZeroPoints == 0 && !isSpecialPeriod() {
+		return fmt.Errorf("No collator has zero points in this round. Will not file report to save gas.\n")
+	}
+
 	fmt.Println("Query current era data from contract")
 	eraFromContract, eraNonceFromContract, firstEraNonceFromContract, reportedByMe, err := isReportedLastEra(oracleAddress)
 	fmt.Printf("eraFromContract %v\neraNonceFromContract %v\nfirstEraNonceFromContract %v\nreportedByMe %v\n", eraFromContract, eraNonceFromContract, firstEraNonceFromContract, reportedByMe)
@@ -209,18 +215,24 @@ func handler(ctx context.Context, req events.CloudWatchEvent) error {
 	od.Collators = filteredCollatorData
 
 	fmt.Println("Sign and send data to Oracle contract")
-	_, err = pushData(ctx, od.Round.Uint64(), eraNonceFromContract, &od, 0)
-	if err != nil {
-		if strings.Contains(strings.ToLower(err.Error()), "already known") {
-			_, err = pushData(ctx, od.Round.Uint64(), eraNonceFromContract, &od, 1)
-			if err != nil {
+	pushAttempts := 0
+	for {
+		_, err = pushData(ctx, od.Round.Uint64(), eraNonceFromContract, &od, int64(pushAttempts))
+		if err != nil {
+			if strings.Contains(strings.ToLower(err.Error()), "already known") {
+				if pushAttempts > 5 {
+					return fmt.Errorf("Max attempts reached")
+				}
+				fmt.Println("Already known! will try again...")
+				pushAttempts++
+				continue
+			} else {
 				return err
 			}
-		} else {
-			return err
 		}
-	}
+		break
 
+	}
 	fmt.Println("Finished")
 	return nil
 }
@@ -250,6 +262,17 @@ func pushData(ctx context.Context, eraID uint64, eraNonce uint64, data *oraclema
 	// we stop submitting txs until the previous tx is resolved
 	if prevTxHash.Big().Cmp(common.Big0) != 0 {
 		_, isPending, err := client.TransactionByHash(ctx, prevTxHash)
+
+		receipt, err := client.TransactionReceipt(context.Background(), prevTxHash)
+		if receipt.Status == types.ReceiptStatusFailed {
+			fmt.Println("Previous transaction was reverted.")
+		} else {
+			fmt.Println("Previous transaction was successful.")
+		}
+		if err != nil {
+			fmt.Printf("%+v\n", err)
+		}
+
 		if err != nil && !strings.Contains(strings.ToLower(err.Error()), "not found") {
 			return false, err
 		}
@@ -274,8 +297,10 @@ func pushData(ctx context.Context, eraID uint64, eraNonce uint64, data *oraclema
 	auth.Nonce = big.NewInt(int64(nonce) + noncePlus)
 	auth.Value = big.NewInt(0)                                 // in wei
 	auth.GasLimit = uint64(GAS_LIMIT)                          // in units
-	auth.GasPrice = big.NewInt(0).Mul(big.NewInt(3), gasPrice) //big.NewInt(1)
+	auth.GasPrice = big.NewInt(0).Mul(big.NewInt(4), gasPrice) //big.NewInt(1)
 	auth.GasPrice.Div(auth.GasPrice, big.NewInt(2))
+
+	fmt.Printf("data %+v", data)
 
 	oracleMaster, err := oraclemaster.NewMoonriverDelegatorCoverOracle(ORACLE_MASTER, client)
 	if err != nil {
@@ -433,6 +458,14 @@ func setupKeys() error {
 	}
 	oracleAddress = crypto.PubkeyToAddress(*publicKeyECDSA)
 	return nil
+}
+
+func isSpecialPeriod() bool {
+	currentTime := time.Now()
+	day := currentTime.YearDay() // gets the day of the year, from 1 to 366
+	hour := currentTime.Hour()   // gets the hour of the day, from 0 to 23
+
+	return day%3 == 0 && hour < 6
 }
 
 func min(a, b int) int {
